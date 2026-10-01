@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  scrollbar-width: thin;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.d-none {
+  display: none;
+  visibility: hidden;
+}
+
+.fit-content {
+  width: fit-content;
+}
