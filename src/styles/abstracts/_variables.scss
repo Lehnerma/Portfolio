@@ -6,11 +6,13 @@ $breakpoint-xl: 1200px;
 
 $animation-time: 0.3s;
 
-// Schriftarten (Dateien: public/assets/fonts, Einbindung: base/_fonts.scss)
+// Schriftarten
 $f-title: 'Bricolage Grotesque', system-ui, sans-serif;
 $f-txt: 'Bricolage Grotesque', system-ui, sans-serif;
 
 // Spacing (vorläufig, Mockup nur Richtwert)
+$body-spacing: clamp(16px, 7vw, 72px);
+
 $space-1: 0.25rem;
 $space-2: 0.5rem;
 $space-3: 0.75rem;
@@ -20,4 +22,4 @@ $space-6: 1.5rem;
 $space-8: 2rem;
 
 // Container-Breite (Desktop laut Mockup: max. 1044px)
-$container-max: 1044px;
+$dp-max-width: 1440px;

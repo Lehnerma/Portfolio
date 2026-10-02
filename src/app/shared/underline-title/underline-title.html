@@ -1,0 +1,28 @@
+<a [routerLink]="link()" routerLinkActive="active" class="link">
+  <h2 class="link__title">{{ label() }}</h2>
+  <svg class="stroke" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+    <filter [attr.id]="filterId" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.04 0.5"
+        numOctaves="2"
+        [attr.seed]="seed()"
+        result="n"
+      />
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="n"
+        scale="3"
+        xChannelSelector="R"
+        yChannelSelector="G"
+      />
+    </filter>
+    <path
+      pathLength="1"
+      [attr.d]="pathData()"
+      [attr.stroke-width]="strokeWidth()"
+      [attr.filter]="'url(#' + filterId + ')'"
+      [style.--t]="drawDuration() + 's'"
+    />
+  </svg>
+</a>

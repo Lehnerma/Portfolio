@@ -1,0 +1,49 @@
+@use '../../../styles/abstracts' as *;
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: $dp-max-width;
+  padding: 16px $body-spacing;
+  position: relative;
+
+  &__logo {
+    width: 64px;
+  }
+
+  &__list {
+    display: grid;
+    width: 100%;
+  }
+
+  &__btn {
+    justify-self: flex-end;
+  }
+  &__elements {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    min-height: 85vh;
+  }
+
+  .burgermenu {
+    background-image: url('/assets/background/hero_bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition:
+      transform 300ms ease,
+      opacity 300ms ease;
+
+    transform: translateY(-100%);
+
+    &--open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
