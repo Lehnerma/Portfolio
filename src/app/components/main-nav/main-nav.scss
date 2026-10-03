@@ -24,10 +24,6 @@
     position: absolute;
     left: 0;
     z-index: 1;
-    display: grid;
-    justify-content: center;
-    width: 100%;
-    min-height: 85vh;
   }
 
   .burgermenu {
@@ -46,4 +42,29 @@
       opacity: 1;
     }
   }
+}
+
+.mob-nav {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 48px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(24px, 2vw, 64px);
+  min-height: 90dvh;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 64px;
+  }
+}
+
+.mob-wrapper {
 }
