@@ -17,7 +17,6 @@ export class Home {
    */
   toggleNavMenu(): void {
     this.navOpen.update((value) => !value);
-    console.log(this.navOpen());
   }
 
   backdropClick(event: MouseEvent): void {
