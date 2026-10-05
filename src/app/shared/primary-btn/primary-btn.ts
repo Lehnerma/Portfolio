@@ -1,13 +1,30 @@
-import { Component, input } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
-  imports: [],
+  imports: [UpperCasePipe],
   selector: 'app-primary-btn',
   styleUrl: './primary-btn.scss',
   templateUrl: './primary-btn.html',
 })
 export class PrimaryBtn {
   readonly label = input.required<string>();
-  readonly hoverLabel = input.required<string>();
+  readonly hoverLabel = input<string>();
   readonly type = input.required<'a' | 'button'>();
+
+  toggleHello = signal<boolean>(false);
+
+  constructor() {
+    this.toggleHelloWorld();
+  }
+
+  /**
+   * Toggles the Hello World button
+   */
+  toggleHelloWorld(): void {
+    if (!matchMedia('(hover: none)').matches) return;
+    setTimeout(() => {
+      this.toggleHello.set(true);
+    }, 2000);
+  }
 }

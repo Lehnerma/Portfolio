@@ -68,3 +68,20 @@
   letter-spacing: $letter-spacing;
   color: $color;
 }
+
+@mixin btn-hello-play {
+  .btn__hello {
+    animation: change-background-color 500ms ease forwards;
+  }
+  .btn__hello--icon {
+    animation: btn-icon-roll 700ms ease-out forwards;
+  }
+  .btn__hello--text {
+    animation: btn-text-out $animation-time ease-out forwards;
+    display: none;
+  }
+  .btn__hello--text-hover {
+    animation: btn-text-in $animation-time ease forwards;
+    display: inline-block;
+  }
+}

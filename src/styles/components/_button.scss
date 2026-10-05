@@ -69,58 +69,11 @@
     border: $border-veige;
     border-radius: 100px;
     padding: 8px 24px;
+    position: relative;
     @include f-text(rem(18), $white-base, 500);
-
-    &--wrapp {
-      position: relative;
-      display: inline-block;
-    }
-
-    &--icon {
-      position: absolute;
-      top: -100%;
-      left: 50%;
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-}
-
-@media (hover: hover) {
-  .btn__hello--wrapp:hover .btn__hello--icon {
-    animation: btn-icon-roll 0.8s ease-out forwards;
-  }
-}
-
-@media (hover: none) {
-  .btn__hello--icon {
-    animation: btn-icon-roll 0.8s ease-out 1.5s forwards;
-  }
-}
-
-@keyframes btn-icon-roll {
-  from {
-    opacity: 0;
-    left: 30%;
-    transform: rotate(-360deg);
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 1;
-    left: calc(100% - 36px);
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes change-background-color {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: $blue-heighlight;
+    background-image: linear-gradient($blue-heighlight, $blue-heighlight);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
   }
 }
