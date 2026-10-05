@@ -1,10 +1,10 @@
 <article class="landing">
-  <section class="landing__nav">
+  <section class="landing__nav dp-max">
     <img src="/assets/img/lm_logo.png" alt="" class="header__logo" />
     <nav
       class="nav"
       [class.mobile]="burgerMenu()"
-      [class.z-40]="burgerMenu()"
+      [class.z-100]="burgerMenu()"
       [class.mobile--open]="navOpen()"
     >
       <section class="nav__head">
@@ -60,8 +60,19 @@
       </svg>
     </button>
   </section>
-  <section>
-    <h1>hello world</h1>
+  <section class="dp-max landing__about">
+    <app-primary-btn [label]="'Hello World'" [type]="'button'"></app-primary-btn>
+    <div class="landing__title">
+      <app-animate-title [text]="'Frontend'"></app-animate-title>
+      <app-animate-title [text]="'DEVELOPER'"></app-animate-title>
+    </div>
+    <aside>
+      <figure class="img--bg img__polaroid z-40">
+        <img class="img__polaroid--profil" src="/assets/img/max.png" alt="" />
+        <figcaption class="img__polaroid--caption">Max</figcaption>
+      </figure>
+    </aside>
   </section>
 </article>
+
 <article class="about"></article>

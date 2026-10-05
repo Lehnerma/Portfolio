@@ -1,0 +1,89 @@
+@use '../abstracts' as *;
+
+.nav {
+  display: grid;
+  gap: 64px;
+  justify-items: center;
+
+  &__head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 64px;
+    height: auto;
+  }
+
+  &__list {
+    display: grid;
+    justify-items: center;
+    gap: 32px;
+  }
+}
+
+.mobile {
+  padding: 16px $body-spacing 0;
+}
+
+@media (max-width: $breakpoint-md) {
+  .mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 96px;
+    background-image: url('/assets/background/hero_bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition:
+      transform 300ms ease,
+      opacity 300ms ease;
+
+    transform: translateY(-100%);
+
+    &--open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .btn__menu--close {
+    justify-self: flex-end;
+  }
+}
+
+@include respond-to(md) {
+  .btn__menu,
+  .mobile--icons,
+  .nav__logo,
+  .nav__head {
+    display: none;
+    visibility: hidden;
+  }
+  .landing__nav {
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav {
+    padding: 0;
+    width: 100%;
+    &__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.header {
+  &__logo {
+    width: 64px;
+    height: auto;
+  }
+}

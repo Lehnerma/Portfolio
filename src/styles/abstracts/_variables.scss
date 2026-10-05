@@ -9,6 +9,7 @@ $animation-time: 0.3s;
 // Schriftarten
 $f-title: 'Bricolage Grotesque', system-ui, sans-serif;
 $f-txt: 'Bricolage Grotesque', system-ui, sans-serif;
+$f-hand: 'Kalam', sans-serif;
 
 // Spacing (vorläufig, Mockup nur Richtwert)
 $body-spacing: clamp(16px, 7vw, 72px);
@@ -23,3 +24,14 @@ $space-8: 2rem;
 
 // Container-Breite (Desktop laut Mockup: max. 1044px)
 $dp-max-width: 1440px;
+
+.z-40 {
+  z-index: 40;
+}
+.z-100 {
+  z-index: 100;
+}
+
+.dp-max {
+  max-width: $dp-max-width;
+}

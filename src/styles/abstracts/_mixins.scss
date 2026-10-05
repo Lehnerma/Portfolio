@@ -61,3 +61,10 @@
 
   // text-box: trim-both cap text;
 }
+@mixin f-hand($size: rem(16px), $color: white, $weight: 400, $letter-spacing: 0) {
+  font-family: $f-hand;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}

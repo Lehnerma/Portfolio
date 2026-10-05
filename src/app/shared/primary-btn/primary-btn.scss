@@ -1,0 +1,14 @@
+@use '../../../styles/abstracts' as *;
+
+.btn {
+  &__hello {
+    &--wrapper {
+      position: relative;
+    }
+
+    &--icon {
+      position: absolute;
+      fill: $white-base;
+    }
+  }
+}

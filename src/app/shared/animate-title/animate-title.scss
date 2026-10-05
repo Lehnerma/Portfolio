@@ -1,0 +1,20 @@
+@use '../../../styles/abstracts' as *;
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__letter {
+    font-weight: 700;
+    color: $white-base;
+
+    &:hover {
+      text-transform: uppercase;
+      color: $yellow-heighlight;
+    }
+
+    &--upper:hover {
+      text-transform: lowercase;
+    }
+  }
+}
