@@ -18,3 +18,11 @@ $orange-heighlight: rgb(224, 140, 5);
 
 // border
 $border-veige: 1px solid $white-veige;
+$border-btn-transparent: 1px solid $white-base;
+$border-btn-black: 1px solid $black-base;
+
+//shadows
+$btn-secondary-shadow-transparent: 2px 4px 0px 0px $white-base;
+$btn-secondary-shadow-transparent-active: inset 0px 0px 4px 2px $white-base;
+$btn-secondary-shadow-black: 2px 4px 0px 0px $black-base;
+$btn-secondary-shadow-black-active: inset 0px 0px 4px 2px $white-base;

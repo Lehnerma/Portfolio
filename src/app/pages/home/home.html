@@ -60,22 +60,27 @@
       </svg>
     </button>
   </section>
-  <section class="dp-max landing__about">
+
+  <section class="dp-max landing__main">
     <app-primary-btn
       [label]="'Hello World'"
       hoverLabel="i'm Maximilian Lehner"
       [type]="'button'"
+      class="landing__hello"
     ></app-primary-btn>
-    <div class="landing__title">
-      <app-animate-title [text]="'Frontend'"></app-animate-title>
-      <app-animate-title [text]="'DEVELOPER'"></app-animate-title>
-    </div>
-    <aside>
-      <figure class="img--bg img__polaroid z-40">
-        <img class="img__polaroid--profil" src="/assets/img/max.png" alt="" />
-        <figcaption class="img__polaroid--caption">Max</figcaption>
-      </figure>
-    </aside>
+    <app-animate-title text="Frontend" class="landing__title1"></app-animate-title>
+    <app-animate-title text="DEVELOPER" class="landing__title2"></app-animate-title>
+    <app-secondary-btn
+      label="Get in Touch"
+      btnTheme="transparent"
+      class="landing__contact"
+    ></app-secondary-btn>
+    <figure class="img--bg img__polaroid z-40 landing__figure">
+      <img class="img__polaroid--profil" src="/assets/img/max.png" alt="" />
+      <figcaption class="img__polaroid--caption">Max</figcaption>
+    </figure>
+
+    <app-social-icons class="landing__social"></app-social-icons>
   </section>
 </article>
 

@@ -1,0 +1,42 @@
+@use '../../../styles/abstracts' as *;
+
+[data-theme='transparent'] {
+  --font-color: #{$white-base};
+  --bg: transparent;
+  --bg-hover: #{$orange-heighlight};
+  --btn-shadow: #{$btn-secondary-shadow-transparent};
+  --btn-shadow-active: #{$btn-secondary-shadow-transparent-active};
+  --border: #{$border-btn-transparent};
+}
+
+[data-theme='black'] {
+  --font-color: #{$black-base};
+  --bg: transparent;
+  --bg-hover: #{$orange-heighlight};
+  --btn-shadow: #{$btn-secondary-shadow-black};
+  --btn-shadow-active: #{$btn-secondary-shadow-black-active};
+  --border: #{$border-btn-transparent};
+}
+
+.btn {
+  &__secondary {
+    @include f-text(rem(18), var(--font-color), 500);
+    box-shadow: var(--btn-shadow);
+    padding: 8px 24px;
+    border: var(--border);
+    border-radius: 100px;
+    transition:
+      background-color $animation-time ease,
+      box-shadow $animation-time ease,
+      transform $animation-time ease-in-out;
+
+    &:hover {
+      background-color: var(--bg-hover);
+      box-shadow: none;
+    }
+
+    &:active {
+      box-shadow: inset 0px 0px 4px 2px $white-base;
+    }
+  }
+}

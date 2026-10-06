@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { LetterUppercase } from '../../interfaces/letter-uppercase';
 
 @Component({
@@ -9,11 +9,12 @@ import { LetterUppercase } from '../../interfaces/letter-uppercase';
 })
 export class AnimateTitle {
   readonly text = input.required<string>();
+  readonly secondText = input<string>();
 
-  protected readonly letters = computed<LetterUppercase[]>(() =>
-    Array.from(this.text()).map((char) => ({
+  protected getLetters(text: string): LetterUppercase[] {
+    return Array.from(text).map((char) => ({
       char,
       isUpperCase: char !== char.toLowerCase() && char === char.toUpperCase(),
-    })),
-  );
+    }));
+  }
 }

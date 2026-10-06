@@ -2,5 +2,9 @@
 
 .txt64-128 {
   font-family: $f-title;
-  font-size: clamp(rem(64), 5vw, rem(128));
+  font-size: clamp(rem(60), 13vw, rem(128));
+}
+.txt56-128 {
+  font-family: $f-title;
+  font-size: clamp(rem(48), 13vw, rem(128));
 }

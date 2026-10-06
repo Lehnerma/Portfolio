@@ -36,6 +36,12 @@
   transition: $target $time $flow;
 }
 
+@mixin hidden($display: none, $visibility: hidden, $pointer-events: none) {
+  display: $display;
+  visibility: $visibility;
+  pointer-events: $pointer-events;
+}
+
 @mixin page-bg($color) {
   background-color: $color;
   min-height: 100dvh;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './secondary-btn.scss',
   templateUrl: './secondary-btn.html',
 })
-export class SecondaryBtn {}
+export class SecondaryBtn {
+  label = input.required<string>();
+  btnTheme = input<'transparent' | 'black'>('transparent');
+}

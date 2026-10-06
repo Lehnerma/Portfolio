@@ -1,7 +1,7 @@
 <h1 class="heading" [attr.aria-label]="text()">
-  @for (letter of letters(); track $index) {
+  @for (letter of getLetters(text()); track $index) {
     <span
-      class="heading__letter txt64-128"
+      class="heading__letter txt56-128"
       [class.heading__letter--upper]="letter.isUpperCase"
       aria-hidden="true"
       >{{ letter.char === ' ' ? '\u00A0' : letter.char }}</span
