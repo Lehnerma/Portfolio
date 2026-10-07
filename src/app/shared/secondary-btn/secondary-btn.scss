@@ -33,6 +33,7 @@
     &:hover {
       background-color: var(--bg-hover);
       box-shadow: none;
+      transform: translateY(4px);
     }
 
     &:active {
