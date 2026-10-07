@@ -1,0 +1,80 @@
+@use '../abstracts' as *;
+
+.img {
+  &__polaroid {
+    position: relative;
+    z-index: 40;
+    width: 203px;
+    height: 244px;
+
+    &::after {
+      content: '';
+      background-image: url('/assets/background/polaroid_bg.png');
+      position: absolute;
+      inset: 0;
+    }
+
+    &--profil {
+      width: 100%;
+      aspect-ratio: 1/1;
+      filter: grayscale(75%);
+      @include animation(filter);
+    }
+
+    &--caption {
+      display: block;
+      width: 100%;
+      position: relative;
+      bottom: 10px;
+      z-index: 41;
+      text-align: center;
+      @include f-hand(rem(24), $black-base, 700);
+
+      &::after {
+        content: ' :)';
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        .img__polaroid--profil {
+          animation: polaroid-color 0.4s ease forwards;
+        }
+
+        .img__polaroid--caption::after {
+          animation: polaroid-smile 0s linear forwards;
+        }
+      }
+    }
+  }
+
+  &--bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (hover: none) {
+  .img__polaroid {
+    &--profil {
+      animation: polaroid-color 0.4s ease 1s forwards;
+    }
+
+    &--caption::after {
+      animation: polaroid-smile 0s linear 1s forwards;
+    }
+  }
+}
+
+@keyframes polaroid-color {
+  to {
+    filter: grayscale(0);
+  }
+}
+
+@keyframes polaroid-smile {
+  to {
+    content: ' :D';
+  }
+}

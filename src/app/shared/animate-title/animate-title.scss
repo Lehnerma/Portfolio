@@ -1,0 +1,42 @@
+@use '../../../styles/abstracts' as *;
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  letter-spacing: -0.02em;
+
+  &__letter {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    color: $white-base;
+
+    &:hover {
+      color: $yellow-heighlight;
+    }
+
+    &:hover .heading__char--base {
+      visibility: hidden;
+    }
+
+    &:hover .heading__char--alt {
+      visibility: visible;
+    }
+  }
+
+  &__char {
+    padding: 0 0.01em;
+    &--alt {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 50%;
+      translate: -50% 0;
+      visibility: hidden;
+      text-transform: uppercase;
+    }
+  }
+
+  &__letter--upper &__char--alt {
+    text-transform: lowercase;
+  }
+}

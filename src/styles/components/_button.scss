@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &__menu {
+    &--open {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        inset: 0;
+        content: '';
+        background-image: url('/assets/icons/nav-burger-hover.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 250ms ease;
+      }
+
+      &:active::after {
+        opacity: 1;
+      }
+
+      &:active {
+        .btn__menu--icon {
+          fill: $blue-heighlight;
+        }
+      }
+    }
+
+    &--close {
+      position: relative;
+      fill: white;
+
+      &::after {
+        position: absolute;
+        inset: 0;
+        content: '';
+        background-image: url('/assets/icons/nav_close_hover.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 250ms ease;
+      }
+
+      &:active::after {
+        opacity: 1;
+      }
+
+      &:active {
+        .btn__menu--icon {
+          fill: $blue-heighlight;
+        }
+      }
+    }
+    &--icon {
+      fill: $white-base;
+    }
+  }
+
+  &__hello {
+    border: $border-veige;
+    border-radius: 100px;
+    padding: 8px 24px;
+    position: relative;
+    @include f-text(rem(18), $white-base, 500);
+    background-image: linear-gradient($blue-heighlight, $blue-heighlight);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+  }
+}

@@ -36,6 +36,12 @@
   transition: $target $time $flow;
 }
 
+@mixin hidden($display: none, $visibility: hidden, $pointer-events: none) {
+  display: $display;
+  visibility: $visibility;
+  pointer-events: $pointer-events;
+}
+
 @mixin page-bg($color) {
   background-color: $color;
   min-height: 100dvh;
@@ -60,4 +66,28 @@
   color: $color;
 
   // text-box: trim-both cap text;
+}
+@mixin f-hand($size: rem(16px), $color: white, $weight: 400, $letter-spacing: 0) {
+  font-family: $f-hand;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}
+
+@mixin btn-hello-play {
+  .btn__hello {
+    animation: change-background-color 500ms ease forwards;
+  }
+  .btn__hello--icon {
+    animation: btn-icon-roll 700ms ease-out forwards;
+  }
+  .btn__hello--text {
+    animation: btn-text-out $animation-time ease-out forwards;
+    display: none;
+  }
+  .btn__hello--text-hover {
+    animation: btn-text-in $animation-time ease forwards;
+    display: inline-block;
+  }
 }

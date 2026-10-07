@@ -1,0 +1,28 @@
+@use '../../../styles/abstracts' as *;
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  &__link {
+    padding: 8px;
+    border: solid 1px $white-base;
+    border-radius: 100%;
+    @include flex-center;
+    background-image: linear-gradient($blue-heighlight, $blue-heighlight);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0;
+
+    @include animation(background-size);
+
+    &:hover {
+      background-size: 100% 100%;
+    }
+  }
+
+  &__icon {
+    fill: $white-base;
+  }
+}

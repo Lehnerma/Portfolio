@@ -1,17 +1,33 @@
-@mixin font-face($family, $file, $weight) {
-  @font-face {
-    font-family: $family;
-    src: url('/assets/fonts/#{$file}') format('truetype');
-    font-weight: $weight;
-    font-style: normal;
-    font-display: swap;
-  }
+// Variable Font: Bricolage Grotesque (Achsen: opsz 12–96, wdth 75–100, wght 200–800)
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/bricolage/BricolageGrotesque.ttf') format('truetype');
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap;
 }
 
-// @include font-face('JetBrains Mono', 'JetBrains_Mono/static/JetBrainsMono-Medium.ttf', 500);
-// @include font-face('JetBrains Mono', 'JetBrains_Mono/static/JetBrainsMono-Bold.ttf', 700);
-// @include font-face('JetBrains Mono', 'JetBrains_Mono/static/JetBrainsMono-ExtraBold.ttf', 800);
-// @include font-face('Commissioner', 'Commissioner/static/Commissioner-Regular.ttf', 400);
-// @include font-face('Commissioner', 'Commissioner/static/Commissioner-Medium.ttf', 500);
-// @include font-face('Commissioner', 'Commissioner/static/Commissioner-SemiBold.ttf', 600);
-// @include font-face('Commissioner', 'Commissioner/static/Commissioner-Bold.ttf', 700);
+@font-face {
+  font-family: Kalam;
+  src: url('/assets/fonts/kalam/Kalam-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Kalam;
+  src: url('/assets/fonts/kalam/Kalam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Kalam;
+  src: url('/assets/fonts/kalam/Kalam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
