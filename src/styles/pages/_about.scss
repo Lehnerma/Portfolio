@@ -1,10 +1,15 @@
 @use '../abstracts' as *;
 
 .about {
-  padding: $body-spacing;
-  max-width: $dp-max-width;
   justify-self: center;
   min-height: 90dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  &__me {
+    padding: $body-spacing;
+    max-width: $dp-max-width;
+  }
 
   &__titles {
     display: grid;

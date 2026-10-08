@@ -1,0 +1,14 @@
+<article class="papers">
+  @for (paper of rippedPapers; track $index; let i = $index) {
+    <section
+      [class]="'paper paper--' + paper.color"
+      [style.--bg-mobile]="`url(${paper.mobile})`"
+      [style.--bg-desktop]="`url(${paper.desktop})`"
+    >
+      <div class="paper__wrapper">
+        <img [src]="paper.icon" alt="" class="paper__icon" />
+        <p class="paper__txt txt20-24">{{ paper.text }}</p>
+      </div>
+    </section>
+  }
+</article>

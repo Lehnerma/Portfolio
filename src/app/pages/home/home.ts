@@ -4,9 +4,10 @@ import { SocialIcons } from '../../shared/social-icons/social-icons';
 import { AnimateTitle } from '../../shared/animate-title/animate-title';
 import { PrimaryBtn } from '../../shared/primary-btn/primary-btn';
 import { SecondaryBtn } from '../../shared/secondary-btn/secondary-btn';
+import { RippedPaper } from '../../components/ripped-paper/ripped-paper';
 
 @Component({
-  imports: [UnderlineTitle, SocialIcons, AnimateTitle, PrimaryBtn, SecondaryBtn],
+  imports: [UnderlineTitle, SocialIcons, AnimateTitle, PrimaryBtn, SecondaryBtn, RippedPaper],
   selector: 'app-home',
   styleUrl: './home.scss',
   templateUrl: './home.html',
