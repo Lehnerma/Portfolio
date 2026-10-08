@@ -4,8 +4,34 @@
   padding: $body-spacing;
   max-width: $dp-max-width;
   justify-self: center;
+  min-height: 90dvh;
+
+  &__titles {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: $black-base;
+    text-box: trim-both cap text;
+  }
 
   &__subtitle {
     @include f-text(rem(18), 500);
+  }
+
+  &__info {
+    color: $black-base;
+    font-weight: 400;
+  }
+
+  &__me {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__contact {
+    justify-self: flex-end;
   }
 }

@@ -1,5 +1,10 @@
 @use '../abstracts' as *;
 
+.txt18-20 {
+  font-family: $f-title;
+  font-size: clamp(rem(18), 5vw, rem(20));
+}
+
 .txt48-64 {
   font-family: $f-title;
   font-size: clamp(rem(48), 13vw, rem(64));

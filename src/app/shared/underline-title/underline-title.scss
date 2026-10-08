@@ -16,6 +16,15 @@
   overflow: visible;
   pointer-events: none;
 
+  // Umrundet den Text: größer als der Inhalt und mittig darüber gelegt
+  &--circle {
+    top: -0.35em;
+    bottom: auto;
+    left: -10%;
+    width: 120%;
+    height: calc(100% + 0.7em);
+  }
+
   path {
     fill: none;
     stroke: $logo-violet;

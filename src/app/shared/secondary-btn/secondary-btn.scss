@@ -13,10 +13,10 @@
 [data-theme='black'] {
   --font-color: #{$black-base};
   --bg: transparent;
-  --bg-hover: #{$orange-heighlight};
+  --bg-hover: #{$logo-blue};
   --btn-shadow: #{$btn-secondary-shadow-black};
   --btn-shadow-active: #{$btn-secondary-shadow-black-active};
-  --border: #{$border-btn-transparent};
+  --border: #{$border-btn-black};
 }
 
 .btn {

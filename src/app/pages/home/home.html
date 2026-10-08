@@ -27,22 +27,22 @@
 
       <ul class="nav__list">
         <li class="nav__element">
-          <app-underline-title>
+          <app-underline-title variant="scribble">
             <a href="#about" class="nav-element">About me</a>
           </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title>
+          <app-underline-title variant="wave">
             <a href="#skills" class="nav-element">Skills</a>
           </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title>
+          <app-underline-title variant="circle">
             <a href="#projects" class="nav-element">Projects</a>
           </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title>
+          <app-underline-title variant="squiggle">
             <a href="#contacts" class="nav-element">Contacts</a>
           </app-underline-title>
         </li>
@@ -69,7 +69,7 @@
     </button>
   </section>
 
-  <section class="dp-max landing__main">
+  <section class="landing__main">
     <app-primary-btn
       [label]="'Hello World'"
       hoverLabel="i'm Maximilian Lehner"
@@ -94,9 +94,24 @@
 
 <article class="about">
   <section class="about__me">
-    <h3 class="about__subtitle">WHO'S MAX</h3>
-    <app-underline-title>
-      <h2 class="txt48-64">About me</h2>
-    </app-underline-title>
+    <div class="about__titles">
+      <h3 class="about__subtitle">WHO'S MAX</h3>
+      <app-underline-title variant="wave">
+        <h2 class="about__title txt48-64">About me</h2>
+      </app-underline-title>
+    </div>
+    <p class="about__info txt18-20">
+      Career changer with a passion for frontend: I like solving everyday problems myself and
+      building things exactly the way I need them, like my smart home automations. My stack: Angular
+      and web-development (HTML, JS, SCSS). I find inspiration in blogs, podcasts and community
+      forums, and I challenge myself on Codewars. Clean code matters to me: readable and reusable.
+    </p>
+    <app-secondary-btn
+      label="Let’s talk"
+      btnTheme="black"
+      class="about__contact"
+    ></app-secondary-btn>
   </section>
+
+  <section class="about__prefferences"></section>
 </article>

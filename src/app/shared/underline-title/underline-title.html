@@ -1,6 +1,12 @@
 <div class="link">
   <ng-content></ng-content>
-  <svg #stroke class="stroke" [attr.viewBox]="viewBox()" aria-hidden="true">
+  <svg
+    #stroke
+    class="stroke"
+    [class.stroke--circle]="variant() === 'circle'"
+    [attr.viewBox]="viewBox()"
+    aria-hidden="true"
+  >
     <filter [attr.id]="filterId" x="-5%" y="-30%" width="110%" height="160%">
       <feTurbulence
         type="fractalNoise"

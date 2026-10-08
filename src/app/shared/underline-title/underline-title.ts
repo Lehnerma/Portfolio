@@ -3,10 +3,11 @@ import {
   Component,
   computed,
   ElementRef,
+  input,
   signal,
   viewChild,
 } from '@angular/core';
-import { createStrokePath, randomBetween } from '../stroke-path';
+import { createStroke, randomBetween, StrokeVariant } from './stroke-path';
 
 let nextId = 0;
 
@@ -18,16 +19,22 @@ let nextId = 0;
 })
 export class UnderlineTitle {
   private readonly svg = viewChild<ElementRef<SVGSVGElement>>('stroke');
-  private readonly drawer = signal(createStrokePath());
+  readonly variant = input<StrokeVariant>('scribble');
+
+  private readonly rerolls = signal(0);
+  private readonly drawer = computed(() => {
+    this.rerolls();
+    return createStroke(this.variant());
+  });
   private readonly size = signal({ width: 0, height: 0 });
 
-  filterId = `stroke-${nextId++}`; // protected readonly
+  filterId = `stroke-${nextId++}`;
   viewBox = computed(() => `0 0 ${this.size().width} ${this.size().height}`);
   pathData = computed(() => {
     const { width, height } = this.size();
     return width && height ? this.drawer()(width, height) : '';
   });
-  strokeWidth = signal(randomBetween(4, 6)); // px (non-scaling-stroke)
+  strokeWidth = signal(randomBetween(4, 6));
   drawDuration = signal(randomBetween(0.35, 0.75));
   seed = signal(1);
 
@@ -41,15 +48,5 @@ export class UnderlineTitle {
       observer.observe(element);
       onCleanup(() => observer.disconnect());
     });
-  }
-
-  /**
-   * Randomizes the underline path and its animation properties.
-   */
-  randomize(): void {
-    this.drawer.set(createStrokePath());
-    this.strokeWidth.set(randomBetween(4, 6));
-    this.drawDuration.set(randomBetween(0.35, 0.55));
-    this.seed.set(Math.floor(randomBetween(0, 1000)));
   }
 }
