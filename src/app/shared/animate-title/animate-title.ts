@@ -17,4 +17,13 @@ export class AnimateTitle {
       isUpperCase: char !== char.toLowerCase() && char === char.toUpperCase(),
     }));
   }
+
+  /**
+   * Replaces a regular space with a non-breaking space for display.
+   * @param char The character to format.
+   * @returns The formatted character.
+   */
+  getDisplayChar(char: string): string {
+    return char === ' ' ? ' ' : char;
+  }
 }

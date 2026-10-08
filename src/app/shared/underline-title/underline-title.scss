@@ -5,11 +5,6 @@
   display: inline-block;
   padding: 0.4em 0;
   text-decoration: none;
-
-  &__title {
-    @include f-text(rem(18), $white-base, 700);
-    line-height: 120%;
-  }
 }
 
 .stroke {
@@ -23,7 +18,7 @@
 
   path {
     fill: none;
-    stroke: $yellow-heighlight;
+    stroke: $logo-violet;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 1 2;

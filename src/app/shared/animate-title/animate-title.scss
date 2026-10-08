@@ -10,9 +10,10 @@
     display: inline-block;
     font-weight: 700;
     color: $white-base;
+    cursor: pointer;
 
     &:hover {
-      color: $yellow-heighlight;
+      color: $logo-violet; //todo check if violet or blue from the logo
     }
 
     &:hover .heading__char--base {

@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class SecondaryBtn {
   label = input.required<string>();
-  btnTheme = input<'transparent' | 'black'>('transparent');
+  btnTheme = input<'white' | 'black'>('white');
 }

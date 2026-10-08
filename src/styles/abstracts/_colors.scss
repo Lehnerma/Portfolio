@@ -16,6 +16,9 @@ $cyan-heighlight: rgb(26, 168, 181);
 $orange-heighlight: rgb(248, 122, 85);
 $orange-heighlight: rgb(224, 140, 5);
 
+$logo-violet: rgb(138, 40, 245);
+$logo-blue: #1b7fec;
+
 // border
 $border-veige: 1px solid $white-veige;
 $border-btn-transparent: 1px solid $white-base;
@@ -26,3 +29,8 @@ $btn-secondary-shadow-transparent: 2px 4px 0px 0px $white-base;
 $btn-secondary-shadow-transparent-active: inset 0px 0px 4px 2px $white-base;
 $btn-secondary-shadow-black: 2px 4px 0px 0px $black-base;
 $btn-secondary-shadow-black-active: inset 0px 0px 4px 2px $white-base;
+
+//gradient
+
+$logo-gradient: linear-gradient(135deg, #0bc5ff 0%, #3b5cf0 50%, #9a24ff 100%);
+$blue-violet: linear-gradient(135deg, #0bc5ff, #9a24ff);

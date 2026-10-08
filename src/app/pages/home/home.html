@@ -27,16 +27,24 @@
 
       <ul class="nav__list">
         <li class="nav__element">
-          <app-underline-title [label]="'About me'" link="#about"></app-underline-title>
+          <app-underline-title>
+            <a href="#about" class="nav-element">About me</a>
+          </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title [label]="'Skills'" link="#skills"></app-underline-title>
+          <app-underline-title>
+            <a href="#skills" class="nav-element">Skills</a>
+          </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title [label]="'Projects'" link="#projects"></app-underline-title>
+          <app-underline-title>
+            <a href="#projects" class="nav-element">Projects</a>
+          </app-underline-title>
         </li>
         <li class="nav__element">
-          <app-underline-title [label]="'Contact'" link="#contact"></app-underline-title>
+          <app-underline-title>
+            <a href="#contacts" class="nav-element">Contacts</a>
+          </app-underline-title>
         </li>
         <li>
           <input type="checkbox" name="englisch/deutsch" id="" />
@@ -72,7 +80,7 @@
     <app-animate-title text="DEVELOPER" class="landing__title2"></app-animate-title>
     <app-secondary-btn
       label="Get in Touch"
-      btnTheme="transparent"
+      btnTheme="white"
       class="landing__contact"
     ></app-secondary-btn>
     <figure class="img--bg img__polaroid z-40 landing__figure">
@@ -84,4 +92,11 @@
   </section>
 </article>
 
-<article class="about"></article>
+<article class="about">
+  <section class="about__me">
+    <h3 class="about__subtitle">WHO'S MAX</h3>
+    <app-underline-title>
+      <h2 class="txt48-64">About me</h2>
+    </app-underline-title>
+  </section>
+</article>

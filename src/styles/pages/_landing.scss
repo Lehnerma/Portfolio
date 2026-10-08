@@ -1,0 +1,89 @@
+@use '../abstracts' as *;
+
+.landing {
+  min-height: 100dvh;
+  background-image: url('/assets/background/hero_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  padding: 16px $body-spacing;
+
+  &__nav {
+    justify-self: center;
+    width: 100%;
+    max-width: $dp-max-width;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    &--element {
+      @include f-text(rem(18), $white-base, 700);
+      line-height: 120%;
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr;
+    gap: 16px;
+    max-height: 624px;
+    justify-self: center;
+  }
+
+  &__figure {
+    justify-self: center;
+    align-self: center;
+    transform: rotate(8deg);
+  }
+
+  &__contact {
+    justify-self: flex-end;
+  }
+
+  &__social {
+    @include hidden;
+  }
+}
+
+@include respond-to(md) {
+  .landing {
+    &__main {
+      display: grid;
+      max-width: 900px;
+      width: 100%;
+      max-height: 900px;
+      align-self: center;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'hello img'
+        'title1 img'
+        'title2 title2'
+        'contact contact';
+    }
+
+    &__hello {
+      grid-area: hello;
+    }
+
+    &__title1 {
+      grid-area: title1;
+    }
+
+    &__title2 {
+      grid-area: title2;
+      justify-self: flex-end;
+    }
+
+    &__figure {
+      grid-area: img;
+    }
+
+    &__contact {
+      grid-area: contact;
+      justify-self: flex-end;
+    }
+  }
+}

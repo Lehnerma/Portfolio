@@ -22,6 +22,11 @@ export class Home {
     this.navOpen.update((value) => !value);
   }
 
+  // todo the funciton is not used maybe can be deleted
+  /**
+   * Handles clicks on the navigation backdrop.
+   * @param event The mouse event from the backdrop click.
+   */
   backdropClick(event: MouseEvent): void {
     if (this.navOpen()) return;
     console.log(event);

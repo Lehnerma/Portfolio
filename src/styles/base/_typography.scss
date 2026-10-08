@@ -1,10 +1,21 @@
 @use '../abstracts' as *;
 
+.txt48-64 {
+  font-family: $f-title;
+  font-size: clamp(rem(48), 13vw, rem(64));
+}
+
+.txt56-128 {
+  font-family: $f-title;
+  font-size: clamp(rem(48), 15vw, rem(128));
+}
+
 .txt64-128 {
   font-family: $f-title;
   font-size: clamp(rem(60), 13vw, rem(128));
 }
-.txt56-128 {
-  font-family: $f-title;
-  font-size: clamp(rem(48), 13vw, rem(128));
+
+.nav-element {
+  @include f-text(rem(18), $white-base, 700);
+  line-height: 120%;
 }
