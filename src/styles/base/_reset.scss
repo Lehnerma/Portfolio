@@ -1,10 +1,13 @@
+@use '../abstracts' as *;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
   list-style-type: none;
-  scrollbar-width: thin;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -12,11 +15,8 @@ a {
   color: black;
 }
 
-.d-none {
-  display: none;
-  visibility: hidden;
-}
-
-.fit-content {
-  width: fit-content;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
 }

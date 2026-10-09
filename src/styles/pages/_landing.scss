@@ -12,6 +12,8 @@
   gap: 32px;
   padding: 16px $body-spacing;
 
+  // scroll-snap-align: start;
+
   &__nav {
     justify-self: center;
     width: 100%;
@@ -29,7 +31,8 @@
     display: grid;
     grid-template-rows: auto auto auto auto 1fr;
     gap: 16px;
-    max-height: 624px;
+    min-height: 624px;
+    padding-bottom: 2rem;
     justify-self: center;
   }
 

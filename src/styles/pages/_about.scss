@@ -7,6 +7,9 @@
   grid-template-rows: auto auto 1fr;
   margin: 0 auto; //* necessary for get the container in the middle
 
+  scroll-margin-top: 10vh;
+  // scroll-snap-align: start;
+
   &__me {
     padding: $body-spacing;
     max-width: $dp-max-width;
@@ -42,12 +45,12 @@
   }
 
   &__preferences {
-    width: 100%;
+    width: 98%;
+    min-height: 480px;
   }
 }
 
 @include respond-to(md) {
-  // todo in the about section should me change to a 2 column layout with 1fr 1fr sizing
   .about {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
@@ -66,5 +69,46 @@
     &__preferences {
       grid-area: preferences;
     }
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0.5;
+    translate: 0 100vh;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    translate: -100vw 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    translate: 100vw 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .about__titles,
+    .about__me {
+      animation-name: slide-up;
+      animation-timeline: --about-section;
+      animation-range: entry 14%;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+    }
+  }
+
+  .about {
+    view-timeline-name: --about-section;
+    overflow-x: clip;
   }
 }
