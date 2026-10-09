@@ -1,10 +1,11 @@
 @use '../abstracts' as *;
 
 .about {
-  justify-self: center;
-  min-height: 90dvh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  justify-items: center;
+  min-height: 90dvh;
+  grid-template-rows: auto auto 1fr;
+  margin: 0 auto; //* necessary for get the container in the middle
 
   &__me {
     padding: $body-spacing;
@@ -38,5 +39,32 @@
 
   &__contact {
     justify-self: flex-end;
+  }
+
+  &__preferences {
+    width: 100%;
+  }
+}
+
+@include respond-to(md) {
+  // todo in the about section should me change to a 2 column layout with 1fr 1fr sizing
+  .about {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    grid-template-areas: 'titles titles' 'preferences aboutme';
+
+    &__titles {
+      margin-top: 4rem;
+      grid-area: titles;
+    }
+
+    &__me {
+      grid-area: aboutme;
+    }
+
+    &__preferences {
+      grid-area: preferences;
+    }
   }
 }

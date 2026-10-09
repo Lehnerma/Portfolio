@@ -3,16 +3,21 @@
 .papers {
   display: grid;
   gap: 4px;
+  justify-items: center;
 }
 
 .paper {
   position: relative;
-  max-width: 560px;
+  width: 100%;
   aspect-ratio: 1029 / 384;
   background-image: var(--bg-mobile);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  display: grid;
+  grid-area: 1/1;
+
+  max-width: 660px;
 
   &__wrapper {
     position: absolute;
@@ -32,19 +37,25 @@
     aspect-ratio: 1 / 1;
   }
 
-  // Inset: top right bottom left
   &--blue {
-    --inset: 12% 14% 35% 7%;
-    max-width: 440px;
-  }
-
-  &--purple {
-    --inset: 22% 8% 27% 13%;
-    max-width: 500px;
+    --inset: 12% 14% 28% 14%;
+    // max-width: 500px;
+    transform: translateY(0%) rotate(3deg);
+    z-index: 1;
   }
 
   &--coral {
-    --inset: 20% 4% 17% 13%;
+    --inset: 20% 8% 17% 13%;
+    // max-width: 550px;
+    transform: translateY(75%) rotate(0deg);
+    z-index: 10;
+  }
+
+  &--purple {
+    --inset: 22% 8% 27% 8%;
+    // max-width: 560px;
+    transform: translateY(148%) rotate(-2deg);
+    z-index: 20;
   }
 }
 
@@ -52,17 +63,23 @@
   .paper {
     aspect-ratio: 1680 / 456;
     background-image: var(--bg-desktop);
+    max-width: 660px;
 
     &--blue {
       --inset: 12% 8% 18% 13%;
+      transform: translateY(-70%);
+    }
+
+    &--coral {
+      --inset: 22% 9% 30% 12%;
+      transform: translateY(15%);
+      z-index: 10;
     }
 
     &--purple {
       --inset: 15% 14% 36% 15%;
-    }
-
-    &--coral {
-      --inset: 22% 9% 25% 9%;
+      transform: translateY(90%);
+      z-index: 20;
     }
   }
 }

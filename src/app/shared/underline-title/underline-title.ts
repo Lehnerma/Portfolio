@@ -7,7 +7,8 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { createStroke, randomBetween, StrokeVariant } from './stroke-path';
+import { StrokeVariant } from '../../interfaces/stroke-path';
+import { createStroke, randomBetween } from './stroke-path';
 
 let nextId = 0;
 
