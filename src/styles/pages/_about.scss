@@ -8,7 +8,7 @@
   margin: 0 auto; //* necessary for get the container in the middle
 
   scroll-margin-top: 10vh;
-  // scroll-snap-align: start;
+  scroll-snap-align: start;
 
   &__me {
     padding: $body-spacing;
@@ -18,11 +18,11 @@
   &__titles {
     display: grid;
     gap: 16px;
+    color: $black-base;
   }
 
   &__title {
     font-weight: 700;
-    color: $black-base;
     text-box: trim-both cap text;
   }
 
@@ -97,11 +97,17 @@
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .about__titles,
-    .about__me {
+    .about__titles {
       animation-name: slide-up;
       animation-timeline: --about-section;
       animation-range: entry 14%;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+    }
+    .about__me {
+      animation-name: slide-up;
+      animation-timeline: --about-section;
+      animation-range: entry 24%;
       animation-timing-function: ease;
       animation-fill-mode: both;
     }

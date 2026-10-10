@@ -2,4 +2,50 @@
 
 .skills {
   min-height: 100dvh;
+
+  background-image: url(/assets/background/skills.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+
+  &__wrapper {
+    margin: 0 auto;
+    padding: $body-spacing;
+  }
+
+  &__titles {
+    display: grid;
+    gap: 16px;
+    justify-items: flex-end;
+    margin-top: 88px;
+    color: $white-base;
+  }
+
+  &__title {
+    font-weight: 700;
+
+    // text-box: trim-both cap text;
+  }
+
+  &__subtitle {
+    @include f-text(rem(18), 500);
+  }
+
+  &__info {
+    background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
+    // background-image: url('/assets/img/ripped-papper/skills.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    aspect-ratio: 5/3;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-width: 360px;
+
+    color: $black-base;
+    font-weight: 400;
+    padding: 1rem;
+    text-align: center;
+  }
 }
