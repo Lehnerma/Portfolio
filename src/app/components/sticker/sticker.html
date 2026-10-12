@@ -1,11 +1,14 @@
-<div class="peel" [style.width.px]="width()" [style.height.px]="height()">
-  <div class="layer peel-bottom">
+<section class="peel" [style.width.px]="width()" [style.height.px]="height()">
+  <div class="sticker sticker__bottom">
+    <!-- todo maybe delete the ng content -->
     <ng-content select="[peelBottom]" />
-    <button type="button" (click)="reset()">reset</button>
+    @if (isPeeled()) {
+      <button type="button" (click)="reset()">Reset sticker</button>
+    }
   </div>
   @if (!isPeeled()) {
     <div
-      class="layer peel-handle"
+      class="sticker peel-handle"
       role="slider"
       tabindex="0"
       aria-label="Peel off sticker"
@@ -16,18 +19,35 @@
       (pointerdown)="startDrag($event)"
       (pointermove)="updatePointer($event)"
       (keydown)="handleKey($event)"
+      (pointerenter)="showHint($event)"
+      (pointerleave)="hideHint()"
+      (focus)="showHint($event)"
+      (blur)="hideHint()"
     >
-      <div class="layer peel-top" [style.clip-path]="topClipPath()" [style.opacity]="fadeOpacity()">
-        <ng-content select="[peelTop]" />
-      </div>
       <div
-        class="layer peel-back"
-        [style.clip-path]="backClipPath()"
-        [style.transform]="backTransform()"
+        class="sticker sticker__top"
+        [style.clip-path]="topClipPath()"
         [style.opacity]="fadeOpacity()"
       >
-        <ng-content select="[peelBack]" />
+        <!--todo can be delete? <ng-content select="[peelTop]" /> -->
+        <figure peelTop class="sticker-top">
+          <img src="/assets/icons/peel-arrow.png" alt="" class="sticker-top__icon" />
+          <figcaption class="sticker-top__title">
+            Pls peel <br />
+            me
+          </figcaption>
+        </figure>
+      </div>
+      <div class="sticker sticker__fold" aria-hidden="true" inert [style.opacity]="fadeOpacity()">
+        <div
+          class="sticker sticker__back"
+          [style.clip-path]="backClipPath()"
+          [style.transform]="backTransform()"
+        >
+          <!-- todo maybe delete -->
+          <ng-content select="[peelBack]" />
+        </div>
       </div>
     </div>
   }
-</div>
+</section>

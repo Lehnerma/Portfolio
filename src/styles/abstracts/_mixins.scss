@@ -49,7 +49,7 @@
 }
 
 @mixin f-title($size: rem(16px), $color: white, $weight: 400, $letter-spacing: 0) {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: $size;
   font-weight: $weight;
   letter-spacing: $letter-spacing;

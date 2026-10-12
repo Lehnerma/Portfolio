@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, DestroyRef, computed, inject, input, output, signal } from '@angular/core';
 import { PointSticker } from '../../interfaces/point-sticker';
 import {
   calcClippedAmount,
@@ -7,14 +7,21 @@ import {
   createFold,
   createGuidePoint,
   createRectangleCorners,
+  easeToward,
   nextProgress,
   toClipPath,
   toLocalPoint,
-  toReflectionMatrix,
+  toGradientAngle,
+  toGradientPosition,
+  toLiftedReflectionMatrix,
 } from './sticker-geometry';
 
 @Component({
   selector: 'app-sticker',
+  host: {
+    '[style.--fold-angle]': 'foldAngle()',
+    '[style.--fold-position]': 'foldPosition()',
+  },
   templateUrl: './sticker.html',
   styleUrl: './sticker.scss',
 })
@@ -23,15 +30,36 @@ export class Sticker {
   readonly height = input(240);
   /** Share of folded area from which the sticker fades out. Must be smaller than 1. */
   readonly fadeThreshold = input(0.9);
+  /** Height of the folded flap above the sticker in px per px of distance to the fold line. */
+  readonly lift = input(0.3);
+  /** Peel progress (0 to 1) of the corner teaser on hover and focus. */
+  readonly hintLift = input(0.12);
+  /** Share of the remaining distance the teaser covers per frame (0 to 1). */
+  readonly hintSpeed = input(0.15);
   readonly peeled = output<void>();
 
   protected readonly isPeeled = signal(false);
   private readonly pointer = signal<PointSticker | null>(null);
   private readonly keyboardProgress = signal(0);
+  private readonly hint = signal(0);
+  private hintFrame = 0;
+
+  constructor() {
+    inject(DestroyRef).onDestroy(() => cancelAnimationFrame(this.hintFrame));
+  }
+
+  /**
+   * Virtual pointer of the teaser. Null while the teaser is not visible.
+   */
+  private readonly hintPoint = computed(() =>
+    this.hint() > 0 ? createGuidePoint(this.width(), this.height(), this.hint()) : null,
+  );
 
   private readonly corners = computed(() => createRectangleCorners(this.width(), this.height()));
 
-  private readonly fold = computed(() => createFold(this.width(), this.pointer()));
+  private readonly fold = computed(() =>
+    createFold(this.width(), this.pointer() ?? this.hintPoint()),
+  );
 
   /**
    * Clip path of the still attached front part.
@@ -50,11 +78,27 @@ export class Sticker {
   });
 
   /**
-   * Transform that mirrors the back part across the fold line.
+   * Transform that mirrors the back part across the fold line and lifts it towards the viewer.
    */
   protected readonly backTransform = computed(() => {
     const fold = this.fold();
-    return fold ? toReflectionMatrix(fold) : 'none';
+    return fold ? toLiftedReflectionMatrix(fold, this.lift()) : 'none';
+  });
+
+  /**
+   * Gradient angle of the fold, used for the light and shadow gradients in CSS.
+   */
+  protected readonly foldAngle = computed(() => {
+    const fold = this.fold();
+    return `${fold ? toGradientAngle(fold) : 0}deg`;
+  });
+
+  /**
+   * Gradient position of the fold line. Off-screen while nothing is folded.
+   */
+  protected readonly foldPosition = computed(() => {
+    const fold = this.fold();
+    return `${fold ? toGradientPosition(fold, this.width(), this.height()) : -100}%`;
   });
 
   /**
@@ -79,6 +123,47 @@ export class Sticker {
   protected readonly fadeOpacity = computed(() =>
     calcFadeOpacity(this.amountClipped(), this.fadeThreshold()),
   );
+
+  /**
+   * Lifts the corner as a teaser when a mouse enters or the sticker receives focus.
+   */
+  protected showHint(event: Event): void {
+    if (event instanceof PointerEvent && event.pointerType !== 'mouse') {
+      return;
+    }
+    this.animateHint(this.hintLift());
+  }
+
+  /**
+   * Lets the corner fall back when the mouse leaves or the sticker loses focus.
+   */
+  protected hideHint(): void {
+    this.animateHint(0);
+  }
+
+  /**
+   * Starts the teaser animation towards the target. Jumps directly if the user
+   * prefers reduced motion.
+   */
+  private animateHint(target: number): void {
+    cancelAnimationFrame(this.hintFrame);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.hint.set(target);
+      return;
+    }
+    this.hintFrame = requestAnimationFrame(() => this.stepHint(target));
+  }
+
+  /**
+   * Advances the teaser by one frame and schedules the next one until the target is reached.
+   */
+  private stepHint(target: number): void {
+    const next = easeToward(this.hint(), target, this.hintSpeed());
+    this.hint.set(next);
+    if (next !== target) {
+      this.hintFrame = requestAnimationFrame(() => this.stepHint(target));
+    }
+  }
 
   /**
    * Captures the pointer on the sticker and applies its first position.

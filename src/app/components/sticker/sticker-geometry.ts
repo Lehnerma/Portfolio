@@ -156,16 +156,20 @@ export function toClipPath(points: PointSticker[]): string {
 }
 
 /**
- * Creates the CSS matrix that mirrors the sticker back side across the fold line.
+ * Creates the CSS matrix that mirrors the sticker back side across the fold line and
+ * lifts it towards the viewer. The lift grows with the distance to the fold line
+ * (`lift` is the z-offset in px per px of distance), so the fold line itself stays put.
  */
-export function toReflectionMatrix(fold: FoldSticker): string {
+export function toLiftedReflectionMatrix(fold: FoldSticker, lift: number): string {
   const { normalX, normalY, offset } = fold;
   const matrixA = 1 - 2 * normalX ** 2;
   const matrixB = -2 * normalX * normalY;
   const matrixD = 1 - 2 * normalY ** 2;
   const translateX = 2 * offset * normalX;
   const translateY = 2 * offset * normalY;
-  return `matrix(${matrixA}, ${matrixB}, ${matrixB}, ${matrixD}, ${translateX}, ${translateY})`;
+  const column1 = `${matrixA}, ${matrixB}, ${lift * normalX}, 0`;
+  const column2 = `${matrixB}, ${matrixD}, ${lift * normalY}, 0`;
+  return `matrix3d(${column1}, ${column2}, 0, 0, 1, 0, ${translateX}, ${translateY}, ${-lift * offset}, 1)`;
 }
 
 /**
@@ -197,4 +201,30 @@ export function toLocalPoint(event: PointerEvent, bounds: DOMRect): PointSticker
     positionX: event.clientX - bounds.left,
     positionY: event.clientY - bounds.top,
   };
+}
+
+/**
+ * Converts the fold normal into a CSS gradient angle in degrees (0deg points up).
+ */
+export function toGradientAngle(fold: FoldSticker): number {
+  return (Math.atan2(fold.normalX, -fold.normalY) * 180) / Math.PI;
+}
+
+/**
+ * Calculates where the fold line sits along a CSS gradient that runs in the
+ * direction of the fold normal through the center of the rectangle, in percent.
+ */
+export function toGradientPosition(fold: FoldSticker, width: number, height: number): number {
+  const gradientLength = Math.abs(width * fold.normalX) + Math.abs(height * fold.normalY);
+  const centerDistance = (width / 2) * fold.normalX + (height / 2) * fold.normalY;
+  return ((fold.offset - centerDistance) / gradientLength + 0.5) * 100;
+}
+
+/**
+ * Moves a value a fraction of the remaining distance towards its target.
+ * Snaps to the target once it is close enough, so an animation can end.
+ */
+export function easeToward(current: number, target: number, speed: number): number {
+  const next = current + (target - current) * speed;
+  return Math.abs(target - next) < 0.0005 ? target : next;
 }

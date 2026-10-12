@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  --sticker-orange: rgb(245, 175, 76);
 }
 
 .peel {
@@ -19,20 +20,42 @@
   }
 }
 
-.layer {
+.sticker {
   position: absolute;
   inset: 0;
   transform-origin: 0 0;
-}
 
-.peel-bottom {
-  background-color: #688394;
-}
+  &__top {
+    background-image: url('/assets/sticker/peel-top-shadow.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: grid;
+    align-items: center;
+  }
 
-.peel-top {
-  background-color: #81afcb;
-}
+  &__back,
+  &__bottom {
+    background-image: url('/assets/sticker/peel-bottom-shadow.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
-.peel-back {
-  background-color: #a0c7df;
+  &-top {
+    display: grid;
+    justify-items: center;
+    transform: rotate(10deg);
+    &__icon {
+      width: 52px;
+    }
+    &__title {
+      @include f-hand(rem(40), $white-base);
+      text-align: center;
+    }
+  }
+
+  &__fold {
+    perspective: 800px;
+  }
 }
