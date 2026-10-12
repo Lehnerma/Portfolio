@@ -7,6 +7,7 @@ import { SecondaryBtn } from '../../shared/secondary-btn/secondary-btn';
 import { RippedPaper } from '../../components/ripped-paper/ripped-paper';
 import { SkillIcon } from '../../interfaces/skills-icons';
 import { TitleCasePipe } from '@angular/common';
+import { Sticker } from '../../components/sticker/sticker';
 
 @Component({
   imports: [
@@ -17,6 +18,7 @@ import { TitleCasePipe } from '@angular/common';
     SecondaryBtn,
     RippedPaper,
     TitleCasePipe,
+    Sticker,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',

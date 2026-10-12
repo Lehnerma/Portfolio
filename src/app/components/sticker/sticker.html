@@ -1,0 +1,33 @@
+<div class="peel" [style.width.px]="width()" [style.height.px]="height()">
+  <div class="layer peel-bottom">
+    <ng-content select="[peelBottom]" />
+    <button type="button" (click)="reset()">reset</button>
+  </div>
+  @if (!isPeeled()) {
+    <div
+      class="layer peel-handle"
+      role="slider"
+      tabindex="0"
+      aria-label="Peel off sticker"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [attr.aria-valuenow]="percentPeeled()"
+      [attr.aria-valuetext]="percentPeeled() + ' percent peeled'"
+      (pointerdown)="startDrag($event)"
+      (pointermove)="updatePointer($event)"
+      (keydown)="handleKey($event)"
+    >
+      <div class="layer peel-top" [style.clip-path]="topClipPath()" [style.opacity]="fadeOpacity()">
+        <ng-content select="[peelTop]" />
+      </div>
+      <div
+        class="layer peel-back"
+        [style.clip-path]="backClipPath()"
+        [style.transform]="backTransform()"
+        [style.opacity]="fadeOpacity()"
+      >
+        <ng-content select="[peelBack]" />
+      </div>
+    </div>
+  }
+</div>
