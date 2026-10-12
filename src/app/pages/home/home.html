@@ -101,7 +101,7 @@
   </section>
 
   <section class="about__me">
-    <p class="about__info txt18-20">
+    <p class="about__info txt16-20">
       Career changer with a passion for frontend: I like solving everyday problems myself and
       building things exactly the way I need them, like my smart home automations. My stack: Angular
       and web-development (HTML, JS, SCSS). I find inspiration in blogs, podcasts and community
@@ -127,12 +127,30 @@
         <h2 class="skills__title txt56-144">Skill set</h2>
       </app-underline-title>
     </section>
-    <section class="skills__desc">
-      <p class="skills__info txt18-20">
+
+    <section class="skills__desc frame">
+      <p class="skills__info txt16-20">
         I work with HTML, CSS/SASS, JavaScript, TypeScript and Angular, plus Supabase and Firebase
         for backend services. As a career changer, I learn quickly and stay open to new
         technologies.
       </p>
+    </section>
+
+    <section class="skills__icons">
+      @for (skill of skillsIcons; track $index) {
+        <figcaption class="skill__container">
+          <img [src]="skill.path" alt="" class="skill__icon" />
+          <figcaption class="skill__name">{{ skill.name | titlecase }}</figcaption>
+        </figcaption>
+      }
+    </section>
+
+    <section class="skills__sticker">
+      <div id="dragging" class="azure peel">
+        <div class="peel-top">Top</div>
+        <div class="peel-back">Back</div>
+        <div class="peel-bottom">Bottom</div>
+      </div>
     </section>
   </div>
 </article>

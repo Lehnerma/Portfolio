@@ -3,7 +3,7 @@
 .skills {
   min-height: 100dvh;
 
-  background-image: url(/assets/background/skills.png);
+  background-image: url('/assets/background/skills.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -11,41 +11,83 @@
   &__wrapper {
     margin: 0 auto;
     padding: $body-spacing;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 40px;
   }
 
   &__titles {
     display: grid;
     gap: 16px;
-    justify-items: flex-end;
-    margin-top: 88px;
+    justify-content: flex-end;
     color: $white-base;
+    & > * {
+      width: 100%;
+    }
   }
 
   &__title {
     font-weight: 700;
-
-    // text-box: trim-both cap text;
   }
 
   &__subtitle {
-    @include f-text(rem(18), 500);
+    @include f-text(rem(18), $white-base, 500);
   }
 
   &__info {
     background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
-    // background-image: url('/assets/img/ripped-papper/skills.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     aspect-ratio: 5/3;
+
     display: grid;
     justify-content: center;
     align-items: center;
     max-width: 360px;
-
     color: $black-base;
     font-weight: 400;
     padding: 1rem;
     text-align: center;
+  }
+
+  &__icons {
+    max-width: 640px; //todo check the width
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 90px), 1fr));
+    max-width: 100%;
+  }
+}
+
+.skill {
+  &__container {
+    display: grid;
+    justify-items: center;
+    row-gap: 4px;
+  }
+
+  &__icon {
+    width: clamp(56px, 6vw, 72px);
+    aspect-ratio: 1/1;
+  }
+
+  &__name {
+    @include f-text(rem(18), $white-base);
+  }
+}
+
+@include respond-to(md) {
+  .skills {
+    &__info {
+      background-image: url('/assets/img/ripped-papper/skills.png');
+      max-width: 656px;
+    }
+
+    &__icons {
+      max-width: 640px;
+    }
   }
 }
