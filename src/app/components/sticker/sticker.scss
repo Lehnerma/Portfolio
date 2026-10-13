@@ -57,7 +57,6 @@
     padding: 2rem 0.5rem;
     @include f-hand(rem(20), var(--lime), 700);
 
-    // todo check if shadow can be delete
     text-shadow:
       0px 2px 4px rgba(0, 0, 0, 0.6),
       0px 0px 10px rgba(0, 0, 0, 0.4);

@@ -126,7 +126,7 @@
       <h2 class="skills__title txt56-144">Skill set</h2>
     </app-underline-title>
 
-    <section class="skills__desc frame">
+    <section class="skills__desc">
       <p class="skills__info txt16-20">
         I work with HTML, CSS/SASS, JavaScript, TypeScript and Angular, plus Supabase and Firebase
         for backend services. As a career changer, I learn quickly and stay open to new
@@ -134,17 +134,17 @@
       </p>
     </section>
 
-    <section class="skills__icons">
-      <ul class="skills__grid">
+    <div class="skills__stage">
+      <app-sticker class="skills__sticker"></app-sticker>
+
+      <ul class="skills__list" [style.--count]="skillsIcons.length">
         @for (skill of skillsIcons; track $index) {
-          <li class="skill__container">
+          <li class="skill__container" [style.--index]="$index">
             <img [src]="skill.path" alt="" class="skill__icon" />
             <figcaption class="skill__name">{{ skill.name | titlecase }}</figcaption>
           </li>
         }
       </ul>
-
-      <app-sticker class="skills__sticker"></app-sticker>
-    </section>
+    </div>
   </div>
 </article>

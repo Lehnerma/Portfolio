@@ -1,0 +1,203 @@
+@use '../abstracts' as *;
+
+// Current distance of an icon from the sticker centre. Animated on scroll.
+@property --radius {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+.skills {
+  // min-height: 100dvh;
+
+  background-image: url('/assets/background/skills.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding: 8rem 0;
+  overflow-x: clip;
+
+  &__wrapper {
+    margin: 0 auto;
+    padding: $body-spacing;
+    display: grid;
+    gap: 40px;
+  }
+
+  &__titles {
+    display: grid;
+    justify-content: flex-end;
+
+    margin-right: 1rem;
+    color: $white-base;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    justify-self: flex-end;
+  }
+
+  &__subtitle {
+    @include f-text(rem(18), $white-base, 500);
+    text-align: end;
+  }
+
+  &__desc {
+    justify-self: flex-end;
+  }
+
+  &__info {
+    // background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
+    background-image: url('/assets/img/ripped-papper/skills.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    aspect-ratio: 5.2/1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: $black-base;
+    font-weight: 400;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  // Sticker and icons share one stage. On mobile they are stacked, from xs up
+  // the icons sit on a full circle around the sticker.
+  &__stage {
+    --arc: 360deg;
+    --start: -90deg;
+    --radius-max: clamp(170px, 36vw, 250px);
+
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__sticker {
+    justify-self: flex-end;
+    margin-right: 1rem;
+  }
+}
+
+.skill {
+  &__container {
+    --angle: calc(var(--start) + var(--arc) * var(--index) / var(--count));
+    --radius: var(--radius-max);
+
+    display: grid;
+    justify-items: center;
+    row-gap: 4px;
+
+    filter: grayscale(100%) brightness(0.7);
+    transition:
+      filter $animation-time ease,
+      transform $animation-time ease;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: none;
+    }
+  }
+
+  &__icon {
+    width: clamp(56px, 6vw, 72px);
+    aspect-ratio: 1/1;
+  }
+
+  &__name {
+    @include f-text(rem(18), $white-base);
+  }
+}
+
+@keyframes skill-reveal {
+  from {
+    --radius: 0px;
+  }
+
+  to {
+    --radius: var(--radius-max);
+  }
+}
+
+// Without scroll timeline support or with reduced motion the icons simply
+// stay at their final position.
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .skills__stage {
+      view-timeline: --stage block;
+    }
+
+    .skill__container {
+      animation: skill-reveal both linear;
+      animation-timeline: --stage;
+      animation-range: entry calc(10% + var(--index) * 3%) cover 45%;
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .skills {
+    &__stage {
+      position: relative;
+      width: min(100%, 640px);
+      aspect-ratio: 1;
+      margin-inline: auto;
+    }
+
+    &__list {
+      position: absolute;
+      inset: 0;
+      display: block;
+      z-index: 1;
+    }
+
+    &__sticker {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      translate: -50% -50%;
+      margin-right: 0;
+      z-index: 2;
+    }
+  }
+
+  .skill__container {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: calc(-50% + cos(var(--angle)) * var(--radius))
+      calc(-50% + sin(var(--angle)) * var(--radius));
+  }
+}
+
+// @include respond-to(md) {
+//   .skills {
+//     &__wrapper {
+//       grid-template-columns: 1fr 1fr;
+//     }
+
+//     &__titles {
+//       grid-column: 1;
+//     }
+
+//     &__desc {
+//       grid-column: 2;
+//     }
+
+//     &__stage {
+//       grid-column: 1 / -1;
+//     }
+//   }
+// }

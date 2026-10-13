@@ -39,6 +39,7 @@ export class Home {
     { name: 'Git', path: 'assets/icons/skills/git.svg' },
     { name: 'scrum', path: 'assets/icons/skills/scrum.svg' },
     { name: 'claude', path: 'assets/icons/skills/claude.svg' },
+    { name: 'linux', path: 'assets/icons/skills/linux.svg' },
   ];
 
   /**
