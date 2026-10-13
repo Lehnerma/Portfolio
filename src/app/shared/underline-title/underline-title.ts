@@ -27,6 +27,7 @@ export class UnderlineTitle {
     this.rerolls();
     return createStroke(this.variant());
   });
+
   private readonly size = signal({ width: 0, height: 0 });
 
   filterId = `stroke-${nextId++}`;

@@ -121,12 +121,10 @@
 
 <article class="skills">
   <div class="skills__wrapper dp-max">
-    <section class="skills__titles">
+    <app-underline-title variant="circle" class="skills__titles">
       <h3 class="skills__subtitle">MY STACK</h3>
-      <app-underline-title variant="circle">
-        <h2 class="skills__title txt56-144">Skill set</h2>
-      </app-underline-title>
-    </section>
+      <h2 class="skills__title txt56-144">Skill set</h2>
+    </app-underline-title>
 
     <section class="skills__desc frame">
       <p class="skills__info txt16-20">
@@ -137,16 +135,16 @@
     </section>
 
     <section class="skills__icons">
-      @for (skill of skillsIcons; track $index) {
-        <figcaption class="skill__container">
-          <img [src]="skill.path" alt="" class="skill__icon" />
-          <figcaption class="skill__name">{{ skill.name | titlecase }}</figcaption>
-        </figcaption>
-      }
-    </section>
+      <ul class="skills__grid">
+        @for (skill of skillsIcons; track $index) {
+          <li class="skill__container">
+            <img [src]="skill.path" alt="" class="skill__icon" />
+            <figcaption class="skill__name">{{ skill.name | titlecase }}</figcaption>
+          </li>
+        }
+      </ul>
 
-    <section class="skills__sticker">
-      <app-sticker> </app-sticker>
+      <app-sticker class="skills__sticker"></app-sticker>
     </section>
   </div>
 </article>

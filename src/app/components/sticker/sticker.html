@@ -1,10 +1,15 @@
 <section class="peel" [style.width.px]="width()" [style.height.px]="height()">
   <div class="sticker sticker__bottom">
-    <!-- todo maybe delete the ng content -->
-    <ng-content select="[peelBottom]" />
-    @if (isPeeled()) {
+    <!-- @if (isPeeled()) {
       <button type="button" (click)="reset()">Reset sticker</button>
-    }
+    } -->
+    <app-underline-title variant="squiggle">
+      <h4 class="sticker-back__title">Currently learning:</h4>
+    </app-underline-title>
+    <div class="sticker-back__icons">
+      <img src="/assets/icons/skills/n8n.svg" alt="" class="sticker-back__icon" />
+      <img src="/assets/icons/skills/swift.svg" alt="" class="sticker-back__icon" />
+    </div>
   </div>
   @if (!isPeeled()) {
     <div
@@ -44,8 +49,7 @@
           [style.clip-path]="backClipPath()"
           [style.transform]="backTransform()"
         >
-          <!-- todo maybe delete -->
-          <ng-content select="[peelBack]" />
+          <img src="/assets/img/lm_logo.png" alt="" class="sticker__img" />
         </div>
       </div>
     </div>

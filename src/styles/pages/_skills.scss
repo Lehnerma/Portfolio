@@ -8,6 +8,8 @@
   background-position: top;
   background-size: cover;
 
+  overflow-x: clip;
+
   &__wrapper {
     margin: 0 auto;
     padding: $body-spacing;
@@ -18,8 +20,8 @@
 
   &__titles {
     display: grid;
-    gap: 16px;
     justify-content: flex-end;
+    margin-right: 1rem;
     color: $white-base;
     & > * {
       width: 100%;
@@ -28,10 +30,12 @@
 
   &__title {
     font-weight: 700;
+    justify-self: flex-end;
   }
 
   &__subtitle {
     @include f-text(rem(18), $white-base, 500);
+    justify-self: flex-end;
   }
 
   &__info {
@@ -52,13 +56,31 @@
   }
 
   &__icons {
-    max-width: 640px; //todo check the width
+    border: solid red 1px; //todo delete
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__grid {
     display: grid;
     justify-items: center;
     align-items: center;
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 90px), 1fr));
+    grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__sticker {
+    grid-column: 1 / -1;
+    justify-self: flex-end;
+    display: grid;
+    justify-items: flex-end;
+
+    // transform: rotate(15deg);
+    margin-right: 1rem;
+    margin-top: -2rem;
   }
 }
 
@@ -88,6 +110,19 @@
 
     &__icons {
       max-width: 640px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    &__sticker {
+      grid-column: 5;
+      grid-row: 2 / span 2;
+      align-self: center;
+      justify-self: center;
+      justify-items: center;
+      margin-right: 0;
     }
   }
 }

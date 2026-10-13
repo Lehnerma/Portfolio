@@ -15,6 +15,7 @@ import {
   toGradientPosition,
   toLiftedReflectionMatrix,
 } from './sticker-geometry';
+import { UnderlineTitle } from '../../shared/underline-title/underline-title';
 
 @Component({
   selector: 'app-sticker',
@@ -24,6 +25,7 @@ import {
   },
   templateUrl: './sticker.html',
   styleUrl: './sticker.scss',
+  imports: [UnderlineTitle],
 })
 export class Sticker {
   readonly width = input(240);
