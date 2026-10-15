@@ -45,10 +45,6 @@
   &__contact {
     justify-self: flex-end;
   }
-
-  &__social {
-    @include hidden;
-  }
 }
 
 @include respond-to(md) {
