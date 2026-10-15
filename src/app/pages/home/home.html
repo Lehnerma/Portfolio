@@ -135,8 +135,6 @@
     </section>
 
     <div class="skills__stage">
-      <app-sticker class="skills__sticker"></app-sticker>
-
       <ul class="skills__list" [style.--count]="skillsIcons.length">
         @for (skill of skillsIcons; track $index) {
           <li class="skill__container" [style.--index]="$index">
@@ -145,6 +143,7 @@
           </li>
         }
       </ul>
+      <app-sticker class="skills__sticker"></app-sticker>
     </div>
   </div>
 </article>

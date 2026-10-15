@@ -7,14 +7,21 @@
   initial-value: 0px;
 }
 
+// Vertical offset of an icon while it falls into place. Animated on scroll.
+@property --drop {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 .skills {
-  // min-height: 100dvh;
+  min-height: 100dvh;
 
   background-image: url('/assets/background/skills.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  padding: 8rem 0;
+  padding: 1rem 0;
   overflow-x: clip;
 
   &__wrapper {
@@ -48,15 +55,16 @@
 
   &__desc {
     justify-self: flex-end;
+    z-index: 2;
   }
 
   &__info {
-    // background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
-    background-image: url('/assets/img/ripped-papper/skills.png');
+    background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    aspect-ratio: 5.2/1;
+    aspect-ratio: 343/212;
+    max-width: 432px;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -66,8 +74,6 @@
     text-align: center;
   }
 
-  // Sticker and icons share one stage. On mobile they are stacked, from xs up
-  // the icons sit on a full circle around the sticker.
   &__stage {
     --arc: 360deg;
     --start: -90deg;
@@ -80,16 +86,14 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
   }
 
   &__sticker {
     justify-self: flex-end;
     margin-right: 1rem;
+    transform: rotate(8deg);
   }
 }
 
@@ -101,6 +105,7 @@
     display: grid;
     justify-items: center;
     row-gap: 4px;
+    translate: 0 var(--drop);
 
     filter: grayscale(100%) brightness(0.7);
     transition:
@@ -123,28 +128,55 @@
   }
 }
 
-@keyframes skill-reveal {
-  from {
-    --radius: 0px;
-  }
-
-  to {
-    --radius: var(--radius-max);
+@media (pointer: coarse) {
+  .skill__container {
+    filter: none;
   }
 }
 
-// Without scroll timeline support or with reduced motion the icons simply
-// stay at their final position.
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
+    .skills {
+      &__wrapper {
+        view-timeline: --skills-view block;
+      }
+
+      &__titles {
+        animation-name: slide-up;
+        animation-timeline: --skills-view;
+        animation-range: 20% 40%;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+      }
+
+      &__info {
+        animation-name: slide-in-left;
+        animation-timeline: --skills-view;
+        animation-range: 10% 50%;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+      }
+
+      &__sticker {
+        animation-name: slide-in-right;
+        animation-timeline: --skills-view;
+        animation-range: 30% 50%;
+        animation-timing-function: $bouncy;
+        animation-fill-mode: both;
+      }
+    }
+
     .skills__stage {
       view-timeline: --stage block;
     }
 
     .skill__container {
-      animation: skill-reveal both linear;
+      animation: skill-rain both $bouncy;
       animation-timeline: --stage;
-      animation-range: entry calc(10% + var(--index) * 3%) cover 45%;
+      animation-range: entry calc(var(--index) * 3%) entry calc(60% + var(--index) * 3%);
+      @include respond-to(md) {
+        animation-range: entry calc(var(--index) * 5%) entry calc(80% + var(--index) * 3%);
+      }
     }
   }
 }
@@ -178,26 +210,48 @@
     position: absolute;
     inset: 50% auto auto 50%;
     translate: calc(-50% + cos(var(--angle)) * var(--radius))
-      calc(-50% + sin(var(--angle)) * var(--radius));
+      calc(-50% + sin(var(--angle)) * var(--radius) + var(--drop));
   }
 }
 
-// @include respond-to(md) {
-//   .skills {
-//     &__wrapper {
-//       grid-template-columns: 1fr 1fr;
-//     }
+@include respond-to(690px) {
+  .skills {
+    &__info {
+      background-image: url('/assets/img/ripped-papper/skills.png');
+      aspect-ratio: 5.2/1;
+      max-width: 100%;
+    }
+  }
+}
 
-//     &__titles {
-//       grid-column: 1;
-//     }
+@include respond-to(lg) {
+  .skills {
+    &__wrapper {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto 1fr;
+    }
 
-//     &__desc {
-//       grid-column: 2;
-//     }
+    &__titles {
+      grid-column: 2/4;
+    }
 
-//     &__stage {
-//       grid-column: 1 / -1;
-//     }
-//   }
-// }
+    &__info {
+      background-image: url('/assets/img/ripped-papper/skills-long.webp');
+      aspect-ratio: 240 / 400;
+      max-width: 320px;
+      padding: 8px 48px;
+    }
+
+    &__desc {
+      grid-column: 1/2;
+      grid-row: 2;
+      align-self: center;
+      transform: rotate(-8deg);
+    }
+
+    &__stage {
+      grid-row: 2/4;
+      grid-column: 2/4;
+    }
+  }
+}
