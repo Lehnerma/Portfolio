@@ -5,6 +5,11 @@
   align-items: center;
   gap: 24px;
 
+  &[data-orientation='column'] {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__link {
     padding: 8px;
     border: solid 1px $white-base;
@@ -15,11 +20,7 @@
     background-position: bottom;
     background-size: 100% 0;
 
-    @include animation(
-      background-size,
-      400ms,
-      linear(0, 1 44.7%, 0.898 51.8%, 0.874 55.1%, 0.866 58.4%, 0.888 64.3%, 1 77.4%, 0.98 84.5%, 1)
-    );
+    @include animation(background-size, 400ms, $bouncy);
 
     &:hover {
       background-size: 100% 100%;
