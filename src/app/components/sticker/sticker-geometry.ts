@@ -92,6 +92,28 @@ export function interpolatePoint(
 /**
  * Clips a single polygon edge against the fold line and returns the points to keep.
  */
+function getInsidePoint(point: PointSticker, distance: number): PointSticker[] {
+  return distance >= 0 ? [point] : [];
+}
+
+/**
+ * Returns the intersection point when an edge crosses the fold line.
+ */
+function getCrossingPoint(
+  current: PointSticker,
+  next: PointSticker,
+  currentDistance: number,
+  nextDistance: number,
+): PointSticker[] {
+  if (currentDistance * nextDistance < 0) {
+    return [interpolatePoint(current, next, currentDistance / (currentDistance - nextDistance))];
+  }
+  return [];
+}
+
+/**
+ * Clips a polygon edge against the fold line and returns the points to keep.
+ */
 export function clipEdge(
   current: PointSticker,
   next: PointSticker,
@@ -100,16 +122,10 @@ export function clipEdge(
 ): PointSticker[] {
   const currentDistance = signedDistance(current, fold, side);
   const nextDistance = signedDistance(next, fold, side);
-  const result: PointSticker[] = [];
-  if (currentDistance >= 0) {
-    result.push(current);
-  }
-  if (currentDistance * nextDistance < 0) {
-    result.push(
-      interpolatePoint(current, next, currentDistance / (currentDistance - nextDistance)),
-    );
-  }
-  return result;
+  return [
+    ...getInsidePoint(current, currentDistance),
+    ...getCrossingPoint(current, next, currentDistance, nextDistance),
+  ];
 }
 
 /**

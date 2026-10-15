@@ -23,7 +23,7 @@
 
 // Skill icons fall from above onto their position.
 @keyframes skill-rain {
-  from {
+  0% {
     --drop: -100vh;
     opacity: 0;
     z-index: 0;
@@ -35,7 +35,8 @@
   90% {
     opacity: 0.8;
   }
-  to {
+
+  100% {
     --drop: 0px;
     opacity: 1;
     z-index: 1;

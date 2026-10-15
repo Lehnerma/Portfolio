@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard-scss",
   "rules": {
     "no-empty-source": null,
+    "length-zero-no-unit": null,
     "color-function-notation": null,
     "color-function-alias-notation": null,
     "alpha-value-notation": null,
