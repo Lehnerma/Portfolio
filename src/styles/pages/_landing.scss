@@ -29,7 +29,7 @@
 
   &__main {
     display: grid;
-    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-rows: 184px auto auto auto 1fr;
     gap: 16px;
     min-height: 624px;
     padding-bottom: 2rem;
@@ -44,6 +44,10 @@
 
   &__contact {
     justify-self: flex-end;
+  }
+
+  &__social {
+    @include hidden;
   }
 }
 
@@ -83,6 +87,13 @@
     &__contact {
       grid-area: contact;
       justify-self: flex-end;
+    }
+
+    &__social {
+      justify-self: flex-start;
+      visibility: visible;
+      display: block;
+      pointer-events: visible;
     }
   }
 }
