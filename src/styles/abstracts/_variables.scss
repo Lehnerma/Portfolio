@@ -1,4 +1,5 @@
 // PLATZHALTER – Werte warten auf Freigabe / Mockup
+$breakpoint-xs: 464px;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -7,27 +8,21 @@ $breakpoint-xl: 1200px;
 $animation-time: 0.3s;
 
 // Schriftarten
-$f-title: 'Bricolage Grotesque', system-ui, sans-serif;
 $f-txt: 'Bricolage Grotesque', system-ui, sans-serif;
 $f-hand: 'Kalam', sans-serif;
 
-// Spacing (vorläufig, Mockup nur Richtwert)
-$body-spacing: clamp(16px, 7vw, 72px);
+// Spacing
+$body-spacing: 16px clamp(4px, 4vw, 72px);
+$spacing16-40: clamp(16px, 4vw, 40px);
 
-$space-1: 0.25rem;
-$space-2: 0.5rem;
-$space-3: 0.75rem;
-$space-4: 1rem;
-$space-5: 1.25rem;
-$space-6: 1.5rem;
-$space-8: 2rem;
-
-// Container-Breite (Desktop laut Mockup: max. 1044px)
+// Container-Breite
 $dp-max-width: 1440px;
 
+// z-index classes
 .z-40 {
   z-index: 40;
 }
+
 .z-100 {
   z-index: 100;
 }
@@ -35,3 +30,25 @@ $dp-max-width: 1440px;
 .dp-max {
   max-width: $dp-max-width;
 }
+
+.d-none {
+  display: none;
+  visibility: hidden;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+$bouncy: linear(
+  0,
+  0.413 26.3%,
+  0.876 50.3%,
+  0.999 57.7%,
+  0.918 65.2%,
+  0.899 68.7%,
+  0.893 72.3%,
+  0.909 78.4%,
+  0.987 92.2%,
+  1
+);

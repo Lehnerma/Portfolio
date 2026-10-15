@@ -1,9 +1,9 @@
 @use '../../../styles/abstracts' as *;
 
-[data-theme='transparent'] {
+[data-theme='white'] {
   --font-color: #{$white-base};
   --bg: transparent;
-  --bg-hover: #{$orange-heighlight};
+  --bg-hover: #{$logo-gradient};
   --btn-shadow: #{$btn-secondary-shadow-transparent};
   --btn-shadow-active: #{$btn-secondary-shadow-transparent-active};
   --border: #{$border-btn-transparent};
@@ -12,10 +12,10 @@
 [data-theme='black'] {
   --font-color: #{$black-base};
   --bg: transparent;
-  --bg-hover: #{$orange-heighlight};
+  --bg-hover: #{$logo-blue};
   --btn-shadow: #{$btn-secondary-shadow-black};
   --btn-shadow-active: #{$btn-secondary-shadow-black-active};
-  --border: #{$border-btn-transparent};
+  --border: #{$border-btn-black};
 }
 
 .btn {
@@ -31,7 +31,7 @@
       transform $animation-time ease-in-out;
 
     &:hover {
-      background-color: var(--bg-hover);
+      background: var(--bg-hover);
       box-shadow: none;
       transform: translateY(4px);
     }

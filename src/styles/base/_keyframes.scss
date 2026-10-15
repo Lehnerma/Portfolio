@@ -1,0 +1,44 @@
+@keyframes slide-up {
+  from {
+    opacity: 0.5;
+    translate: 0 100vh;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    translate: -100vw 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    translate: 100vw 0;
+  }
+}
+
+// Skill icons fall from above onto their position.
+@keyframes skill-rain {
+  0% {
+    --drop: -100vh;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  70% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    --drop: 0px;
+    opacity: 1;
+    z-index: 1;
+  }
+}

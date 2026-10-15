@@ -5,11 +5,6 @@
   display: inline-block;
   padding: 0.4em 0;
   text-decoration: none;
-
-  &__title {
-    @include f-text(rem(18), $white-base, 700);
-    line-height: 120%;
-  }
 }
 
 .stroke {
@@ -21,9 +16,18 @@
   overflow: visible;
   pointer-events: none;
 
+  // Umrundet den Text: größer als der Inhalt und mittig darüber gelegt
+  &--circle {
+    top: -0.35em;
+    bottom: auto;
+    left: -10%;
+    width: 120%;
+    height: calc(100% + 0.7em);
+  }
+
   path {
     fill: none;
-    stroke: $yellow-heighlight;
+    stroke: $logo-violet;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 1 2;

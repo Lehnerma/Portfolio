@@ -1,0 +1,101 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+
+  --sticker-orange: rgb(245, 175, 76);
+  --lime: rgb(137, 255, 36);
+}
+
+.peel {
+  position: relative;
+}
+
+.peel-handle {
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+
+  &:focus-visible {
+    outline: 3px solid $blue-violet;
+    outline-offset: 4px;
+  }
+}
+
+.sticker {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+
+  &__top {
+    background-image: url('/assets/sticker/peel-top-shadow.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: grid;
+    align-items: center;
+  }
+
+  &__back,
+  &__bottom {
+    background-image: url('/assets/sticker/peel-bottom-shadow.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__back {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__bottom {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: auto 1fr;
+    padding: 2rem 0.5rem;
+    @include f-hand(rem(20), var(--lime), 700);
+
+    text-shadow:
+      0px 2px 4px rgba(0, 0, 0, 0.6),
+      0px 0px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  &-top {
+    display: grid;
+    justify-items: center;
+    transform: rotate(10deg);
+
+    &__icon {
+      width: 52px;
+    }
+
+    &__title {
+      @include f-hand(rem(40), $white-base);
+      text-align: center;
+    }
+  }
+
+  &-back {
+    &__icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    &__icon {
+      width: 56px;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    transform: rotateY(180deg);
+  }
+
+  &__fold {
+    perspective: 800px;
+  }
+}

@@ -27,7 +27,7 @@
       left: 50%;
       opacity: 0;
       pointer-events: none;
-      fill: $white-base;
+      fill: $logo-violet;
     }
   }
 }
@@ -66,7 +66,7 @@
 }
 
 @keyframes btn-icon-roll {
-  from {
+  0% {
     opacity: 0;
     left: 30%;
     transform: rotate(-360deg);
@@ -76,7 +76,7 @@
     opacity: 1;
   }
 
-  to {
+  100% {
     opacity: 1;
     left: 85%;
     transform: rotate(0deg);

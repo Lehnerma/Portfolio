@@ -1,0 +1,89 @@
+@use '../../../styles/abstracts' as *;
+
+.papers {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
+
+.paper {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 660px;
+  aspect-ratio: 1029 / 384;
+  background-image: var(--bg-mobile);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &__wrapper {
+    position: absolute;
+    inset: var(--inset);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__txt {
+    color: $white-base;
+  }
+
+  &__icon {
+    width: 30px;
+    aspect-ratio: 1 / 1;
+  }
+
+  &--blue {
+    --inset: 12% 14% 28% 14%;
+    --slide-name: slide-in-left;
+    --slide-range: 20% 40%;
+    z-index: 1;
+  }
+
+  &--coral {
+    --inset: 20% 8% 17% 13%;
+    --slide-name: slide-in-right;
+    --slide-range: 32% 40%;
+    z-index: 10;
+  }
+
+  &--purple {
+    --inset: 22% 8% 27% 8%;
+    --slide-name: slide-in-left;
+    --slide-range: 38% 45%;
+    z-index: 20;
+  }
+}
+
+@include respond-to(md) {
+  .paper {
+    aspect-ratio: 1680 / 456;
+    background-image: var(--bg-desktop);
+
+    &--blue {
+      --inset: 12% 8% 18% 13%;
+    }
+
+    &--coral {
+      --inset: 22% 9% 30% 12%;
+    }
+
+    &--purple {
+      --inset: 15% 14% 36% 15%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .paper {
+      animation-name: var(--slide-name);
+      animation-timeline: --about-section;
+      animation-range: var(--slide-range);
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+    }
+  }
+}

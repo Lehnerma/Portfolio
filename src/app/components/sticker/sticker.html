@@ -1,0 +1,57 @@
+<section class="peel" [style.width.px]="width()" [style.height.px]="height()">
+  <div class="sticker sticker__bottom">
+    <!-- @if (isPeeled()) {
+      <button type="button" (click)="reset()">Reset sticker</button>
+    } -->
+    <app-underline-title variant="squiggle">
+      <h4 class="sticker-back__title">Currently learning:</h4>
+    </app-underline-title>
+    <div class="sticker-back__icons">
+      <img src="/assets/icons/skills/n8n.svg" alt="" class="sticker-back__icon" />
+      <img src="/assets/icons/skills/swift.svg" alt="" class="sticker-back__icon" />
+    </div>
+  </div>
+  @if (!isPeeled()) {
+    <div
+      class="sticker peel-handle"
+      role="slider"
+      tabindex="0"
+      aria-label="Peel off sticker"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [attr.aria-valuenow]="percentPeeled()"
+      [attr.aria-valuetext]="percentPeeled() + ' percent peeled'"
+      (pointerdown)="startDrag($event)"
+      (pointermove)="updatePointer($event)"
+      (keydown)="handleKey($event)"
+      (pointerenter)="showHint($event)"
+      (pointerleave)="hideHint()"
+      (focus)="showHint($event)"
+      (blur)="hideHint()"
+    >
+      <div
+        class="sticker sticker__top"
+        [style.clip-path]="topClipPath()"
+        [style.opacity]="fadeOpacity()"
+      >
+        <!--todo can be delete? <ng-content select="[peelTop]" /> -->
+        <figure peelTop class="sticker-top">
+          <img src="/assets/icons/peel-arrow.png" alt="" class="sticker-top__icon" />
+          <figcaption class="sticker-top__title">
+            Pls peel <br />
+            me
+          </figcaption>
+        </figure>
+      </div>
+      <div class="sticker sticker__fold" aria-hidden="true" inert [style.opacity]="fadeOpacity()">
+        <div
+          class="sticker sticker__back"
+          [style.clip-path]="backClipPath()"
+          [style.transform]="backTransform()"
+        >
+          <img src="/assets/img/lm_logo.png" alt="" class="sticker__img" />
+        </div>
+      </div>
+    </div>
+  }
+</section>
