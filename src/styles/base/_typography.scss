@@ -1,27 +1,27 @@
 @use '../abstracts' as *;
 
 .txt16-20 {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: clamp(rem(16), 5vw, rem(20));
 }
 
 .txt20-24 {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: clamp(rem(20), 5vw, rem(24));
 }
 
 .txt56-144 {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: clamp(rem(56), 18vw, rem(144));
 }
 
 .txt56-128 {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: clamp(rem(48), 15vw, rem(128));
 }
 
 .txt64-128 {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: clamp(rem(60), 13vw, rem(128));
 }
 

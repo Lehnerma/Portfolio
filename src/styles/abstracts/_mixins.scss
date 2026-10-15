@@ -2,7 +2,11 @@
 @use 'functions' as *;
 
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == sm {
+  @if $breakpoint == xs {
+    @media (min-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
     @media (min-width: $breakpoint-sm) {
       @content;
     }
@@ -49,7 +53,7 @@
 }
 
 @mixin f-title($size: rem(16px), $color: white, $weight: 400, $letter-spacing: 0) {
-  font-family: $f-title;
+  font-family: $f-txt;
   font-size: $size;
   font-weight: $weight;
   letter-spacing: $letter-spacing;
