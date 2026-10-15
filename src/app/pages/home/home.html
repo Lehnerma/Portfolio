@@ -76,8 +76,16 @@
       [type]="'button'"
       class="landing__hello"
     ></app-primary-btn>
-    <app-animate-title text="Frontend" class="landing__title1"></app-animate-title>
-    <app-animate-title text="DEVELOPER" class="landing__title2"></app-animate-title>
+    <app-animate-title
+      text="Frontend"
+      class="landing__title1"
+      fillingColor="purple"
+    ></app-animate-title>
+    <app-animate-title
+      text="DEVELOPER"
+      class="landing__title2"
+      fillingColor="blue"
+    ></app-animate-title>
     <app-secondary-btn
       label="Get in Touch"
       btnTheme="white"
@@ -146,4 +154,8 @@
       <app-sticker class="skills__sticker"></app-sticker>
     </div>
   </div>
+</article>
+
+<article class="projects">
+  <app-underline-title variant="squiggle" class="projects__titles"></app-underline-title>
 </article>

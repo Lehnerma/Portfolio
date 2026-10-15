@@ -1,4 +1,4 @@
-<h1 class="heading" [attr.aria-label]="text()">
+<h1 class="heading" [attr.aria-label]="text()" [attr.data-filling]="fillingColor()">
   @for (letter of getLetters(text()); track $index) {
     <span
       class="heading__letter txt56-128"
