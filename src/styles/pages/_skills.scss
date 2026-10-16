@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use '../abstracts/index' as *;
 
 // Current distance of an icon from the sticker centre. Animated on scroll.
 @property --radius {

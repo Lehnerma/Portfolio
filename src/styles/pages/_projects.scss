@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.projects{
+  min-height: 100dvh;
+  padding: $body-spacing;
+}

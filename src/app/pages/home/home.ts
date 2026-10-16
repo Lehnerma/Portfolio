@@ -8,6 +8,7 @@ import { RippedPaper } from '../../components/ripped-paper/ripped-paper';
 import { SkillIcon } from '../../interfaces/skills-icons';
 import { TitleCasePipe } from '@angular/common';
 import { Sticker } from '../../components/sticker/sticker';
+import {ProjectWindow} from '../../components/project-window/project-window';
 
 @Component({
   imports: [
@@ -19,6 +20,7 @@ import { Sticker } from '../../components/sticker/sticker';
     RippedPaper,
     TitleCasePipe,
     Sticker,
+    ProjectWindow
   ],
   selector: 'app-home',
   styleUrl: './home.scss',
