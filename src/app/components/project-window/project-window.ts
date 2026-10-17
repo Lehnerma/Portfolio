@@ -1,10 +1,11 @@
 import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SecondaryBtn } from '../../shared/secondary-btn/secondary-btn';
 
 let nextWindowInstanceId = 0;
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, SecondaryBtn],
   selector: 'app-project-window',
   styleUrl: './project-window.scss',
   templateUrl: './project-window.html',

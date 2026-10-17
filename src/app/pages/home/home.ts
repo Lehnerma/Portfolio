@@ -8,7 +8,8 @@ import { RippedPaper } from '../../components/ripped-paper/ripped-paper';
 import { SkillIcon } from '../../interfaces/skills-icons';
 import { TitleCasePipe } from '@angular/common';
 import { Sticker } from '../../components/sticker/sticker';
-import {ProjectWindow} from '../../components/project-window/project-window';
+import { ProjectWindow } from '../../components/project-window/project-window';
+import { ProjectInfos } from '../../interfaces/project-infos';
 
 @Component({
   imports: [
@@ -20,7 +21,7 @@ import {ProjectWindow} from '../../components/project-window/project-window';
     RippedPaper,
     TitleCasePipe,
     Sticker,
-    ProjectWindow
+    ProjectWindow,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',
@@ -44,6 +45,7 @@ export class Home {
     { name: 'linux', path: 'assets/icons/skills/linux.svg' },
   ];
 
+  projects: ProjectInfos[] = [];
   /**
    * Toggles the nav menu on the mobile version
    */

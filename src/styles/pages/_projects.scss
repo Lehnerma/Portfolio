@@ -1,6 +1,12 @@
 @use '../abstracts' as *;
 
-.projects{
+.projects {
   min-height: 100dvh;
   padding: $body-spacing;
+}
+
+.content {
+  &--title {
+    font-size: 2rem;
+  }
 }

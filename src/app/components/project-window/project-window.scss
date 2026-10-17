@@ -16,8 +16,8 @@
   --corner-radius: 12px;
   --titlebar-height: 2.5rem;
   --control-size: 0.875rem;
-  --line-color: #222;
-  --paper-color: #fff;
+  --line-color: #{$black-base};
+  --paper-color: #{$white-base};
   --close-color: #ff5f57;
   --minimize-color: #febc2e;
   --maximize-color: #28c840;
@@ -25,8 +25,7 @@
 
   position: relative;
   width: 100%;
-  max-width: 32rem;
-  margin-inline: auto;
+  max-width: 40rem;
   padding: var(--border-width);
 
   &__frame {
@@ -121,10 +120,11 @@
   }
 
   &__content-inner {
-    min-height: 0;
+    // min-height: 0;
     overflow: hidden;
     border-radius: 0 0 calc(var(--corner-radius) - var(--border-width))
       calc(var(--corner-radius) - var(--border-width));
+    display: grid;
   }
 
   &__screenshot {
@@ -133,7 +133,27 @@
     aspect-ratio: 16 / 10;
     object-fit: cover;
     object-position: top;
-    transition: transform 400ms ease;
+    transition:
+      transform 400ms ease,
+      opacity 500ms ease,
+      filter 500ms ease;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+  }
+
+  &__desc {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 20;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 8px 16px;
+    overflow-y: scroll;
+
+    opacity: 0;
+    transition: opacity 400ms ease;
   }
 
   &--minimized {
@@ -152,27 +172,15 @@
 }
 
 @media (hover: hover) {
-  .project-window__content:hover .project-window__screenshot {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes window-shake {
-  0%,
-  100% {
-    transform: translateX(0) rotate(0);
-  }
-  20% {
-    transform: translateX(-6px) rotate(-1deg);
-  }
-  40% {
-    transform: translateX(6px) rotate(1deg);
-  }
-  60% {
-    transform: translateX(-4px) rotate(-0.5deg);
-  }
-  80% {
-    transform: translateX(4px) rotate(0.5deg);
+  .project-window__content:hover {
+    .project-window__screenshot {
+      transform: scale(1.05);
+      opacity: 0.3;
+      filter: grayscale(150%) blur(5px);
+    }
+    .project-window__desc {
+      opacity: 1;
+    }
   }
 }
 
