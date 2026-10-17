@@ -130,7 +130,7 @@
   &__screenshot {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 17 / 12;
     object-fit: cover;
     object-position: top;
     transition:
@@ -150,10 +150,31 @@
     justify-items: center;
     align-items: center;
     padding: 8px 16px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     opacity: 0;
     transition: opacity 400ms ease;
+  }
+
+  &__flip {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 10;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--line-color);
+      outline-offset: -4px;
+    }
+  }
+
+  &__below {
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+    padding-block: 1rem;
   }
 
   &--minimized {
@@ -171,16 +192,27 @@
   }
 }
 
+@mixin flipped-state {
+  .project-window__screenshot {
+    transform: scale(1.05);
+    opacity: 0.3;
+    filter: grayscale(150%) blur(5px);
+  }
+  .project-window__desc {
+    opacity: 1;
+  }
+}
+
 @media (hover: hover) {
-  .project-window__content:hover {
-    .project-window__screenshot {
-      transform: scale(1.05);
-      opacity: 0.3;
-      filter: grayscale(150%) blur(5px);
-    }
-    .project-window__desc {
-      opacity: 1;
-    }
+  .project-window__content:hover:has(.project-window__desc) {
+    @include flipped-state;
+  }
+}
+
+// Touch: the tap toggle replaces the hover
+@media (hover: none) {
+  .project-window--flipped {
+    @include flipped-state;
   }
 }
 

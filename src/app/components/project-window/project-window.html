@@ -2,6 +2,7 @@
   class="project-window"
   [class.project-window--minimized]="isMinimized()"
   [class.project-window--shaking]="isShaking()"
+  [class.project-window--flipped]="isFlipped()"
   (animationend)="onShakeEnd()"
 >
   <div class="project-window__frame" [style.filter]="'url(#' + frameFilterId + ')'">
@@ -92,14 +93,32 @@
     <h3 class="project-window__title">{{ title() }}</h3>
   </header>
 
-  <main class="project-window__content">
-    <figure class="project-window__content-inner">
+  <div class="project-window__content">
+    <figure class="project-window__content-inner" (click)="toggleFlipped($event)">
       <img class="project-window__screenshot" [src]="screenshotSrc()" [alt]="screenshotAlt()" />
-      <figcaption class="project-window__desc">
-        <ng-content select="[desc-title]" />
-        <ng-content select="[desc-text]" />
-        <app-secondary-btn title="Details" label="Details" btnTheme="black"></app-secondary-btn>
-      </figcaption>
+      @if (!isCompact()) {
+        <button
+          type="button"
+          class="project-window__flip"
+          [attr.aria-pressed]="isFlipped()"
+          aria-label="Projektbeschreibung anzeigen"
+        ></button>
+        <figcaption class="project-window__desc">
+          <ng-container *ngTemplateOutlet="caption" />
+        </figcaption>
+      }
     </figure>
-  </main>
+  </div>
 </div>
+
+@if (isCompact()) {
+  <div class="project-window__below">
+    <ng-container *ngTemplateOutlet="caption" />
+  </div>
+}
+
+<ng-template #caption>
+  <ng-content select="[desc-title]" />
+  <ng-content select="[desc-text]" />
+  <app-secondary-btn title="Details" label="Details" btnTheme="black"></app-secondary-btn>
+</ng-template>

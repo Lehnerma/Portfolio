@@ -3,10 +3,28 @@
 .projects {
   min-height: 100dvh;
   padding: $body-spacing;
+  margin: 0 auto;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
+
+    row-gap: 6rem;
+    column-gap: 2rem;
+    justify-items: center;
+  }
 }
 
 .content {
   &--title {
     font-size: 2rem;
+  }
+}
+
+@include respond-to(md) {
+  .projects {
+    &__cards {
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    }
   }
 }
