@@ -50,9 +50,9 @@ export class Home {
       name: 'Join',
       img_scr: '/assets/img/join.webp',
       description_en:
-        'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. <br/> Try out the features right away using the built-in guest access.',
+        'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. Try out the features right away using the built-in guest access.',
       description_de:
-        'Ein minimalistisches Projektmanagement-Tool für die Zusammenarbeit. Das Frontend wurde ausschließlich mit HTML, CSS und JavaScript erstellt, während Firebase als Cloud-Backend dient und so eine nahtlose Aufgabenverwaltung in Echtzeit gewährleistet. <br/> Probieren Sie die Funktionen gleich jetzt über den integrierten Gastzugang aus.',
+        'Ein minimalistisches Projektmanagement-Tool für die Zusammenarbeit. Das Frontend wurde ausschließlich mit HTML, CSS und JavaScript erstellt, während Firebase als Cloud-Backend dient und so eine nahtlose Aufgabenverwaltung in Echtzeit gewährleistet. Probieren Sie die Funktionen gleich jetzt über den integrierten Gastzugang aus.',
       img_alt: 'Screenshot project Join',
       route: '', // todo add the route!
     },

@@ -4,6 +4,9 @@
   min-height: 100dvh;
   padding: $body-spacing;
   margin: 0 auto;
+  position: relative;
+  display: grid;
+  gap: 32px;
 
   &__cards {
     display: grid;
