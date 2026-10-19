@@ -27,6 +27,7 @@ export class ProjectWindow {
   protected readonly isDragging = signal<boolean>(false);
 
   protected grabOrigin = { x: 0, y: 0 };
+  private bounds = { minX: 0, maxX: 0, minY: 0, maxY: 0 };
 
   private readonly instanceId = nextWindowInstanceId++;
   protected readonly frameFilterId = `window-frame-filter-${this.instanceId}`;
@@ -82,23 +83,39 @@ export class ProjectWindow {
 
   protected pointerDown(event: PointerEvent): void {
     if (this.isCompact()) return;
-    if ((event.currentTarget as Element).closest('button, a')) return;
+    if ((event.target as Element).closest('button, a')) return;
     this.grabOrigin = {
       x: event.clientX - this.offset().x,
       y: event.clientY - this.offset().y,
     };
     (event.target as HTMLElement).setPointerCapture(event.pointerId);
+    this.updateBounds(event.currentTarget as Element);
     this.isDragging.set(true);
   }
 
+  /**
+   * Sets the translate values that the user can move window
+   * @param event grapping the window and move ist
+   */
   protected pointerMove(event: PointerEvent): void {
     if (!this.isDragging()) return;
     const newOffset = {
       x: event.clientX - this.grabOrigin.x,
       y: event.clientY - this.grabOrigin.y,
     };
-    this.offset.set(newOffset);
-    console.log(this.offset());
+    this.offset.set(this.clampOffset(newOffset));
+  }
+
+  /**
+   * Limits an offset to the bounds measured on pointerdown. Axes are clamped independently,
+   * so the window can slide along an edge while dragging diagonally.
+   */
+  private clampOffset(offset: { x: number; y: number }): { x: number; y: number } {
+    const { minX, maxX, minY, maxY } = this.bounds;
+    return {
+      x: Math.min(Math.max(offset.x, minX), maxX),
+      y: Math.min(Math.max(offset.y, minY), maxY),
+    };
   }
 
   /**
@@ -106,5 +123,21 @@ export class ProjectWindow {
    */
   protected cancelDragging(): void {
     this.isDragging.set(false);
+  }
+
+  /**
+   * Updates the bounds for the grapped window
+   * @param element The element whitch one is grapping
+   */
+  private updateBounds(element: Element): void {
+    const sectionRec = element.closest('#projects')?.getBoundingClientRect();
+    const windowRec = element.closest('.project-window')?.getBoundingClientRect();
+    if (!sectionRec || !windowRec) return;
+    this.bounds = {
+      minX: sectionRec.left - windowRec.left + this.offset().x,
+      maxX: sectionRec.right - windowRec.right + this.offset().x,
+      minY: sectionRec.top - windowRec.top + this.offset().y,
+      maxY: sectionRec.bottom - windowRec.bottom + this.offset().y,
+    };
   }
 }

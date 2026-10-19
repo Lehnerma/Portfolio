@@ -25,7 +25,7 @@
 
   position: relative;
   width: 100%;
-  max-width: 40rem;
+  max-width: 35rem;
   padding: var(--border-width);
 
   &__frame {
@@ -127,6 +127,7 @@
     display: grid;
     grid-template-rows: 1fr;
     transition: grid-template-rows var(--collapse-duration) ease;
+    @include f-text(rem(20), $black-base, 400);
   }
 
   &__content-inner {
