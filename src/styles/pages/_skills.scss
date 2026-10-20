@@ -20,7 +20,7 @@
 
   background-image: url('/assets/background/skills.png');
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: bottom;
   background-size: cover;
   padding: 1rem 0;
   overflow-x: clip;
@@ -81,6 +81,7 @@
 
     display: grid;
     gap: 2rem;
+    margin-bottom: 3rem;
   }
 
   &__list {
@@ -253,7 +254,7 @@
     &__stage {
       grid-row: 2/4;
       grid-column: 2/4;
-      margin-bottom: 3rem;
+      margin-bottom: 7rem;
     }
   }
 }

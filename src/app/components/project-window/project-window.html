@@ -1,5 +1,6 @@
 <div
   class="project-window"
+  [style.translate]="translateValue()"
   [class.project-window--minimized]="isMinimized()"
   [class.project-window--shaking]="isShaking()"
   [class.project-window--flipped]="isFlipped()"
@@ -9,7 +10,13 @@
     <span class="project-window__divider"></span>
   </div>
 
-  <header class="project-window__titlebar">
+  <header
+    class="project-window__titlebar"
+    (pointerdown)="pointerDown($event)"
+    (pointerup)="cancelDragging()"
+    (pointermove)="pointerMove($event)"
+    (pointercancel)="cancelDragging()"
+  >
     <div class="project-window__controls" [style.filter]="'url(#' + controlFilterId + ')'">
       <button
         type="button"
@@ -94,13 +101,15 @@
   </header>
 
   <div class="project-window__content">
-    <figure class="project-window__content-inner" (click)="toggleFlipped($event)">
+    <figure class="project-window__content-inner">
       <img class="project-window__screenshot" [src]="screenshotSrc()" [alt]="screenshotAlt()" />
+
       @if (!isCompact()) {
         <button
           type="button"
           class="project-window__flip"
           [attr.aria-pressed]="isFlipped()"
+          (click)="toggleFlipped($event)"
           aria-label="Projektbeschreibung anzeigen"
         ></button>
         <figcaption class="project-window__desc">
@@ -110,7 +119,6 @@
     </figure>
   </div>
 </div>
-
 @if (isCompact()) {
   <div class="project-window__below">
     <ng-container *ngTemplateOutlet="caption" />

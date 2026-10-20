@@ -95,3 +95,14 @@
     display: inline-block;
   }
 }
+
+@mixin flipped-state {
+  .project-window__screenshot {
+    transform: scale(1.05);
+    opacity: 0.3;
+    filter: grayscale(150%) blur(5px);
+  }
+  .project-window__desc {
+    opacity: 1;
+  }
+}

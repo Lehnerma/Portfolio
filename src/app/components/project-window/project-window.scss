@@ -25,7 +25,7 @@
 
   position: relative;
   width: 100%;
-  max-width: 40rem;
+  max-width: 35rem;
   padding: var(--border-width);
 
   &__frame {
@@ -53,6 +53,16 @@
     gap: 1rem;
     height: var(--titlebar-height);
     padding-inline: 0.75rem;
+
+    @include respond-to(md) {
+      touch-action: none;
+      user-select: none;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
   }
 
   &__controls {
@@ -72,7 +82,7 @@
     cursor: pointer;
 
     &:focus-visible {
-      outline: 2px solid var(--line-color);
+      outline: 2px solid $orange-heighlight;
       outline-offset: 3px;
     }
 
@@ -117,6 +127,7 @@
     display: grid;
     grid-template-rows: 1fr;
     transition: grid-template-rows var(--collapse-duration) ease;
+    @include f-text(rem(20), $black-base, 400);
   }
 
   &__content-inner {
@@ -130,7 +141,7 @@
   &__screenshot {
     display: block;
     width: 100%;
-    aspect-ratio: 17 / 12;
+    height: 100%;
     object-fit: cover;
     object-position: top;
     transition:
@@ -165,7 +176,7 @@
     cursor: pointer;
 
     &:focus-visible {
-      outline: 2px solid var(--line-color);
+      outline: 2px solid $orange-heighlight;
       outline-offset: -4px;
     }
   }
@@ -189,17 +200,6 @@
 
   &--shaking {
     animation: window-shake 450ms ease-in-out;
-  }
-}
-
-@mixin flipped-state {
-  .project-window__screenshot {
-    transform: scale(1.05);
-    opacity: 0.3;
-    filter: grayscale(150%) blur(5px);
-  }
-  .project-window__desc {
-    opacity: 1;
   }
 }
 

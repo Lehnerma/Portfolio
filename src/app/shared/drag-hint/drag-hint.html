@@ -1,0 +1,32 @@
+<span class="drag-hint__sr">{{ label() }}</span>
+
+@if (inView()) {
+  @for (key of [cycle()]; track key) {
+    <div class="drag-hint" aria-hidden="true">
+      <p class="drag-hint__text">
+        {{ prefix() }}
+        <span class="drag-hint__word">{{ word() }}</span>
+        {{ suffix() }}
+      </p>
+
+      <svg class="drag-hint__arrow" viewBox="0 0 140 120">
+        <filter [attr.id]="filterId" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05 0.25" numOctaves="2" result="n" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="n"
+            scale="3"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        <path
+          pathLength="1"
+          d="M 90 6 C 122 40 70 72 24 108 M 40 105 L 24 108 L 30 93"
+          [attr.stroke-width]="strokeWidth"
+          [attr.filter]="'url(#' + filterId + ')'"
+        />
+      </svg>
+    </div>
+  }
+}
