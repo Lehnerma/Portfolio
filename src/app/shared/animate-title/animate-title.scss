@@ -6,11 +6,11 @@
   letter-spacing: -0.02em;
 
   &[data-filling='blue'] {
-    --fillingColor: #{$logo-blue};
+    --filling-color: #{$logo-blue};
   }
 
   &[data-filling='purple'] {
-    --fillingColor: #{$logo-violet};
+    --filling-color: #{$logo-violet};
   }
 
   &__letter {
@@ -21,7 +21,7 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--fillingColor);
+      color: var(--filling-color);
     }
 
     &:hover .heading__char--base {
