@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, computed, model, signal } from '@angular/core';
 import { UnderlineTitle } from '../../shared/underline-title/underline-title';
 import { SocialIcons } from '../../shared/social-icons/social-icons';
 import { AnimateTitle } from '../../shared/animate-title/animate-title';
@@ -8,6 +8,10 @@ import { RippedPaper } from '../../components/ripped-paper/ripped-paper';
 import { SkillIcon } from '../../interfaces/skills-icons';
 import { TitleCasePipe } from '@angular/common';
 import { Sticker } from '../../components/sticker/sticker';
+import { ProjectWindow } from '../../components/project-window/project-window';
+import { ProjectInfos } from '../../interfaces/project-infos';
+import { DragHint } from '../../shared/drag-hint/drag-hint';
+import { mediaQuery } from '../../shared/utils/media-query';
 
 @Component({
   imports: [
@@ -19,6 +23,8 @@ import { Sticker } from '../../components/sticker/sticker';
     RippedPaper,
     TitleCasePipe,
     Sticker,
+    ProjectWindow,
+    DragHint,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',
@@ -27,6 +33,12 @@ import { Sticker } from '../../components/sticker/sticker';
 export class Home {
   navOpen = model<boolean>(false);
   burgerMenu = model<boolean>(true);
+
+  /** Windows are only draggable from `md` (768px) on, so the drag hint is only shown there. */
+  private readonly isMdUp = mediaQuery('(min-width: 768px)');
+  /** Set once any project window has been dragged; hides the drag hint for good. */
+  protected readonly hasDragged = signal(false);
+  protected readonly showDragHint = computed(() => this.isMdUp() && !this.hasDragged());
 
   skillsIcons: SkillIcon[] = [
     { name: 'angular', path: 'assets/icons/skills/angular.svg' },
@@ -42,6 +54,38 @@ export class Home {
     { name: 'linux', path: 'assets/icons/skills/linux.svg' },
   ];
 
+  projects: ProjectInfos[] = [
+    {
+      name: 'Join',
+      img_scr: '/assets/img/join.webp',
+      description_en:
+        'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. Try out the features right away using the built-in guest access.',
+      description_de:
+        'Ein minimalistisches Projektmanagement-Tool für die Zusammenarbeit. Das Frontend wurde ausschließlich mit HTML, CSS und JavaScript erstellt, während Firebase als Cloud-Backend dient und so eine nahtlose Aufgabenverwaltung in Echtzeit gewährleistet. Probieren Sie die Funktionen gleich jetzt über den integrierten Gastzugang aus.',
+      img_alt: 'Screenshot project Join',
+      route: '', // todo add the route!
+    },
+    {
+      name: 'Poll-app',
+      img_scr: '/assets/img/poll-app.webp',
+      description_en:
+        'A modern dynamic survey web application built with Angular, SCSS, and Supabase as Backend-as-a-Service. The app enables the creation of adaptive questionnaires that dynamically adjust their flow in real time based on user responses. Featuring single- and multiple-choice question formats, it includes instant database synchronization, configurable expiry dates, and flexible rule management. Ready to fill out and test with zero friction.',
+      description_de:
+        'Eine moderne Web-App für interaktive Umfragen, entwickelt mit Angular, SCSS und Supabase als Backend-as-a-Service. Die Anwendung ermöglicht das Erstellen dynamischer Fragebögen, deren Verlauf in Echtzeit auf die Eingaben der Nutzer reagiert. Neben flexiblem Frage-Design mit Single- und Multiple-Choice-Optionen bietet das System eine nahtlose Echtzeit-Datenbanksynchronisation sowie Konfigurationsmöglichkeiten für Ablaufdaten und Zugriffsbeschränkungen. Ohne große Hürden sofort ausfüllen und testen.',
+      img_alt: 'Screenshot project Poll-app',
+      route: '',
+    },
+    {
+      name: 'Sharkie',
+      img_scr: '/assets/img/sharkie.webp',
+      description_en:
+        'In this object-oriented browser game, players guide a small shark on his epic quest to become the King of the Seas. Built with pure HTML5, CSS3, and Vanilla JavaScript following clean OOP architecture, the game features animated enemies, an in-game upgrade shop, and a challenging final boss fight. The fully playable first level runs instantly in any web browser without installation.',
+      description_de:
+        'In diesem objektorientierten Browser-Game begleiten Spieler einen kleinen Hai auf seinem Weg zum mächtigen König der Meere. Entwickelt mit reinem HTML5, CSS3 und Vanilla JavaScript auf Basis moderner OOP-Prinzipien, bietet das Spiel animierte Gegner, einen integrierten Ingame-Shop für Upgrades sowie einen anspruchsvollen Endboss. Das fertige erste Level lässt sich ohne Installation direkt im Browser starten.',
+      img_alt: 'Screenshot project Sharkie',
+      route: '',
+    },
+  ];
   /**
    * Toggles the nav menu on the mobile version
    */

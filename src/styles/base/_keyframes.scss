@@ -21,7 +21,6 @@
   }
 }
 
-// Skill icons fall from above onto their position.
 @keyframes skill-rain {
   0% {
     --drop: -100vh;
@@ -40,5 +39,46 @@
     --drop: 0px;
     opacity: 1;
     z-index: 1;
+  }
+}
+
+@keyframes window-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  20% {
+    transform: translateX(-6px) rotate(-1deg);
+  }
+  40% {
+    transform: translateX(6px) rotate(1deg);
+  }
+  60% {
+    transform: translateX(-4px) rotate(-0.5deg);
+  }
+  80% {
+    transform: translateX(4px) rotate(0.5deg);
+  }
+}
+
+@keyframes drag-hint-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drag-hint-flap {
+  from {
+    transform: perspective(20rem) rotateX(-90deg);
+  }
+  to {
+    transform: perspective(20rem) rotateX(0);
+  }
+}
+
+@keyframes drag-hint-fade-out {
+  to {
+    opacity: 0;
+    translate: 0 -0.5rem;
   }
 }

@@ -1,0 +1,58 @@
+@use '../abstracts' as *;
+
+.projects {
+  min-height: 90dvh;
+
+  // inline gutter that mimics the centered $dp-max-width column (percent = full article width)
+  --projects-gutter: calc(clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2));
+
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  padding-block: 16px;
+
+  &__titles {
+    justify-self: flex-start;
+    margin-inline-start: var(--projects-gutter);
+  }
+
+  &__hint {
+    position: absolute;
+    top: -8rem;
+    z-index: 20;
+
+    @include respond-to(md) {
+      left: calc(50% + 6rem);
+    }
+
+    @include respond-to(1140px) {
+      left: unset;
+      right: var(--projects-gutter);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    position: relative;
+    padding-inline: var(--projects-gutter);
+    align-content: start;
+    gap: 2rem;
+    justify-items: center;
+  }
+}
+
+.content {
+  max-width: 35rem;
+  &--title {
+    font-size: 2rem;
+  }
+}
+
+@include respond-to(md) {
+  .projects {
+    &__cards {
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+  }
+}

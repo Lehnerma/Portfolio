@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use '../abstracts/index' as *;
 
 // Current distance of an icon from the sticker centre. Animated on scroll.
 @property --radius {
@@ -15,11 +15,12 @@
 }
 
 .skills {
-  min-height: 100dvh;
+  // scroll-snap-align: start;
+  // min-height: 100dvh;
 
   background-image: url('/assets/background/skills.png');
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: bottom;
   background-size: cover;
   padding: 1rem 0;
   overflow-x: clip;
@@ -28,7 +29,6 @@
     margin: 0 auto;
     padding: $body-spacing;
     display: grid;
-    gap: 40px;
   }
 
   &__titles {
@@ -70,7 +70,7 @@
     align-items: center;
     color: $black-base;
     font-weight: 400;
-    padding: 1rem;
+    padding: 16px 8px;
     text-align: center;
   }
 
@@ -81,6 +81,7 @@
 
     display: grid;
     gap: 2rem;
+    margin-bottom: 3rem;
   }
 
   &__list {
@@ -141,6 +142,10 @@
         view-timeline: --skills-view block;
       }
 
+      &__stage {
+        view-timeline: --stage block;
+      }
+
       &__titles {
         animation-name: slide-up;
         animation-timeline: --skills-view;
@@ -159,23 +164,19 @@
 
       &__sticker {
         animation-name: slide-in-right;
-        animation-timeline: --skills-view;
-        animation-range: 30% 50%;
+        animation-timeline: --stage;
+        animation-range: entry 0%;
         animation-timing-function: $bouncy;
         animation-fill-mode: both;
       }
     }
 
-    .skills__stage {
-      view-timeline: --stage block;
-    }
-
     .skill__container {
-      animation: skill-rain both $bouncy;
+      animation: skill-rain both ease;
       animation-timeline: --stage;
       animation-range: entry calc(var(--index) * 3%) entry calc(60% + var(--index) * 3%);
       @include respond-to(md) {
-        animation-range: entry calc(var(--index) * 5%) entry calc(80% + var(--index) * 3%);
+        animation-range: entry calc(var(--index) * 5%) entry calc(65% + var(--index) * 3%);
       }
     }
   }
@@ -239,7 +240,8 @@
       background-image: url('/assets/img/ripped-papper/skills-long.webp');
       aspect-ratio: 240 / 400;
       max-width: 320px;
-      padding: 8px 48px;
+      padding: 8px 64px;
+      font-family: $f-hand;
     }
 
     &__desc {
@@ -252,6 +254,7 @@
     &__stage {
       grid-row: 2/4;
       grid-column: 2/4;
+      margin-bottom: 7rem;
     }
   }
 }

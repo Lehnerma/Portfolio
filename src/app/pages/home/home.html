@@ -76,8 +76,16 @@
       [type]="'button'"
       class="landing__hello"
     ></app-primary-btn>
-    <app-animate-title text="Frontend" class="landing__title1"></app-animate-title>
-    <app-animate-title text="DEVELOPER" class="landing__title2"></app-animate-title>
+    <app-animate-title
+      text="Frontend"
+      class="landing__title1"
+      fillingColor="purple"
+    ></app-animate-title>
+    <app-animate-title
+      text="DEVELOPER"
+      class="landing__title2"
+      fillingColor="blue"
+    ></app-animate-title>
     <app-secondary-btn
       label="Get in Touch"
       btnTheme="white"
@@ -146,4 +154,32 @@
       <app-sticker class="skills__sticker"></app-sticker>
     </div>
   </div>
+</article>
+
+<article class="projects" id="project">
+  <app-underline-title variant="squiggle" class="projects__titles">
+    <h3 class="projects__subtitle z-20">MY CRAFT</h3>
+    <h2 class="projects__title txt56-144 z-20">Projects</h2>
+  </app-underline-title>
+
+  <section class="projects__cards" id="projects">
+    @if (showDragHint()) {
+      <app-drag-hint class="projects__hint" animate.leave="drag-hint--leave" />
+    }
+
+    @for (project of projects; track $index) {
+      <app-project-window
+        [title]="project.name"
+        [screenshotSrc]="project.img_scr"
+        [screenshotAlt]="project.img_alt"
+        [detailsLink]="project.route"
+        (dragStarted)="hasDragged.set(true)"
+      >
+        <h4 desc-title class="content--title txt20-24">{{ project.name | titlecase }}</h4>
+        <p desc-text class="content">
+          {{ project.description_en | titlecase }}
+        </p>
+      </app-project-window>
+    }
+  </section>
 </article>

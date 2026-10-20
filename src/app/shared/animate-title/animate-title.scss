@@ -5,6 +5,14 @@
   flex-wrap: wrap;
   letter-spacing: -0.02em;
 
+  &[data-filling='blue'] {
+    --filling-color: #{$logo-blue};
+  }
+
+  &[data-filling='purple'] {
+    --filling-color: #{$logo-violet};
+  }
+
   &__letter {
     position: relative;
     display: inline-block;
@@ -13,7 +21,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $logo-violet; // todo check if violet or blue from the logo
+      color: var(--filling-color);
     }
 
     &:hover .heading__char--base {

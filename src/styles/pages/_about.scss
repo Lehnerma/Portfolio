@@ -3,11 +3,12 @@
 .about {
   display: grid;
   justify-items: center;
-  min-height: 90dvh;
+
   grid-template-rows: auto auto 1fr;
   margin: 0 auto; // *necessary for get the container in the middle
 
-  // scroll-margin-top: 10vh;
+  // min-height: 95dvh;
+  // scroll-margin-top: 5vh;
   // scroll-snap-align: start;
 
   &__me {

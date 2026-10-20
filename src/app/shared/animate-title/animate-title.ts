@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { LetterUppercase } from '../../interfaces/letter-uppercase';
 
+type FillingColor = 'purple' | 'blue';
 @Component({
   imports: [],
   selector: 'app-animate-title',
@@ -10,6 +11,7 @@ import { LetterUppercase } from '../../interfaces/letter-uppercase';
 export class AnimateTitle {
   readonly text = input.required<string>();
   readonly secondText = input<string>();
+  readonly fillingColor = input<FillingColor>('blue');
 
   protected getLetters(text: string): LetterUppercase[] {
     return Array.from(text).map((char) => ({

@@ -1,0 +1,225 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.project-window__filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.project-window {
+  --border-width: 3px;
+  --corner-radius: 12px;
+  --titlebar-height: 2.5rem;
+  --control-size: 0.875rem;
+  --line-color: #{$black-base};
+  --paper-color: #{$white-base};
+  --close-color: #ff5f57;
+  --minimize-color: #febc2e;
+  --maximize-color: #28c840;
+  --collapse-duration: 300ms;
+
+  position: relative;
+  width: 100%;
+  max-width: 35rem;
+  padding: var(--border-width);
+
+  &__frame {
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid var(--line-color);
+    border-radius: var(--corner-radius);
+    background-color: var(--paper-color);
+    pointer-events: none;
+  }
+
+  &__divider {
+    position: absolute;
+    inset-inline: 0;
+    top: calc(var(--titlebar-height) - var(--border-width));
+    height: var(--border-width);
+    background-color: var(--line-color);
+    transition: opacity var(--collapse-duration) ease;
+  }
+
+  &__titlebar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: var(--titlebar-height);
+    padding-inline: 0.75rem;
+
+    @include respond-to(md) {
+      touch-action: none;
+      user-select: none;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: var(--control-size);
+    height: var(--control-size);
+    border: 2px solid var(--line-color);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $orange-heighlight;
+      outline-offset: 3px;
+    }
+
+    &--close {
+      background-color: var(--close-color);
+    }
+
+    &--minimize {
+      background-color: var(--minimize-color);
+    }
+
+    &--maximize {
+      background-color: var(--maximize-color);
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: var(--line-color);
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+
+  &__controls:hover &__icon,
+  &__control:focus-visible &__icon {
+    opacity: 1;
+  }
+
+  &__title {
+    flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
+    @include f-text(rem(24), $black-base, 600);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__content {
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows var(--collapse-duration) ease;
+    @include f-text(rem(20), $black-base, 400);
+  }
+
+  &__content-inner {
+    // min-height: 0;
+    overflow: hidden;
+    border-radius: 0 0 calc(var(--corner-radius) - var(--border-width))
+      calc(var(--corner-radius) - var(--border-width));
+    display: grid;
+  }
+
+  &__screenshot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition:
+      transform 400ms ease,
+      opacity 500ms ease,
+      filter 500ms ease;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+  }
+
+  &__desc {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 20;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 8px 16px;
+    overflow-y: auto;
+
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  &__flip {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 10;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $orange-heighlight;
+      outline-offset: -4px;
+    }
+  }
+
+  &__below {
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+    padding-block: 1rem;
+  }
+
+  &--minimized {
+    .project-window__content {
+      grid-template-rows: 0fr;
+    }
+
+    .project-window__divider {
+      opacity: 0;
+    }
+  }
+
+  &--shaking {
+    animation: window-shake 450ms ease-in-out;
+  }
+}
+
+@media (hover: hover) {
+  .project-window__content:hover:has(.project-window__desc) {
+    @include flipped-state;
+  }
+}
+
+// Touch: the tap toggle replaces the hover
+@media (hover: none) {
+  .project-window--flipped {
+    @include flipped-state;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-window,
+  .project-window * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
