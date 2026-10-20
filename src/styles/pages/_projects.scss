@@ -4,13 +4,10 @@
   min-height: 90dvh;
 
   // inline gutter that mimics the centered $dp-max-width column (percent = full article width)
-  --projects-gutter: calc(
-    clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2)
-  );
+  --projects-gutter: calc(clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2));
 
   position: relative;
   display: grid;
-  // title keeps its height, the cards area takes the rest and is the drag area
   grid-template-rows: auto 1fr;
   gap: 32px;
   padding-block: 16px;
@@ -20,13 +17,26 @@
     margin-inline-start: var(--projects-gutter);
   }
 
+  &__hint {
+    position: absolute;
+    top: -8rem;
+    z-index: 20;
+
+    @include respond-to(md) {
+      left: calc(50% + 6rem);
+    }
+
+    @include respond-to(1140px) {
+      left: unset;
+      right: var(--projects-gutter);
+    }
+  }
+
   &__cards {
     display: grid;
-    // cards area spans the full width, the gutter keeps the windows in the centered column
+    position: relative;
     padding-inline: var(--projects-gutter);
-    // keeps the windows at their initial position while the area grows
     align-content: start;
-    grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
     gap: 2rem;
     justify-items: center;
   }
@@ -42,7 +52,7 @@
 @include respond-to(md) {
   .projects {
     &__cards {
-      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     }
   }
 }

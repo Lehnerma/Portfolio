@@ -81,4 +81,21 @@ describe('ProjectWindow', () => {
     expect(query('.project-window--flipped')).toBeNull();
     expect(query('.project-window__below')).not.toBeNull();
   });
+
+  it('emits dragStarted on the first move after grabbing, not on a plain click', async () => {
+    await create(false);
+    const dragStarted = vi.fn();
+    fixture.componentInstance.dragStarted.subscribe(dragStarted);
+    const titlebar = query<HTMLElement>('.project-window__titlebar')!;
+    titlebar.setPointerCapture = () => {};
+
+    titlebar.dispatchEvent(new PointerEvent('pointerdown', { clientX: 0, clientY: 0 }));
+    titlebar.dispatchEvent(new PointerEvent('pointerup'));
+    expect(dragStarted).not.toHaveBeenCalled();
+
+    titlebar.dispatchEvent(new PointerEvent('pointerdown', { clientX: 0, clientY: 0 }));
+    titlebar.dispatchEvent(new PointerEvent('pointermove', { clientX: 10, clientY: 10 }));
+    titlebar.dispatchEvent(new PointerEvent('pointermove', { clientX: 20, clientY: 20 }));
+    expect(dragStarted).toHaveBeenCalledTimes(1);
+  });
 });

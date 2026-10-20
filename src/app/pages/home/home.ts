@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, computed, model, signal } from '@angular/core';
 import { UnderlineTitle } from '../../shared/underline-title/underline-title';
 import { SocialIcons } from '../../shared/social-icons/social-icons';
 import { AnimateTitle } from '../../shared/animate-title/animate-title';
@@ -10,6 +10,8 @@ import { TitleCasePipe } from '@angular/common';
 import { Sticker } from '../../components/sticker/sticker';
 import { ProjectWindow } from '../../components/project-window/project-window';
 import { ProjectInfos } from '../../interfaces/project-infos';
+import { DragHint } from '../../shared/drag-hint/drag-hint';
+import { mediaQuery } from '../../shared/utils/media-query';
 
 @Component({
   imports: [
@@ -22,6 +24,7 @@ import { ProjectInfos } from '../../interfaces/project-infos';
     TitleCasePipe,
     Sticker,
     ProjectWindow,
+    DragHint,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',
@@ -30,6 +33,12 @@ import { ProjectInfos } from '../../interfaces/project-infos';
 export class Home {
   navOpen = model<boolean>(false);
   burgerMenu = model<boolean>(true);
+
+  /** Windows are only draggable from `md` (768px) on, so the drag hint is only shown there. */
+  private readonly isMdUp = mediaQuery('(min-width: 768px)');
+  /** Set once any project window has been dragged; hides the drag hint for good. */
+  protected readonly hasDragged = signal(false);
+  protected readonly showDragHint = computed(() => this.isMdUp() && !this.hasDragged());
 
   skillsIcons: SkillIcon[] = [
     { name: 'angular', path: 'assets/icons/skills/angular.svg' },

@@ -1,5 +1,5 @@
 import { NgTemplateOutlet, DOCUMENT } from '@angular/common';
-import { Component, computed, DestroyRef, inject, input, signal } from '@angular/core';
+import { Component, computed, DestroyRef, inject, input, output, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SecondaryBtn } from '../../shared/secondary-btn/secondary-btn';
 
@@ -17,6 +17,8 @@ export class ProjectWindow {
   readonly screenshotAlt = input<string>(); // *required
   readonly detailsLink = input<string>(); // *required
   readonly wobbleSeed = input(1);
+  /** Emits once per drag, on the first pointer move after grabbing the titlebar. */
+  readonly dragStarted = output<void>();
 
   protected readonly isMinimized = signal(false);
   protected readonly isShaking = signal(false);
@@ -27,6 +29,7 @@ export class ProjectWindow {
   protected readonly isDragging = signal<boolean>(false);
 
   protected grabOrigin = { x: 0, y: 0 };
+  private hasMoved = false;
   private bounds = { minX: 0, maxX: 0, minY: 0, maxY: 0 };
 
   private readonly instanceId = nextWindowInstanceId++;
@@ -99,6 +102,10 @@ export class ProjectWindow {
    */
   protected pointerMove(event: PointerEvent): void {
     if (!this.isDragging()) return;
+    if (!this.hasMoved) {
+      this.hasMoved = true;
+      this.dragStarted.emit();
+    }
     const newOffset = {
       x: event.clientX - this.grabOrigin.x,
       y: event.clientY - this.grabOrigin.y,
@@ -123,6 +130,7 @@ export class ProjectWindow {
    */
   protected cancelDragging(): void {
     this.isDragging.set(false);
+    this.hasMoved = false;
   }
 
   /**
