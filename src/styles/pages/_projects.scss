@@ -19,7 +19,7 @@
 
   &__hint {
     position: absolute;
-    top: -8rem;
+    top: -9rem;
     z-index: 20;
 
     @include respond-to(md) {
