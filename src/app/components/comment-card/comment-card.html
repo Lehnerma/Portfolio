@@ -1,0 +1,11 @@
+<section class="comment__card" [style.background-image]="'url(' + backgroundUrl() + ')'">
+  <p class="comment__txt">
+    {{ comment() }}
+  </p>
+  <div class="comment__footer">
+    <h5 class="comment__name">{{ name() }}</h5>
+    <a [href]="link()">
+      <img src="/assets/icons/linkedin.png" alt="LinkedIn Logo" class="comment__link--icon"
+    /></a>
+  </div>
+</section>

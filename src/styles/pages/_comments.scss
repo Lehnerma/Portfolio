@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.comments {
+  padding: $body-spacing;
+
+  &__titles {
+    border: $dev;
+  }
+
+  &__title {
+    text-align: end;
+  }
+
+  &__subtitle {
+    text-align: end;
+  }
+}

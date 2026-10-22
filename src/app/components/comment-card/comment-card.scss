@@ -1,0 +1,9 @@
+@use '../../../styles/abstracts' as *;
+
+.comment {
+  &__card {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
