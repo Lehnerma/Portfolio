@@ -5,5 +5,22 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    aspect-ratio: 1799 / 1180;
+    max-width: 512px;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    color: $white-base;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__txt {
+    font-family: $f-txt;
+    font-size: rem(16);
+    line-height: 1.4;
   }
 }
