@@ -2,25 +2,46 @@
 
 .comment {
   &__card {
+    padding: 2rem;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1rem;
+
+    background-image: url('/assets/background/card-purple-bg-mob.webp');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    aspect-ratio: 1799 / 1180;
-    max-width: 512px;
-    padding: 2rem;
+    aspect-ratio: 1180/1799;
+    max-width: 304px;
 
-    display: grid;
-    grid-template-rows: 1fr auto;
-    color: $white-base;
+    @include respond-to(sm) {
+      background-image: url('/assets/background/card-purple-bg.webp');
+      aspect-ratio: 1799 / 1180;
+      max-width: 512px;
+    }
   }
 
   &__footer {
     display: flex;
     justify-content: space-between;
   }
+
   &__txt {
     font-family: $f-txt;
-    font-size: rem(16);
+    font-size: rem(18);
     line-height: 1.4;
+    text-align: center;
+  }
+}
+
+.person {
+  &__name {
+    font-family: $f-hand;
+    font-weight: 400;
+    font-size: rem(24);
+  }
+
+  &__job {
+    font-size: rem(16);
   }
 }

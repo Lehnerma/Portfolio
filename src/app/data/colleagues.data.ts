@@ -2,12 +2,13 @@ import { ColleagueCard } from '../interfaces/colleague-card';
 
 export const CARDS: ColleagueCard[] = [
   {
-    name: 'RadeK Gnych',
+    name: 'Radek Gnych',
     link: 'https://at.linkedin.com/', // todo add the missin likedin link
     jobtitle: 'Frontend Developer',
     comment_en:
-      'Das ist ein etwas langer titel um zu zeigen das ich auf dieser tastatur keine umlaute und mich immer wieder bei der y z taste verdrucken werde weil ich US tastatu nutze weil dieses bei programmieren einfacheer und praktischer ist.',
-    comment_de: 'add somthing',
+      'Max works in a very team-oriented way and is always available for questions. He completes tasks reliably and carefully, and even small details don’t escape him. As a result, the quality of the results was consistently high.',
+    comment_de:
+      'Max arbeitet sehr teamorientiert und ist für Fragen jederzeit ansprechbar. Aufgaben erledigt er zuverlässig und mit großer Sorgfalt, auch kleine Details entgehen ihm nicht. Dadurch war die Qualität der Ergebnisse durchgehend hoch.',
     backgroundUrl: '/assets/background/card-bg-frayed-blue.webp',
   },
   {
@@ -15,18 +16,19 @@ export const CARDS: ColleagueCard[] = [
     link: 'https://at.linkedin.com/', // todo add the missing linkedin link
     jobtitle: 'Frontend Developer',
     comment_en:
-      'The collaboration worked really well. Although we all had very different working hours and availability, our arrangements and meetings always went smoothly. I also really liked how Max took the initiative to keep the project moving forward steadily. Max kept track of both the overall project and the details, and always offered teammates help to find a solution together. The structure was also clear and the code was written cleanly. As a teammate, it was easy to find your way around and follow the code.',
+      'The collaboration worked great despite different working hours and availability. Max took the initiative to keep the project moving and kept both the big picture and the details in view. Max always offered teammates help. The structure was clear and the code clean, so it was easy to find your way around.',
     comment_de:
-      'Die Zusammenarbeit hat super funktioniert. Obwohl wir alle sehr unterschiedliche Arbeitszeiten und Verfügbarkeiten hatten, haben unsere Absprachen und Besprechungen immer gut geklappt. Außerdem fand ich sehr gut, wie Max die Initiative ergriffen hat, um das Projekt stetig voranzubringen. Dabei hat Max sowohl das gesamte Projekt als auch Details im Blick behalten. Teamkollegen hat Max immer Hilfe angeboten, um gemeinsam eine Lösung zu finden. Auch war die Struktur klar und der Code clean geschrieben. Als Teamkollege fand man sich somit schnell zurecht und konnte den Code gut nachvollziehen.',
+      'Die Zusammenarbeit hat super funktioniert, trotz unterschiedlicher Arbeitszeiten und Verfügbarkeiten. Max hat die Initiative ergriffen, das Projekt stetig voranzubringen, und dabei sowohl das Gesamtbild als auch Details im Blick behalten. Teamkollegen hat Max immer Hilfe angeboten. Die Struktur war klar und der Code clean, sodass man sich schnell zurechtfand.',
     backgroundUrl: '/assets/background/card-bg-frayed-violet.webp',
   },
   {
     name: 'Günter Held',
     link: 'www.linkedin.com/in/günter-heldt-892320343',
-    jobtitle: 'https://at.linkedin.com/',
+    jobtitle: 'Fullstack Developer',
     comment_en:
-      'Das ist ein etwas langer titel um zu zeigen das ich auf dieser tastatur keine umlaute und mich immer wieder bei der y z taste verdrucken werde weil ich US tastatu nutze weil dieses bei programmieren einfacheer und praktischer ist.',
-    comment_de: 'add somthing',
+      'Working with Max in a team was really enjoyable. He listens, contributes his own ideas, and pitches in when something gets stuck. He also notices little things others overlook and brings them up in time.',
+    comment_de:
+      'Mit Max im Team zu arbeiten hat richtig Spaß gemacht. Er hört zu, bringt eigene Ideen ein und packt mit an, wenn es irgendwo hakt. Außerdem merkt er Kleinigkeiten auf, die andere übersehen, und bringt sie rechtzeitig zur Sprache.',
     backgroundUrl: '/assets/background/card-bg-smooth-blue.webp',
   },
 ];

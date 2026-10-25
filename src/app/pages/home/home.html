@@ -189,14 +189,16 @@
     <h3 class="comments__subtitle z-20">IN THEIR WORDS</h3>
     <h2 class="comments__title txt56-128">Colleague's Thoughts</h2>
   </app-underline-title>
-
-  @for (comment of comments; track $index) {
-    <app-comment-card
-      [name]="comment.name"
-      [link]="comment.link"
-      [jobtitle]="comment.jobtitle"
-      [comment]="comment.comment_en"
-      [backgroundUrl]="comment.backgroundUrl"
-    ></app-comment-card>
-  }
+  <ul class="comments__cards">
+    @for (comment of comments; track $index) {
+      <li class="comments__card">
+        <app-comment-card
+          [name]="comment.name"
+          [link]="comment.link"
+          [jobtitle]="comment.jobtitle"
+          [comment]="comment.comment_en"
+        ></app-comment-card>
+      </li>
+    }
+  </ul>
 </article>

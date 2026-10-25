@@ -3,6 +3,12 @@
 .comments {
   padding: $body-spacing;
 
+  display: grid;
+  gap: 2rem;
+
+  font-family: $f-txt;
+  color: $white-base;
+
   &__titles {
     border: $dev;
   }
@@ -13,5 +19,17 @@
 
   &__subtitle {
     text-align: end;
+  }
+
+  &__cards {
+    justify-self: center;
+  }
+
+  &__card:nth-child(even) {
+    transform: rotate(2deg);
+  }
+
+  &__card:nth-child(odd) {
+    transform: rotate(-4deg);
   }
 }
