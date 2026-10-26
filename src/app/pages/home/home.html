@@ -191,7 +191,11 @@
   </app-underline-title>
   <ul class="comments__cards">
     @for (comment of comments; track $index) {
-      <li class="comments__card">
+      <li
+        class="comments__card"
+        [class.is-active]="activeComment() === $index"
+        (pointerdown)="onCommentPointerDown($event, $index)"
+      >
         <app-comment-card
           [name]="comment.name"
           [link]="comment.link"

@@ -46,6 +46,18 @@ export class Home {
   protected readonly skillsIcons = SKILL_ICONS;
   protected readonly projects = PROJECTS;
   protected readonly comments = CARDS;
+  /** Index of the comment card raised by touch; mouse users get the CSS `:hover` instead. */
+  protected readonly activeComment = signal<number | null>(null);
+
+  /**
+   * Raises a comment card to the front when it is touched.
+   * @param event The pointer event from the card.
+   * @param index Index of the touched card.
+   */
+  protected onCommentPointerDown(event: PointerEvent, index: number): void {
+    if (event.pointerType !== 'touch') return;
+    this.activeComment.set(index);
+  }
 
   /**
    * Toggles the nav menu on the mobile version
