@@ -1,0 +1,89 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+  container-type: inline-size;
+
+  --bg-mob: url('/assets/background/card-purple-bg-mob.webp');
+  --bg-desk: url('/assets/background/card-purple-bg.webp');
+  --lines-mob: url('/assets/background/card-hover-lines-mobile.webp');
+  --lines-desk: url('/assets/background/card-hover-lines.webp');
+}
+
+.comment {
+  &__card {
+    position: relative;
+    isolation: isolate;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1rem;
+    color: $white-base;
+    background-image: var(--bg-mob);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    aspect-ratio: 1180/1799;
+    max-width: 304px;
+    min-height: 440px;
+
+    @container (min-width: 440px) {
+      background-image: var(--bg-desk);
+      aspect-ratio: 1799 / 1180;
+      max-width: 512px;
+      min-height: 0;
+    }
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      content: '';
+      background-image: var(--lines-mob);
+
+      @container (min-width: 440px) {
+        background-image: var(--lines-desk);
+      }
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  &__txt {
+    font-family: $f-txt;
+    font-size: rem(18);
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+}
+
+.person {
+  &__name {
+    font-family: $f-hand;
+    font-weight: 400;
+    font-size: rem(28);
+  }
+
+  &__job {
+    font-size: rem(16);
+  }
+}

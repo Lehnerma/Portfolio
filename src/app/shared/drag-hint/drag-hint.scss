@@ -35,6 +35,7 @@
   }
 
   &__word {
+    width: 3rem;
     display: inline-block;
     transform-origin: center;
     animation: drag-hint-flap var(--flap-duration) ease-out both;

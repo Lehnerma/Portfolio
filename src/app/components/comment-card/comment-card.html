@@ -1,0 +1,15 @@
+<section class="comment__card">
+  <p class="comment__txt">
+    {{ comment() }}
+  </p>
+  <div class="comment__footer">
+    <div class="comment__person">
+      <h5 class="person__name">{{ name() }}</h5>
+      <span class="person__job">{{ jobtitle() }}</span>
+    </div>
+
+    <a [href]="link()" class="comment__social">
+      <img src="/assets/icons/linkedin.png" alt="LinkedIn Logo" class="comment__link--icon"
+    /></a>
+  </div>
+</section>
