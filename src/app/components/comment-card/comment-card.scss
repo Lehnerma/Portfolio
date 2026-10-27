@@ -1,4 +1,13 @@
 @use '../../../styles/abstracts' as *;
+:host {
+  display: block;
+  container-type: inline-size;
+
+  --bg-mob: url('/assets/background/card-purple-bg-mob.webp');
+  --bg-desk: url('/assets/background/card-purple-bg.webp');
+  --lines-mob: url('/assets/background/card-hover-lines-mobile.webp');
+  --lines-desk: url('/assets/background/card-hover-lines.webp');
+}
 
 .comment {
   &__card {
@@ -11,17 +20,19 @@
 
     color: $white-base;
 
-    background-image: url('/assets/background/card-purple-bg-mob.webp');
+    background-image: var(--bg-mob);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     aspect-ratio: 1180/1799;
     max-width: 304px;
+    min-height: 440px;
 
-    @include respond-to(sm) {
-      background-image: url('/assets/background/card-purple-bg.webp');
+    @container (min-width: 440px) {
+      background-image: var(--bg-desk);
       aspect-ratio: 1799 / 1180;
       max-width: 512px;
+      min-height: 0;
     }
 
     &::after {
@@ -29,17 +40,16 @@
       inset: 0;
       z-index: 1;
       content: '';
-      background-image: url('/assets/background/card-hover-lines-mobile.webp');
+      background-image: var(--lines-mob);
 
-      @include respond-to(sm) {
-        background-image: url('/assets/background/card-hover-lines.webp');
+      @container (min-width: 440px) {
+        background-image: var(--lines-desk);
       }
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 200ms ease;
     }
 
     &:hover::after {

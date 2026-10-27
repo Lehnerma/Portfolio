@@ -2,14 +2,12 @@
 
 .comments {
   padding: $body-spacing;
-
   display: grid;
   gap: 2rem;
-
   font-family: $f-txt;
 
   &__titles {
-    border: $dev;
+    justify-self: flex-end;
   }
 
   &__title {
@@ -25,24 +23,26 @@
     --card-ratio: calc(1799 / 1180);
     --card-overlap: 0.2;
 
+    --shadow-cards: drop-shadow(0 6px 8px rgb(0 0 0 / 0.35))
+      drop-shadow(0 18px 24px rgb(0 0 0 / 0.45));
     justify-self: center;
     padding: 8px;
     width: 100%;
 
     display: grid;
-    justify-content: center;
+    justify-items: center;
 
     @include respond-to(sm) {
       --card-w: 512px;
       --card-ratio: calc(1180 / 1799);
     }
 
-    @include respond-to(lg) {
+    @include respond-to(md) {
       --card-w: min(512px, calc(100cqw / (3 - 2 * var(--card-overlap))));
 
       container-type: inline-size;
       display: flex;
-
+      justify-content: center;
       align-items: start;
     }
   }
@@ -51,10 +51,13 @@
     position: relative;
     z-index: 1;
     width: var(--card-w);
+    min-height: 320px;
+    transition: filter 0.3s ease;
+
     &:not(:first-child) {
       margin-block-start: calc(var(--card-w) * var(--card-ratio) * var(--card-overlap) * -1);
 
-      @include respond-to(lg) {
+      @include respond-to(md) {
         margin-block-start: 0;
         margin-inline-start: calc(var(--card-w) * var(--card-overlap) * -1);
       }
@@ -72,11 +75,13 @@
     &.is-active,
     &:focus-within {
       z-index: 10;
+      filter: var(--shadow-cards);
     }
 
     @media (hover: hover) {
       &:hover {
         z-index: 10;
+        filter: var(--shadow-cards);
       }
     }
   }
