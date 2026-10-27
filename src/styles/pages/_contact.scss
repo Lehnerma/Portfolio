@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.contact {
+  padding: $body-spacing;
+  min-height: 100dvh; // todo delet only for development
+
+  background-image: url('/assets/background/contact.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  &__msg {
+    @include f-text(rem(16));
+  }
+}
