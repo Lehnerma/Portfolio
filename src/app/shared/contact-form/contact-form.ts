@@ -8,17 +8,19 @@ import {
 import { ContactFormValue } from '../../interfaces/contact-form-value';
 import { Checkbox } from '../checkbox/checkbox';
 import { SecondaryBtn } from '../secondary-btn/secondary-btn';
+import { ArrowHint } from '../arrow-hint/arrow-hint';
 
 @Component({
-  imports: [ReactiveFormsModule, Checkbox, SecondaryBtn],
+  imports: [ReactiveFormsModule, Checkbox, SecondaryBtn, ArrowHint],
   selector: 'app-contact-form',
   styleUrl: './contact-form.scss',
   templateUrl: './contact-form.html',
 })
 export class ContactForm {
   private static nextId = 0;
-
   private readonly fb = inject(NonNullableFormBuilder);
+  private injectionRegex =
+    /^(?!.*(<script|javascript:|--|select\s|insert\s|drop\s|delete\s|union\s))[A-Za-z0-9äöüÄÖÜß\s.,!?@_\-+]*$/i;
 
   readonly privacyLink = input<string>('#');
   readonly submitted = output<ContactFormValue>();
@@ -27,9 +29,12 @@ export class ContactForm {
   protected readonly uid = `contact-form-${ContactForm.nextId++}`;
 
   protected readonly form = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    message: ['', [Validators.required, Validators.minLength(10)]],
+    name: ['', [Validators.required, Validators.pattern(this.injectionRegex)]],
+    email: ['', [Validators.required, Validators.email, Validators.pattern(this.injectionRegex)]],
+    message: [
+      '',
+      [Validators.required, Validators.minLength(10), Validators.pattern(this.injectionRegex)],
+    ],
     privacy: [false, Validators.requiredTrue],
   });
 
@@ -40,6 +45,15 @@ export class ContactForm {
    */
   protected showError(control: AbstractControl): boolean {
     return control.touched && control.invalid;
+  }
+
+  /**
+   * Whether the control should be marked as correctly filled in.
+   * @param control The control to check.
+   * @returns True once the control was touched and is valid.
+   */
+  protected showValid(control: AbstractControl): boolean {
+    return control.touched && control.valid;
   }
 
   /**

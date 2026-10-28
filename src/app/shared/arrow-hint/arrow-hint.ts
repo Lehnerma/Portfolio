@@ -11,24 +11,20 @@ import {
 } from '@angular/core';
 import { randomBetween } from '../underline-title/stroke-path';
 import { mediaQuery } from '../utils/media-query';
+import { buildArrowPath, rollArrowJitter } from './arrow-path';
 
-/** One continuous pen stroke: a gentle wave to the tip, then the arrow head in the same line. */
-const DEFAULT_PATH = 'M 4 30 C 50 8 96 40 150 24 S 232 12 268 21 L 246 7 L 268 21 L 248 37';
-
+/** One continuous pen stroke: a squiggle to the tip, then the arrow head in the same line. */
 @Component({
   imports: [],
   selector: 'app-arrow-hint',
   styleUrl: './arrow-hint.scss',
   templateUrl: './arrow-hint.html',
-  host: { '[style.aspect-ratio]': 'aspectRatio()' },
 })
 export class ArrowHint {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly jitter = rollArrowJitter();
 
-  /** Centerline of the arrow as SVG path data; it is drawn as a stroke, not as a filled shape. */
-  readonly path = input(DEFAULT_PATH);
-  readonly viewBox = input('0 0 280 44');
   /** Range in ms for the pause between two drawings; a random value is picked each time. */
   readonly interval = input<readonly [number, number]>([5000, 7000]);
   /** Range in s for the duration of one drawing; a random value is picked each time. */
@@ -38,9 +34,13 @@ export class ArrowHint {
   protected readonly inView = signal(false);
   protected readonly cycle = signal(0);
 
-  protected readonly aspectRatio = computed(() => {
-    const [, , width, height] = this.viewBox().split(/\s+/);
-    return `${width} / ${height}`;
+  /** Size of the host in px, as given by the surrounding layout. */
+  private readonly size = signal({ width: 0, height: 0 });
+
+  protected readonly viewBox = computed(() => `0 0 ${this.size().width} ${this.size().height}`);
+  protected readonly path = computed(() => {
+    const { width, height } = this.size();
+    return width && height ? buildArrowPath(this.jitter, width, height) : '';
   });
   protected readonly drawDuration = computed(() => {
     this.cycle();
@@ -48,7 +48,10 @@ export class ArrowHint {
   });
 
   constructor() {
-    afterNextRender(() => this.observeViewport());
+    afterNextRender(() => {
+      this.observeSize();
+      this.observeViewport();
+    });
     effect((onCleanup) => {
       if (!this.inView() || this.reducedMotion()) return;
       let timer: ReturnType<typeof setTimeout>;
@@ -65,6 +68,15 @@ export class ArrowHint {
       schedule();
       onCleanup(() => clearTimeout(timer));
     });
+  }
+
+  /** Redraws the path in real pixels whenever the layout changes the width of the arrow. */
+  private observeSize(): void {
+    const observer = new ResizeObserver(([entry]) =>
+      this.size.set({ width: entry.contentRect.width, height: entry.contentRect.height }),
+    );
+    observer.observe(this.host.nativeElement);
+    this.destroyRef.onDestroy(() => observer.disconnect());
   }
 
   /** Draws the arrow only while it is visible, so nothing runs on the initial page load. */

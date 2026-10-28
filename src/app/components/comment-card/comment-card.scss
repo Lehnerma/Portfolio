@@ -24,8 +24,8 @@
     background-size: contain;
     background-position: center;
     aspect-ratio: 1180/1799;
-    max-width: 304px;
-    min-height: 440px;
+    // max-width: 304px;
+    min-height: 410px;
 
     @container (min-width: 440px) {
       background-image: var(--bg-desk);
@@ -70,9 +70,13 @@
 
   &__txt {
     font-family: $f-txt;
-    font-size: rem(18);
+    font-size: rem(16);
     line-height: 1.4;
     text-wrap: balance;
+
+    @include respond-to(sm) {
+      font-size: rem(18);
+    }
   }
 }
 

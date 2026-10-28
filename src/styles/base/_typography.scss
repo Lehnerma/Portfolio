@@ -20,6 +20,16 @@
   font-size: clamp(rem(48), 6.25vw, rem(80));
 }
 
+.title56-128 {
+  font-family: $f-txt;
+  font-size: clamp(rem(48), 10vw, rem(128));
+}
+
+.title56-144 {
+  font-family: $f-txt;
+  font-size: clamp(rem(48), 11.25vw, rem(144));
+}
+
 .nav-element {
   @include f-text(rem(18), $white-base, 700);
   line-height: 120%;

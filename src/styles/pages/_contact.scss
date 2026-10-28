@@ -3,12 +3,24 @@
 .contact {
   padding: $body-spacing;
   padding-top: 6rem;
-  min-height: 100dvh; // todo delet only for development
 
   background-image: url('/assets/background/contact.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+
+  display: grid;
+  gap: 2rem;
+
+  @include respond-to(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__section {
+    &--form {
+      position: relative;
+    }
+  }
 
   &__titles {
     color: $white-base;
@@ -16,5 +28,9 @@
 
   &__msg {
     @include f-text(rem(16));
+  }
+
+  &__logo {
+    width: 144px;
   }
 }

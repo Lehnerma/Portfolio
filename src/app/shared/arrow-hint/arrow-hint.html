@@ -1,4 +1,4 @@
-@if (inView()) {
+@if (inView() && path()) {
   @for (key of [cycle()]; track key) {
     <svg
       class="arrow-hint"

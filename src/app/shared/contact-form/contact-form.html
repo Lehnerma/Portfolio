@@ -1,24 +1,33 @@
 <form class="contact-form" [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
-  <div class="contact-form__field">
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.name)"
+    [class.contact-form__field--valid]="showValid(form.controls.name)"
+  >
     <label class="contact-form__label" [for]="uid + '-name'">What's your name?</label>
     <input
       class="contact-form__input"
       type="text"
       autocomplete="name"
-      placeholder="your name goes here"
+      placeholder="Your name goes here"
       formControlName="name"
       [id]="uid + '-name'"
       [attr.aria-invalid]="showError(form.controls.name)"
       [attr.aria-describedby]="showError(form.controls.name) ? uid + '-name-error' : null"
     />
-    @if (showError(form.controls.name)) {
-      <p class="contact-form__error" role="alert" [id]="uid + '-name-error'">
-        Please tell me your name.
-      </p>
-    }
-  </div>
 
-  <div class="contact-form__field">
+    <p class="contact-form__error" role="alert" [id]="uid + '-name-error'">
+      @if (showError(form.controls.name)) {
+        Please tell me your name.
+      }
+    </p>
+  </fieldset>
+
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.email)"
+    [class.contact-form__field--valid]="showValid(form.controls.email)"
+  >
     <label class="contact-form__label" [for]="uid + '-email'">What's your email?</label>
     <input
       class="contact-form__input"
@@ -30,18 +39,23 @@
       [attr.aria-invalid]="showError(form.controls.email)"
       [attr.aria-describedby]="showError(form.controls.email) ? uid + '-email-error' : null"
     />
-    @if (showError(form.controls.email)) {
-      <p class="contact-form__error" role="alert" [id]="uid + '-email-error'">
+
+    <p class="contact-form__error" role="alert" [id]="uid + '-email-error'">
+      @if (showError(form.controls.email)) {
         @if (form.controls.email.hasError('required')) {
           I need your email to get back to you.
         } @else {
           That doesn't look like a valid email address.
         }
-      </p>
-    }
-  </div>
+      }
+    </p>
+  </fieldset>
 
-  <div class="contact-form__field">
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.message)"
+    [class.contact-form__field--valid]="showValid(form.controls.message)"
+  >
     <label class="contact-form__label" [for]="uid + '-message'">How can I help you?</label>
     <textarea
       class="contact-form__input contact-form__input--message"
@@ -52,37 +66,45 @@
       [attr.aria-invalid]="showError(form.controls.message)"
       [attr.aria-describedby]="showError(form.controls.message) ? uid + '-message-error' : null"
     ></textarea>
-    @if (showError(form.controls.message)) {
-      <p class="contact-form__error" role="alert" [id]="uid + '-message-error'">
+
+    <p class="contact-form__error" role="alert" [id]="uid + '-message-error'">
+      @if (showError(form.controls.message)) {
         @if (form.controls.message.hasError('required')) {
           Don't be shy, write me a few words.
         } @else {
           Please write at least 10 characters.
         }
-      </p>
-    }
-  </div>
+      }
+    </p>
+  </fieldset>
 
-  <div class="contact-form__field">
-    <div class="contact-form__privacy">
-      <app-checkbox
-        formControlName="privacy"
-        [inputId]="uid + '-privacy'"
-        [invalid]="showError(form.controls.privacy)"
-        [describedBy]="showError(form.controls.privacy) ? uid + '-privacy-error' : null"
-      />
-      <label class="contact-form__label contact-form__label--privacy" [for]="uid + '-privacy'">
-        I accept the
-        <a class="contact-form__link" [href]="privacyLink()">Privacy Policy</a>
-      </label>
-    </div>
-    @if (showError(form.controls.privacy)) {
-      <p class="contact-form__error" role="alert" [id]="uid + '-privacy-error'">
+  <fieldset
+    class="contact-form__field contact-form__field--privacy"
+    [class.contact-form__field--invalid]="showError(form.controls.privacy)"
+  >
+    <app-checkbox
+      formControlName="privacy"
+      [inputId]="uid + '-privacy'"
+      [invalid]="showError(form.controls.privacy)"
+      [describedBy]="showError(form.controls.privacy) ? uid + '-privacy-error' : null"
+    />
+    <label class="contact-form__label contact-form__label--privacy" [for]="uid + '-privacy'">
+      I accept the
+      <a class="contact-form__link" [href]="privacyLink()">Privacy Policy</a>
+    </label>
+    <p class="contact-form__error" role="alert" [id]="uid + '-privacy-error'">
+      @if (showError(form.controls.privacy)) {
         Please accept the privacy policy to send your message.
-      </p>
-    }
-  </div>
-  <!-- <button class="btn contact-form__submit" type="submit">Send</button> -->
+      }
+    </p>
+  </fieldset>
 
-  <app-secondary-btn label="Send" btnType="submit"></app-secondary-btn>
+  <div class="contact-form__footer">
+    <app-arrow-hint class="arrow"></app-arrow-hint>
+    <app-secondary-btn
+      label="Send"
+      btnType="submit"
+      class="contact-form__submit"
+    ></app-secondary-btn>
+  </div>
 </form>

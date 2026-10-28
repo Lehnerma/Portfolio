@@ -5,6 +5,7 @@ describe('ArrowHint', () => {
   let fixture: ComponentFixture<ArrowHint>;
   let host: HTMLElement;
   let setIntersecting: (isIntersecting: boolean) => void;
+  let setWidth: (width: number) => void;
 
   beforeEach(async () => {
     vi.useFakeTimers();
@@ -15,6 +16,20 @@ describe('ArrowHint', () => {
           setIntersecting = (isIntersecting) => callback([{ isIntersecting }]);
         }
         observe(): void {}
+        disconnect(): void {}
+      },
+    );
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        constructor(
+          callback: (entries: { contentRect: { width: number; height: number } }[]) => void,
+        ) {
+          setWidth = (width) => callback([{ contentRect: { width, height: 44 } }]);
+        }
+        observe(): void {
+          setWidth(200);
+        }
         disconnect(): void {}
       },
     );
@@ -55,13 +70,19 @@ describe('ArrowHint', () => {
     expect(host.querySelector('path')).not.toBe(first);
   });
 
-  it('draws the given path and keeps the aspect ratio of the view box', () => {
-    fixture.componentRef.setInput('path', 'M 0 0 L 10 10');
-    fixture.componentRef.setInput('viewBox', '0 0 100 20');
+  it('adapts the path to the width of the host and adds waves when it gets wider', () => {
     setIntersecting(true);
     fixture.detectChanges();
+    const svg = host.querySelector('svg');
+    const waves = (): number =>
+      (host.querySelector('path')?.getAttribute('d') ?? '').split('Q').length - 1;
+    const narrow = waves();
 
-    expect(host.querySelector('path')?.getAttribute('d')).toBe('M 0 0 L 10 10');
-    expect(host.style.aspectRatio).toBe('100 / 20');
+    expect(svg?.getAttribute('viewBox')).toBe('0 0 200 44');
+
+    setWidth(400);
+    fixture.detectChanges();
+    expect(host.querySelector('svg')?.getAttribute('viewBox')).toBe('0 0 400 44');
+    expect(waves()).toBeGreaterThan(narrow);
   });
 });

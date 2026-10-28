@@ -40,7 +40,10 @@ describe('ContactForm', () => {
     submit();
 
     expect(emitted).toEqual([]);
-    expect(host.querySelectorAll('.contact-form__error').length).toBe(4);
+    const messages = [...host.querySelectorAll('.contact-form__error')].map((error) =>
+      error.textContent?.trim(),
+    );
+    expect(messages.filter(Boolean).length).toBe(4);
   });
 
   it('emits the value when all fields are valid', () => {
@@ -68,6 +71,17 @@ describe('ContactForm', () => {
     submit();
 
     expect(emitted).toEqual([]);
-    expect(host.querySelector('.contact-form__error')?.textContent).toContain('valid email');
+    expect(host.querySelector('[id$="-email-error"]')?.textContent).toContain('valid email');
+  });
+
+  it('marks touched, correctly filled fields as valid and keeps the error slots in the DOM', () => {
+    expect(host.querySelectorAll('.contact-form__error').length).toBe(4);
+
+    fill('input[type="text"]', 'Max');
+    host.querySelector('input[type="text"]')!.dispatchEvent(new Event('blur'));
+    fixture.detectChanges();
+
+    expect(host.querySelectorAll('.contact-form__field--valid').length).toBe(1);
+    expect(host.querySelectorAll('.contact-form__error').length).toBe(4);
   });
 });

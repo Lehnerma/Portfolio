@@ -1,6 +1,6 @@
 <article class="landing">
   <section class="landing__nav dp-max">
-    <img src="/assets/img/lm_logo.png" alt="" class="header__logo" />
+    <img src="/assets/img/lm_logo.webp" alt="" class="header__logo" />
     <nav
       class="nav"
       [class.mobile]="burgerMenu()"
@@ -8,7 +8,7 @@
       [class.mobile--open]="navOpen()"
     >
       <section class="nav__head">
-        <img src="/assets/img/lm_logo.png" alt="" class="nav__logo" />
+        <img src="/assets/img/lm_logo.webp" alt="" class="nav__logo" />
         <button class="btn btn__menu btn__menu--open" type="button" (click)="toggleNavMenu()">
           <svg
             class="btn__menu--icon"
@@ -184,7 +184,7 @@
   </section>
 </article>
 
-<article loading="lazy" class="comments">
+<article class="comments">
   <app-underline-title variant="double" class="comments__titles">
     <h3 class="comments__subtitle">IN THEIR WORDS</h3>
     <h2 class="comments__title main-title">Colleague's Thoughts</h2>
@@ -208,18 +208,24 @@
 </article>
 
 <article loading="lazy" class="contact">
-  <app-underline-title variant="scribble" class="contact__titles">
-    <h3 class="contact__subtitle">CONTACT ME</h3>
-    <h2 class="contact__title title56-80">Ready to work together?</h2>
-  </app-underline-title>
+  <section>
+    <app-underline-title variant="double" class="contact__titles">
+      <h3 class="contact__subtitle">CONTACT ME</h3>
+      <h2 class="contact__title title56-80">Ready to work together?</h2>
+    </app-underline-title>
 
-  <p class="contact__msg">
-    Feel free to reach out and tell me which role you have in mind. I’m confident that my expertise
-    and drive to keep improving my skills will make a meaningful contribution to your team. My
-    passion is CSS: I give every project its own distinct finish, so it feels unique rather than
-    like one of many template sites. As a career changer, I put in extra effort and show
-    determination and willpower in every new challenge. Helping shape a new project excites me.
-  </p>
+    <p class="contact__msg">
+      Feel free to reach out and tell me which role you have in mind. I’m confident that my
+      expertise and drive to keep improving my skills will make a meaningful contribution to your
+      team. My passion is CSS: I give every project its own distinct finish, so it feels unique
+      rather than like one of many template sites. As a career changer, I put in extra effort and
+      show determination and willpower in every new challenge. Helping shape a new project excites
+      me.
+    </p>
+  </section>
 
-  <app-contact-form></app-contact-form>
+  <section class="contact__section--form">
+    <img loading="lazy" src="/assets/img/lm_logo.webp" alt="logo" class="contact__logo" />
+    <app-contact-form></app-contact-form>
+  </section>
 </article>
