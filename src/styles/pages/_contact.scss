@@ -19,6 +19,10 @@
   &__section {
     &--form {
       position: relative;
+
+      @include respond-to(md) {
+        margin-top: 200px;
+      }
     }
   }
 
@@ -31,6 +35,14 @@
   }
 
   &__logo {
-    width: 144px;
+    max-width: 368px;
+    width: 100%;
+    transform: rotate(8deg);
+
+    @include respond-to(md) {
+      position: absolute;
+      bottom: 90%;
+      right: -16px;
+    }
   }
 }
