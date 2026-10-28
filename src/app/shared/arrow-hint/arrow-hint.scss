@@ -1,0 +1,33 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+  width: 17.5rem;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.arrow-hint {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  path {
+    fill: none;
+    stroke: $logo-violet;
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 1;
+    vector-effect: non-scaling-stroke;
+    animation: drag-hint-draw var(--draw-duration) ease forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-hint path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

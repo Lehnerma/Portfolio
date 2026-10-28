@@ -14,6 +14,7 @@ import { CARDS } from '../../data/colleagues.data';
 import { DragHint } from '../../shared/drag-hint/drag-hint';
 import { mediaQuery } from '../../shared/utils/media-query';
 import { CommentCard } from '../../components/comment-card/comment-card';
+import { ContactForm } from '../../shared/contact-form/contact-form';
 
 @Component({
   imports: [
@@ -28,6 +29,7 @@ import { CommentCard } from '../../components/comment-card/comment-card';
     ProjectWindow,
     DragHint,
     CommentCard,
+    ContactForm,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',

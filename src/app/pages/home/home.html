@@ -100,11 +100,11 @@
   </section>
 </article>
 
-<article class="about dp-max">
+<article loading="lazy" class="about dp-max">
   <section class="about__titles">
     <h3 class="about__subtitle">WHO'S MAX</h3>
     <app-underline-title variant="wave">
-      <h2 class="about__title txt56-144">About me</h2>
+      <h2 class="about__title main-title">About me</h2>
     </app-underline-title>
   </section>
 
@@ -131,7 +131,7 @@
   <div class="skills__wrapper dp-max">
     <app-underline-title variant="circle" class="skills__titles">
       <h3 class="skills__subtitle">MY STACK</h3>
-      <h2 class="skills__title txt56-144">Skill set</h2>
+      <h2 class="skills__title main-title">Skill set</h2>
     </app-underline-title>
 
     <section class="skills__desc">
@@ -156,10 +156,10 @@
   </div>
 </article>
 
-<article class="projects" id="project">
+<article loading="lazy" class="projects" id="project">
   <app-underline-title variant="squiggle" class="projects__titles">
     <h3 class="projects__subtitle z-20">MY CRAFT</h3>
-    <h2 class="projects__title txt56-144 z-20">Projects</h2>
+    <h2 class="projects__title main-title z-20">Projects</h2>
   </app-underline-title>
 
   <section class="projects__cards" id="projects">
@@ -184,10 +184,10 @@
   </section>
 </article>
 
-<article class="comments">
+<article loading="lazy" class="comments">
   <app-underline-title variant="double" class="comments__titles">
-    <h3 class="comments__subtitle z-20">IN THEIR WORDS</h3>
-    <h2 class="comments__title txt56-128">Colleague's Thoughts</h2>
+    <h3 class="comments__subtitle">IN THEIR WORDS</h3>
+    <h2 class="comments__title main-title">Colleague's Thoughts</h2>
   </app-underline-title>
   <ul class="comments__cards">
     @for (comment of comments; track $index) {
@@ -207,10 +207,10 @@
   </ul>
 </article>
 
-<article class="contact">
-  <app-underline-title variant="scribble" class="comments__titles">
-    <h3 class="comments__subtitle z-20">CONTACT ME</h3>
-    <h2 class="comments__title txt56-128">Ready to work together?</h2>
+<article loading="lazy" class="contact">
+  <app-underline-title variant="scribble" class="contact__titles">
+    <h3 class="contact__subtitle">CONTACT ME</h3>
+    <h2 class="contact__title title56-80">Ready to work together?</h2>
   </app-underline-title>
 
   <p class="contact__msg">
@@ -220,4 +220,6 @@
     like one of many template sites. As a career changer, I put in extra effort and show
     determination and willpower in every new challenge. Helping shape a new project excites me.
   </p>
+
+  <app-contact-form></app-contact-form>
 </article>

@@ -10,19 +10,14 @@
   font-size: clamp(rem(20), 5vw, rem(24));
 }
 
-.txt56-144 {
+.main-title {
   font-family: $f-txt;
-  font-size: clamp(rem(56), 18vw, rem(144));
+  font-size: clamp(rem(48), 18vw, rem(136));
 }
 
-.txt56-128 {
+.title56-80 {
   font-family: $f-txt;
-  font-size: clamp(rem(48), 15vw, rem(128));
-}
-
-.txt64-128 {
-  font-family: $f-txt;
-  font-size: clamp(rem(60), 13vw, rem(128));
+  font-size: clamp(rem(48), 6.25vw, rem(80));
 }
 
 .nav-element {

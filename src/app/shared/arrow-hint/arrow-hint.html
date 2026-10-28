@@ -1,0 +1,13 @@
+@if (inView()) {
+  @for (key of [cycle()]; track key) {
+    <svg
+      class="arrow-hint"
+      aria-hidden="true"
+      focusable="false"
+      [attr.viewBox]="viewBox()"
+      [style.--draw-duration]="drawDuration() + 's'"
+    >
+      <path pathLength="1" [attr.d]="path()" />
+    </svg>
+  }
+}
