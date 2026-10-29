@@ -1,24 +1,29 @@
 @use '../abstracts' as *;
 
 .contact {
-  padding: $body-spacing;
-  padding-top: 6rem;
-
   background-image: url('/assets/background/contact.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  padding-top: 4rem;
 
-  display: grid;
-  gap: 2rem;
-
-  @include respond-to(md) {
-    grid-template-columns: 1fr 1fr;
+  &__wrapper {
+    display: grid;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: $body-spacing;
+    max-width: $dp-max-width;
+    @include respond-to(md) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__section {
     &--form {
       position: relative;
+      display: grid;
+
+      margin-top: 160px;
 
       @include respond-to(md) {
         margin-top: 200px;
@@ -35,14 +40,19 @@
   }
 
   &__logo {
-    max-width: 368px;
-    width: 100%;
-    transform: rotate(8deg);
+    justify-self: flex-end;
+
+    width: clamp(275px, 45vw, 328px);
+    transform: rotate(10deg);
+
+    position: absolute;
+    bottom: 94%;
+    right: clamp(24px, 3vw, 40px);
 
     @include respond-to(md) {
       position: absolute;
-      bottom: 90%;
-      right: -16px;
+      max-width: 368px;
+      right: -10px;
     }
   }
 }

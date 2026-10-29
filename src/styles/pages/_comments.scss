@@ -2,7 +2,9 @@
 
 .comments {
   padding: $body-spacing;
-  margin-bottom: 3rem;
+  max-width: $dp-max-width;
+  margin: 0 auto 3rem;
+
   display: grid;
   gap: 2rem;
   font-family: $f-txt;
