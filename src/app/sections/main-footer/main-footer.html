@@ -1,0 +1,36 @@
+<article loading="lazy" class="contact">
+  <div class="contact__wrapper">
+    <section>
+      <app-underline-title variant="double" class="contact__titles">
+        <h3 class="contact__subtitle">CONTACT ME</h3>
+        <h2 class="contact__title title56-80">Ready to work together?</h2>
+      </app-underline-title>
+
+      <p class="contact__msg">
+        {{ contactMsg }}
+      </p>
+    </section>
+
+    <section class="contact__section--form">
+      <img
+        loading="lazy"
+        src="/assets/img/window_sticker3x.webp"
+        alt="logo"
+        class="contact__logo"
+      />
+      <app-contact-form></app-contact-form>
+    </section>
+  </div>
+
+  <nav>
+    <ul>
+      @for (el of navElements; track $index) {
+        <app-nav-elements
+          [label]="el.label"
+          [link]="el.link"
+          [underlineVariation]="el.underlineVariant"
+        ></app-nav-elements>
+      }
+    </ul>
+  </nav>
+</article>

@@ -35,13 +35,13 @@ export const NAV_FOOTER_DATA: NavElements[] = [
     underlineVariant: 'wave',
   },
   {
-    label: '',
-    link: '',
+    label: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/maximilian-lehner-7744a2276/',
     underlineVariant: 'scribble',
   },
   {
-    label: '',
-    link: '',
-    underlineVariant: 'scribble',
+    label: 'Email',
+    link: 'mailto:info@max-lehner.at',
+    underlineVariant: 'double',
   },
 ];

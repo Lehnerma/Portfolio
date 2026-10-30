@@ -15,6 +15,7 @@ import { DragHint } from '../../shared/drag-hint/drag-hint';
 import { mediaQuery } from '../../shared/utils/media-query';
 import { CommentCard } from '../../components/comment-card/comment-card';
 import { ContactForm } from '../../shared/contact-form/contact-form';
+import { MainFooter } from '../../sections/main-footer/main-footer';
 
 @Component({
   imports: [
@@ -30,6 +31,7 @@ import { ContactForm } from '../../shared/contact-form/contact-form';
     DragHint,
     CommentCard,
     ContactForm,
+    MainFooter,
   ],
   selector: 'app-home',
   styleUrl: './home.scss',
