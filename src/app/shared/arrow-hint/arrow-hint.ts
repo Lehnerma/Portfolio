@@ -4,6 +4,7 @@ import {
   computed,
   DestroyRef,
   effect,
+  EffectCleanupRegisterFn,
   ElementRef,
   inject,
   input,
@@ -52,22 +53,27 @@ export class ArrowHint {
       this.observeSize();
       this.observeViewport();
     });
-    effect((onCleanup) => {
-      if (!this.inView() || this.reducedMotion()) return;
-      let timer: ReturnType<typeof setTimeout>;
-      const schedule = (): void => {
-        const [min, max] = this.interval();
-        timer = setTimeout(
-          () => {
-            this.cycle.update((cycle) => cycle + 1);
-            schedule();
-          },
-          randomBetween(min, max),
-        );
-      };
-      schedule();
-      onCleanup(() => clearTimeout(timer));
-    });
+    effect((onCleanup) => this.startRenderLoop(onCleanup));
+  }
+
+  /** Redraws the arrow after a random pause, as long as it is visible and motion is allowed. */
+  private startRenderLoop(onCleanup: EffectCleanupRegisterFn): void {
+    if (!this.inView() || this.reducedMotion()) return;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const schedule = (): void => {
+      const [min, max] = this.interval();
+      timer = setTimeout(
+        () => {
+          this.cycle.update((cycle) => cycle + 1);
+          schedule();
+        },
+        randomBetween(min, max),
+      );
+    };
+
+    schedule();
+    onCleanup(() => clearTimeout(timer));
   }
 
   /** Redraws the path in real pixels whenever the layout changes the width of the arrow. */

@@ -7,6 +7,10 @@
   background-position: top;
   padding-top: 4rem;
 
+  display: grid;
+  gap: 24px;
+  grid-template-rows: auto 144px;
+
   &__wrapper {
     display: grid;
     gap: 2rem;
@@ -21,8 +25,8 @@
   &__section {
     &--form {
       position: relative;
+      justify-self: center;
       display: grid;
-
       margin-top: 160px;
 
       @include respond-to(md) {
@@ -47,7 +51,7 @@
 
     position: absolute;
     bottom: 94%;
-    right: clamp(24px, 3vw, 40px);
+    right: clamp(4px, 3vw, 40px);
 
     @include respond-to(md) {
       position: absolute;

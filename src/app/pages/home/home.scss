@@ -1,1 +1,9 @@
 @use '../../../styles/abstracts' as *;
+
+.footer {
+  color: $white-base;
+
+  &__links {
+    display: flex;
+  }
+}
