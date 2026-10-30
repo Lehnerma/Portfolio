@@ -14,7 +14,6 @@ import { CARDS } from '../../data/colleagues.data';
 import { DragHint } from '../../shared/drag-hint/drag-hint';
 import { mediaQuery } from '../../shared/utils/media-query';
 import { CommentCard } from '../../components/comment-card/comment-card';
-import { ContactForm } from '../../shared/contact-form/contact-form';
 import { MainFooter } from '../../sections/main-footer/main-footer';
 
 @Component({
@@ -30,7 +29,6 @@ import { MainFooter } from '../../sections/main-footer/main-footer';
     ProjectWindow,
     DragHint,
     CommentCard,
-    ContactForm,
     MainFooter,
   ],
   selector: 'app-home',
