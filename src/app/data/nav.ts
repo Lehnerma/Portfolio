@@ -1,46 +1,47 @@
-import { NavElements } from '../interfaces/nav-elements';
+import { NavItem, HeaderKey } from '../interfaces/nav-elements';
+import { FooterTexts } from '../interfaces/translations';
 
-export const NAV_HEADER_DATA: NavElements[] = [
+export const NAV_HEADER_DATA: NavItem<HeaderKey>[] = [
   {
-    label: 'About me',
+    labelKey: 'about',
     link: '#about',
     underlineVariant: 'scribble',
   },
   {
-    label: 'Skills',
+    labelKey: 'skills',
     link: '#skills',
     underlineVariant: 'wave',
   },
   {
-    label: 'Projects',
+    labelKey: 'projects',
     link: '#projects',
     underlineVariant: 'circle',
   },
   {
-    label: 'Contact',
+    labelKey: 'contact',
     link: '#contact',
     underlineVariant: 'squiggle',
   },
 ];
 
-export const NAV_FOOTER_DATA: NavElements[] = [
+export const NAV_FOOTER_DATA: NavItem<keyof FooterTexts>[] = [
   {
-    label: 'Legal Notice',
+    labelKey: 'legalNotice',
     link: '', // todo add missing link
     underlineVariant: 'scribble',
   },
   {
-    label: 'GitHub',
+    labelKey: 'github',
     link: 'https://github.com/Lehnerma',
     underlineVariant: 'wave',
   },
   {
-    label: 'LinkedIn',
+    labelKey: 'linkedin',
     link: 'https://www.linkedin.com/in/maximilian-lehner-7744a2276/',
     underlineVariant: 'scribble',
   },
   {
-    label: 'Email',
+    labelKey: 'email',
     link: 'mailto:info@max-lehner.at',
     underlineVariant: 'double',
   },

@@ -6,7 +6,7 @@ const STORAGE_KEY = 'language';
 const DEFAULT_LANGUAGE: Language = 'en';
 
 /**
- * Holds the language the visitor sees and the texts that belong to it.
+ * Holds the language the user sees and the texts that belong to it.
  * Components only read `texts()`, the language switcher calls `setLanguage()`.
  */
 @Service()
