@@ -9,17 +9,17 @@
       <app-drag-hint class="projects__hint" animate.leave="drag-hint--leave" />
     }
 
-    @for (project of projects; track $index) {
+    @for (project of projects(); track $index) {
       <app-project-window
         [title]="project.name"
-        [screenshotSrc]="project.img_src"
-        [screenshotAlt]="project.img_alt"
+        [screenshotSrc]="project.imgSrc"
+        [screenshotAlt]="project.imgAlt"
         [detailsLink]="project.route"
         (dragStarted)="hasDragged.set(true)"
       >
         <h4 desc-title class="content--title txt20-24">{{ project.name | titlecase }}</h4>
         <p desc-text class="content">
-          {{ project.description_en | titlecase }}
+          {{ project.description | titlecase }}
         </p>
       </app-project-window>
     }

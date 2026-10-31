@@ -21,5 +21,12 @@ export class Projects {
   protected readonly showDragHint = computed(() => this.isMdUp() && !this.hasDragged());
 
   private readonly texts = inject(LanguageService).texts;
-  protected readonly projects = PROJECTS;
+  // protected readonly projects = PROJECTS;
+
+  protected readonly projects = computed(() =>
+    PROJECTS.map((project) => ({
+      ...project,
+      ...this.texts().projects.items[project.id],
+    })),
+  );
 }
