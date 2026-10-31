@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { LanguageService } from '../../services/language-service';
+import { PaperElementsInterface } from '../../interfaces/ripped-paper-interface';
+import { RIPPED_PAPERS_DATA } from '../../data/ripped-paper.data';
 
 @Component({
   imports: [],
@@ -7,27 +10,18 @@ import { Component } from '@angular/core';
   templateUrl: './ripped-paper.html',
 })
 export class RippedPaper {
-  rippedPapers = [
-    {
-      color: 'blue',
-      mobile: '/assets/img/ripped-papper/mob/paper-blue.webp',
-      desktop: '/assets/img/ripped-papper/paper-blue.webp',
-      icon: '/assets/icons/location.png',
-      text: 'Based in Grafenegg',
-    },
-    {
-      color: 'coral',
-      mobile: '/assets/img/ripped-papper/mob/paper-coral.webp',
-      desktop: '/assets/img/ripped-papper/paper-coral.webp',
-      icon: '/assets/icons/commute.png',
-      text: 'Flexible with longer commute',
-    },
-    {
-      color: 'purple',
-      mobile: '/assets/img/ripped-papper/mob/paper-purple.webp',
-      desktop: '/assets/img/ripped-papper/paper-purple.webp',
-      icon: '/assets/icons/homework.png',
-      text: 'Open to work remote',
-    },
-  ];
+  private readonly texts = inject(LanguageService).texts;
+
+  readonly rippedPapers = computed<PaperElementsInterface[]>(() =>
+    RIPPED_PAPERS_DATA.map((item) => {
+      const label = this.texts().about.preferences[item.labelKey];
+      return {
+        labelKey: label,
+        color: item.color,
+        mobile: item.mobile,
+        desktop: item.desktop,
+        icon: item.icon,
+      };
+    }),
+  );
 }

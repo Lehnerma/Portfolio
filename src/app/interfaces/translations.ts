@@ -69,9 +69,18 @@ export interface StickerTexts {
   peeledValue: (percent: number) => string;
 }
 
+/** Identifies a project in `projects.data.ts` and in the texts of `ProjectsTexts.items`. */
+export type ProjectId = 'join' | 'pollApp' | 'sharkie';
+
 export interface ProjectsTexts {
   subtitle: string;
   title: string;
+  items: Record<ProjectId, ProjectItemTexts>;
+}
+
+export interface ProjectItemTexts {
+  description: string;
+  imgAlt: string;
 }
 
 export interface ProjectWindowTexts {

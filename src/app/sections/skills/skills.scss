@@ -1,4 +1,4 @@
-@use '../abstracts/index' as *;
+@use '../../../styles/abstracts' as *;
 
 // Current distance of an icon from the sticker centre. Animated on scroll.
 @property --radius {
@@ -14,18 +14,11 @@
   initial-value: 0px;
 }
 
+:host {
+  display: block;
+}
+
 .skills {
-  // scroll-snap-align: start;
-  // min-height: 100dvh;
-
-  background-image: url('/assets/background/skills.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-
-  padding: 1rem 0;
-  overflow-x: clip;
-
   &__wrapper {
     margin: 0 auto;
     padding: $body-spacing;
@@ -60,7 +53,7 @@
   }
 
   &__info {
-    background-image: url('/assets/img/ripped-papper/mob/skills.mob.png');
+    background-image: url('/assets/img/ripped-paper/mob/skills.mob.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -220,7 +213,7 @@
 @include respond-to(690px) {
   .skills {
     &__info {
-      background-image: url('/assets/img/ripped-papper/skills.webp');
+      background-image: url('/assets/img/ripped-paper/skills.webp');
       aspect-ratio: 5.2/1;
       max-width: 100%;
     }
@@ -239,7 +232,7 @@
     }
 
     &__info {
-      background-image: url('/assets/img/ripped-papper/skills-long.webp');
+      background-image: url('/assets/img/ripped-paper/skills-long.webp');
       aspect-ratio: 240 / 400;
       max-width: 320px;
       padding: 8px 64px;

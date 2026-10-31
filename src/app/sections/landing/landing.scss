@@ -1,18 +1,18 @@
-@use '../abstracts' as *;
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+}
 
 .landing {
-  min-height: 100dvh;
-  background-image: url('/assets/background/hero_bg.webp');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 32px;
-  padding: 16px $body-spacing;
-
-  // scroll-snap-align: start;
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $dp-max-width;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+    padding: 16px $body-spacing;
+  }
 
   &__nav {
     justify-self: center;
@@ -36,6 +36,10 @@
     justify-self: center;
   }
 
+  &__hello {
+    align-self: center;
+  }
+
   &__figure {
     justify-self: center;
     align-self: center;
@@ -53,9 +57,14 @@
 
 @include respond-to(md) {
   .landing {
+    &__nav {
+      align-items: center;
+      width: 100%;
+    }
+
     &__main {
       display: grid;
-      max-width: 900px;
+      max-width: 1000px;
       width: 100%;
       max-height: 900px;
       align-self: center;

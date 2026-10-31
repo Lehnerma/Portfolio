@@ -47,6 +47,23 @@ export const DE_TRANSLATIONS: Translations = {
   projects: {
     subtitle: 'MEIN HANDWERK',
     title: 'Projekte',
+    items: {
+      join: {
+        description:
+          'Ein minimalistisches Projektmanagement-Tool für die Zusammenarbeit. Das Frontend wurde ausschließlich mit HTML, CSS und JavaScript erstellt, während Firebase als Cloud-Backend dient und so eine nahtlose Aufgabenverwaltung in Echtzeit gewährleistet. Probieren Sie die Funktionen gleich jetzt über den integrierten Gastzugang aus.',
+        imgAlt: 'Screenshot des Projekts Join',
+      },
+      pollApp: {
+        description:
+          'Eine moderne Web-App für interaktive Umfragen, entwickelt mit Angular, SCSS und Supabase als Backend-as-a-Service. Die Anwendung ermöglicht das Erstellen dynamischer Fragebögen, deren Verlauf in Echtzeit auf die Eingaben der Nutzer reagiert. Neben flexiblem Frage-Design mit Single- und Multiple-Choice-Optionen bietet das System eine nahtlose Echtzeit-Datenbanksynchronisation sowie Konfigurationsmöglichkeiten für Ablaufdaten und Zugriffsbeschränkungen. Ohne große Hürden sofort ausfüllen und testen.',
+        imgAlt: 'Screenshot des Projekts Poll-app',
+      },
+      sharkie: {
+        description:
+          'In diesem objektorientierten Browser-Game begleiten Spieler einen kleinen Hai auf seinem Weg zum mächtigen König der Meere. Entwickelt mit reinem HTML5, CSS3 und Vanilla JavaScript auf Basis moderner OOP-Prinzipien, bietet das Spiel animierte Gegner, einen integrierten Ingame-Shop für Upgrades sowie einen anspruchsvollen Endboss. Das fertige erste Level lässt sich ohne Installation direkt im Browser starten.',
+        imgAlt: 'Screenshot des Projekts Sharkie',
+      },
+    },
   },
   projectWindow: {
     closeWindow: 'Fenster schließen',

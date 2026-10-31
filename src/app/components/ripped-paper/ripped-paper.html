@@ -1,5 +1,5 @@
 <article class="papers">
-  @for (paper of rippedPapers; track $index; let i = $index) {
+  @for (paper of rippedPapers(); track $index; let i = $index) {
     <section
       [class]="'paper paper--' + paper.color"
       [style.--bg-mobile]="`url(${paper.mobile})`"
@@ -7,7 +7,7 @@
     >
       <div class="paper__wrapper">
         <img [src]="paper.icon" alt="" class="paper__icon" />
-        <p class="paper__txt txt20-24">{{ paper.text }}</p>
+        <p class="paper__txt txt20-24">{{ paper.labelKey }}</p>
       </div>
     </section>
   }

@@ -1,8 +1,9 @@
+import { ProjectId } from './translations';
+
+/** Language-independent project data. Description and alt text live in the translations. */
 export interface ProjectInfos {
+  id: ProjectId;
   name: string;
-  img_scr: string;
-  img_alt: string;
-  description_en: string;
-  description_de: string;
+  imgSrc: string;
   route: string;
 }

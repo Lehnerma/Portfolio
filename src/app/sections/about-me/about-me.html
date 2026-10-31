@@ -1,0 +1,23 @@
+<div class="about__wrapper">
+  <section class="about__titles">
+    <h3 class="about__subtitle">{{ texts().about.subtitle }}</h3>
+    <app-underline-title variant="wave">
+      <h2 class="about__title main-title">{{ texts().about.title }}</h2>
+    </app-underline-title>
+  </section>
+
+  <section class="about__me">
+    <p class="about__info txt16-20">
+      {{ texts().about.text }}
+    </p>
+    <app-secondary-btn
+      label="Let’s talk"
+      btnTheme="black"
+      class="about__contact"
+    ></app-secondary-btn>
+  </section>
+
+  <section class="about__preferences">
+    <app-ripped-paper></app-ripped-paper>
+  </section>
+</div>
