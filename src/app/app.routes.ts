@@ -7,4 +7,20 @@ export const routes: Routes = [
     component: Home,
     title: 'Home Page',
   },
+  {
+    path: 'imprint',
+    loadComponent: () => import('./pages/imprint/imprint').then((m) => m.Imprint),
+    title: 'Imprint',
+  },
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
+    title: 'Privacy Policy',
+  },
+  {
+    path: 'legal-notice',
+    loadComponent: () => import('./pages/legal-notice/legal-notice').then((m) => m.LegalNotice),
+    title: 'Legal Notice',
+  },
 ];

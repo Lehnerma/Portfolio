@@ -2,12 +2,12 @@
   <div class="contact__wrapper">
     <section>
       <app-underline-title variant="double" class="contact__titles">
-        <h3 class="contact__subtitle">CONTACT ME</h3>
-        <h2 class="contact__title title56-80">Ready to work together?</h2>
+        <h3 class="contact__subtitle">{{ texts().contact.subtitle }}</h3>
+        <h2 class="contact__title title56-80">{{ texts().contact.title }}</h2>
       </app-underline-title>
 
       <p class="contact__msg">
-        {{ contactMsg }}
+        {{ texts().contact.message }}
       </p>
     </section>
 
@@ -15,7 +15,7 @@
       <img
         loading="lazy"
         src="/assets/img/window_sticker3x.webp"
-        alt="logo"
+        [alt]="texts().contact.logoAlt"
         class="contact__logo"
       />
       <app-contact-form></app-contact-form>
@@ -24,12 +24,13 @@
 
   <nav>
     <ul>
-      @for (el of navElements; track $index) {
-        <app-nav-elements
+      @for (el of navElements(); track $index) {
+        <app-nav-element
           [label]="el.label"
           [link]="el.link"
           [underlineVariation]="el.underlineVariant"
-        ></app-nav-elements>
+          linkClass="nav-element"
+        ></app-nav-element>
       }
     </ul>
   </nav>

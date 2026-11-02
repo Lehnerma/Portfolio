@@ -4,12 +4,12 @@
     [class.contact-form__field--invalid]="showError(form.controls.name)"
     [class.contact-form__field--valid]="showValid(form.controls.name)"
   >
-    <label class="contact-form__label" [for]="uid + '-name'">What's your name?</label>
+    <label class="contact-form__label" [for]="uid + '-name'">{{ texts().form.name.label }}</label>
     <input
       class="contact-form__input"
       type="text"
       autocomplete="name"
-      placeholder="Your name goes here"
+      [placeholder]="texts().form.name.placeholder"
       formControlName="name"
       [id]="uid + '-name'"
       [attr.aria-invalid]="showError(form.controls.name)"
@@ -18,7 +18,7 @@
 
     <p class="contact-form__error" role="alert" [id]="uid + '-name-error'">
       @if (showError(form.controls.name)) {
-        Please tell me your name.
+        {{ texts().form.name.required }}
       }
     </p>
   </fieldset>
@@ -28,12 +28,14 @@
     [class.contact-form__field--invalid]="showError(form.controls.email)"
     [class.contact-form__field--valid]="showValid(form.controls.email)"
   >
-    <label class="contact-form__label" [for]="uid + '-email'">What's your email?</label>
+    <label class="contact-form__label" [for]="uid + '-email'">{{
+      texts().form.email.label
+    }}</label>
     <input
       class="contact-form__input"
       type="email"
       autocomplete="email"
-      placeholder="youremail@email.com"
+      [placeholder]="texts().form.email.placeholder"
       formControlName="email"
       [id]="uid + '-email'"
       [attr.aria-invalid]="showError(form.controls.email)"
@@ -43,9 +45,9 @@
     <p class="contact-form__error" role="alert" [id]="uid + '-email-error'">
       @if (showError(form.controls.email)) {
         @if (form.controls.email.hasError('required')) {
-          I need your email to get back to you.
+          {{ texts().form.email.required }}
         } @else {
-          That doesn't look like a valid email address.
+          {{ texts().form.email.invalid }}
         }
       }
     </p>
@@ -56,11 +58,13 @@
     [class.contact-form__field--invalid]="showError(form.controls.message)"
     [class.contact-form__field--valid]="showValid(form.controls.message)"
   >
-    <label class="contact-form__label" [for]="uid + '-message'">How can I help you?</label>
+    <label class="contact-form__label" [for]="uid + '-message'">{{
+      texts().form.message.label
+    }}</label>
     <textarea
       class="contact-form__input contact-form__input--message"
       rows="1"
-      placeholder="Spill the beans: a project, a wild idea or just a high five?"
+      [placeholder]="texts().form.message.placeholder"
       formControlName="message"
       [id]="uid + '-message'"
       [attr.aria-invalid]="showError(form.controls.message)"
@@ -70,9 +74,9 @@
     <p class="contact-form__error" role="alert" [id]="uid + '-message-error'">
       @if (showError(form.controls.message)) {
         @if (form.controls.message.hasError('required')) {
-          Don't be shy, write me a few words.
+          {{ texts().form.message.required }}
         } @else {
-          Please write at least 10 characters.
+          {{ texts().form.message.tooShort }}
         }
       }
     </p>
@@ -89,12 +93,14 @@
       [describedBy]="showError(form.controls.privacy) ? uid + '-privacy-error' : null"
     />
     <label class="contact-form__label contact-form__label--privacy" [for]="uid + '-privacy'">
-      I accept the
-      <a class="contact-form__link" [href]="privacyLink()">Privacy Policy</a>
+      {{ texts().form.privacy.before }}
+      <a class="contact-form__link" [href]="privacyLink()">{{
+        texts().form.privacy.linkText
+      }}</a>
     </label>
     <p class="contact-form__error" role="alert" [id]="uid + '-privacy-error'">
       @if (showError(form.controls.privacy)) {
-        Please accept the privacy policy to send your message.
+        {{ texts().form.privacy.required }}
       }
     </p>
   </fieldset>
@@ -102,7 +108,7 @@
   <div class="contact-form__footer">
     <app-arrow-hint class="arrow"></app-arrow-hint>
     <app-secondary-btn
-      label="Send"
+      [label]="texts().form.submit"
       btnType="submit"
       class="contact-form__submit"
     ></app-secondary-btn>

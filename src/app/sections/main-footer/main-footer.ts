@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { UnderlineTitle } from '../../shared/underline-title/underline-title';
 import { ContactForm } from '../../shared/contact-form/contact-form';
+import { NavElement } from '../../shared/nav-element/nav-element';
+import { LanguageService } from '../../services/language-service';
+import { NavElements } from '../../interfaces/nav-elements';
 import { NAV_FOOTER_DATA } from '../../data/nav';
-import { NavElements } from '../../shared/nav-elements/nav-elements';
-
 @Component({
-  imports: [UnderlineTitle, ContactForm, NavElements],
+  imports: [UnderlineTitle, ContactForm, NavElement],
   selector: 'app-main-footer',
   styleUrl: './main-footer.scss',
   templateUrl: './main-footer.html',
 })
 export class MainFooter {
-  readonly navElements = NAV_FOOTER_DATA;
+  private readonly texts = inject(LanguageService).texts;
 
-  readonly contactMsg = `Feel free to reach out and tell me which role you have in mind. I’m confident that my
-        expertise and drive to keep improving my skills will make a meaningful contribution to your
-        team. My passion is CSS: I give every project its own distinct finish, so it feels unique
-        rather than like one of many template sites. As a career changer, I put in extra effort and
-        show determination and willpower in every new challenge. Helping shape a new project excites
-        me.`;
+  readonly navElements = computed<NavElements[]>(() =>
+    NAV_FOOTER_DATA.map((item) => {
+      const label = this.texts().footer[item.labelKey];
+      return {
+        label: label,
+        link: item.link,
+        underlineVariant: item.underlineVariant,
+      };
+    }),
+  );
 }
