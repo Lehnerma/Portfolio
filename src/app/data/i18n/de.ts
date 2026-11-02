@@ -84,6 +84,20 @@ export const DE_TRANSLATIONS: Translations = {
     subtitle: 'IN IHREN WORTEN',
     title: 'Stimmen aus dem Team',
     linkedinLogoAlt: 'LinkedIn-Logo',
+    items: {
+      radek: {
+        comment:
+          'Max arbeitet sehr teamorientiert und ist für Fragen jederzeit ansprechbar. Aufgaben erledigt er zuverlässig und mit großer Sorgfalt, auch kleine Details entgehen ihm nicht. Dadurch war die Qualität der Ergebnisse durchgehend hoch.',
+      },
+      monika: {
+        comment:
+          'Die Zusammenarbeit hat super funktioniert, trotz unterschiedlicher Arbeitszeiten und Verfügbarkeiten. Max hat die Initiative ergriffen, das Projekt stetig voranzubringen, und dabei sowohl das Gesamtbild als auch Details im Blick behalten. Teamkollegen hat Max immer Hilfe angeboten. Die Struktur war klar und der Code clean, sodass man sich schnell zurechtfand.',
+      },
+      guenter: {
+        comment:
+          'Mit Max im Team zu arbeiten hat richtig Spaß gemacht. Er hört zu, bringt eigene Ideen ein und packt mit an, wenn es irgendwo hakt. Außerdem merkt er Kleinigkeiten auf, die andere übersehen, und bringt sie rechtzeitig zur Sprache.',
+      },
+    },
   },
   contact: {
     subtitle: 'KONTAKT',

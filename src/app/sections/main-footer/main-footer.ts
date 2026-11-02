@@ -13,7 +13,6 @@ import { NAV_FOOTER_DATA } from '../../data/nav';
 })
 export class MainFooter {
   private readonly texts = inject(LanguageService).texts;
-  private readonly contactMsg = this.texts().contact.message;
 
   readonly navElements = computed<NavElements[]>(() =>
     NAV_FOOTER_DATA.map((item) => {

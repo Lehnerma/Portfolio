@@ -84,6 +84,20 @@ export const EN_TRANSLATIONS: Translations = {
     subtitle: 'IN THEIR WORDS',
     title: 'Colleague’s Thoughts',
     linkedinLogoAlt: 'LinkedIn logo',
+    items: {
+      radek: {
+        comment:
+          'Max works in a very team-oriented way and is always available for questions. He completes tasks reliably and carefully, and even small details don’t escape him. As a result, the quality of the results was consistently high.',
+      },
+      monika: {
+        comment:
+          'The collaboration worked great despite different working hours and availability. Max took the initiative to keep the project moving and kept both the big picture and the details in view. Max always offered teammates help. The structure was clear and the code clean, so it was easy to find your way around.',
+      },
+      guenter: {
+        comment:
+          'Working with Max in a team was really enjoyable. He listens, contributes his own ideas, and pitches in when something gets stuck. He also notices little things others overlook and brings them up in time.',
+      },
+    },
   },
   contact: {
     subtitle: 'CONTACT ME',

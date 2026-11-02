@@ -101,10 +101,18 @@ export interface DragHintTexts {
   label: string;
 }
 
+/** Identifies a colleague in `colleagues.data.ts` and in the texts of `CommentsTexts.items`. */
+export type ColleagueId = 'radek' | 'monika' | 'guenter';
+
 export interface CommentsTexts {
   subtitle: string;
   title: string;
   linkedinLogoAlt: string;
+  items: Record<ColleagueId, ColleagueItemTexts>;
+}
+
+export interface ColleagueItemTexts {
+  comment: string;
 }
 
 export interface ContactTexts {

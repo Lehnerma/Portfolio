@@ -11,6 +11,6 @@ export class CommentCard {
   readonly name = input<ColleagueCard['name']>();
   readonly link = input<ColleagueCard['link']>();
   readonly jobtitle = input<ColleagueCard['jobtitle']>();
-  readonly comment = input<ColleagueCard['comment_en' | 'comment_de']>();
+  readonly comment = input<string>();
   readonly backgroundUrl = input<ColleagueCard['backgroundUrl']>();
 }

@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ContactFormValue } from '../../interfaces/contact-form-value';
+import { LanguageService } from '../../services/language-service';
 import { Checkbox } from '../checkbox/checkbox';
 import { SecondaryBtn } from '../secondary-btn/secondary-btn';
 import { ArrowHint } from '../arrow-hint/arrow-hint';
@@ -19,6 +20,7 @@ import { ArrowHint } from '../arrow-hint/arrow-hint';
 export class ContactForm {
   private static nextId = 0;
   private readonly fb = inject(NonNullableFormBuilder);
+  private readonly texts = inject(LanguageService).texts;
   private injectionRegex =
     /^(?!.*(<script|javascript:|--|select\s|insert\s|drop\s|delete\s|union\s))[A-Za-z0-9äöüÄÖÜß\s.,!?@_\-+]*$/i;
 
