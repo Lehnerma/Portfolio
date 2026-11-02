@@ -1,0 +1,112 @@
+<form class="contact-form" [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.name)"
+    [class.contact-form__field--valid]="showValid(form.controls.name)"
+  >
+    <label class="contact-form__label" [for]="uid + '-name'">{{ texts().form.name.label }}</label>
+    <input
+      class="contact-form__input"
+      type="text"
+      autocomplete="name"
+      [placeholder]="texts().form.name.placeholder"
+      formControlName="name"
+      [id]="uid + '-name'"
+      [attr.aria-invalid]="showError(form.controls.name)"
+      [attr.aria-describedby]="showError(form.controls.name) ? uid + '-name-error' : null"
+    />
+
+    <p class="contact-form__error" role="alert" [id]="uid + '-name-error'">
+      @if (showError(form.controls.name)) {
+        {{ texts().form.name.required }}
+      }
+    </p>
+  </fieldset>
+
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.email)"
+    [class.contact-form__field--valid]="showValid(form.controls.email)"
+  >
+    <label class="contact-form__label" [for]="uid + '-email'">{{ texts().form.email.label }}</label>
+    <input
+      class="contact-form__input"
+      type="email"
+      autocomplete="email"
+      [placeholder]="texts().form.email.placeholder"
+      formControlName="email"
+      [id]="uid + '-email'"
+      [attr.aria-invalid]="showError(form.controls.email)"
+      [attr.aria-describedby]="showError(form.controls.email) ? uid + '-email-error' : null"
+    />
+
+    <p class="contact-form__error" role="alert" [id]="uid + '-email-error'">
+      @if (showError(form.controls.email)) {
+        @if (form.controls.email.hasError('required')) {
+          {{ texts().form.email.required }}
+        } @else {
+          {{ texts().form.email.invalid }}
+        }
+      }
+    </p>
+  </fieldset>
+
+  <fieldset
+    class="contact-form__field"
+    [class.contact-form__field--invalid]="showError(form.controls.message)"
+    [class.contact-form__field--valid]="showValid(form.controls.message)"
+  >
+    <label class="contact-form__label" [for]="uid + '-message'">{{
+      texts().form.message.label
+    }}</label>
+    <textarea
+      class="contact-form__input contact-form__input--message"
+      rows="1"
+      [placeholder]="texts().form.message.placeholder"
+      formControlName="message"
+      [id]="uid + '-message'"
+      [attr.aria-invalid]="showError(form.controls.message)"
+      [attr.aria-describedby]="showError(form.controls.message) ? uid + '-message-error' : null"
+    ></textarea>
+
+    <p class="contact-form__error" role="alert" [id]="uid + '-message-error'">
+      @if (showError(form.controls.message)) {
+        @if (form.controls.message.hasError('required')) {
+          {{ texts().form.message.required }}
+        } @else {
+          {{ texts().form.message.tooShort }}
+        }
+      }
+    </p>
+  </fieldset>
+
+  <fieldset
+    class="contact-form__field contact-form__field--privacy"
+    [class.contact-form__field--invalid]="showError(form.controls.privacy)"
+  >
+    <app-checkbox
+      formControlName="privacy"
+      [inputId]="uid + '-privacy'"
+      [invalid]="showError(form.controls.privacy)"
+      [describedBy]="showError(form.controls.privacy) ? uid + '-privacy-error' : null"
+    />
+    <label class="contact-form__label contact-form__label--privacy" [for]="uid + '-privacy'">
+      {{ texts().form.privacy.before }}
+      <a class="contact-form__link" [href]="privacyLink()">{{ texts().form.privacy.linkText }}</a>
+    </label>
+    <p class="contact-form__error" role="alert" [id]="uid + '-privacy-error'">
+      @if (showError(form.controls.privacy)) {
+        {{ texts().form.privacy.required }}
+      }
+    </p>
+  </fieldset>
+
+  <div class="contact-form__footer">
+    <app-arrow-hint class="arrow"></app-arrow-hint>
+    <app-secondary-btn
+      [label]="texts().form.submit"
+      btnType="submit"
+      class="contact-form__submit"
+    ></app-secondary-btn>
+  </div>
+</form>

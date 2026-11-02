@@ -1,16 +1,22 @@
-@use '../abstracts' as *;
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+}
 
 .projects {
-  min-height: 90dvh;
+  &__wrapper {
+    min-height: 90dvh;
 
-  // inline gutter that mimics the centered $dp-max-width column (percent = full article width)
-  --projects-gutter: calc(clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2));
+    // inline gutter that mimics the centered $dp-max-width column (percent = full article width)
+    --projects-gutter: calc(clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2));
 
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 32px;
-  padding-block: 16px;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+    padding-block: 16px;
+  }
 
   &__titles {
     justify-self: flex-start;

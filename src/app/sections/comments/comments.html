@@ -1,0 +1,22 @@
+<div class="comments__wrapper">
+  <app-underline-title variant="double" class="comments__titles">
+    <h3 class="comments__subtitle">{{ texts().comments.subtitle }}</h3>
+    <h2 class="comments__title main-title">{{ texts().comments.title }}</h2>
+  </app-underline-title>
+  <ul class="comments__cards">
+    @for (comment of comments(); track comment.id) {
+      <li
+        class="comments__card"
+        [class.is-active]="activeComment() === $index"
+        (pointerdown)="onCommentPointerDown($event, $index)"
+      >
+        <app-comment-card
+          [name]="comment.name"
+          [link]="comment.link"
+          [jobtitle]="comment.jobtitle"
+          [comment]="comment.comment"
+        ></app-comment-card>
+      </li>
+    }
+  </ul>
+</div>

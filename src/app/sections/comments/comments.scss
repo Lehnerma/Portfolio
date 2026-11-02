@@ -1,10 +1,19 @@
-@use '../abstracts' as *;
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+}
 
 .comments {
-  padding: $body-spacing;
-  display: grid;
-  gap: 2rem;
-  font-family: $f-txt;
+  &__wrapper {
+    padding: $body-spacing;
+    max-width: $dp-max-width;
+    margin: 0 auto 3rem;
+
+    display: grid;
+    gap: 2rem;
+    font-family: $f-txt;
+  }
 
   &__titles {
     justify-self: flex-end;
@@ -19,16 +28,13 @@
   }
 
   &__cards {
-    --card-w: min(280px, 100%);
+    --card-w: min(270px, 100%);
     --card-ratio: calc(1799 / 1180);
     --card-overlap: 0.2;
     --shadow-cards: drop-shadow(0 6px 8px rgb(0 0 0 / 0.35))
       drop-shadow(0 18px 24px rgb(0 0 0 / 0.45));
-
     justify-self: center;
-    padding: 8px;
     width: 100%;
-
     display: grid;
     justify-items: center;
 

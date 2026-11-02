@@ -1,0 +1,41 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  @include page-bg($white-base);
+}
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+  margin-inline: auto;
+  padding: 40px $spacing16-40 80px;
+
+  &__back {
+    width: fit-content;
+    font-weight: 700;
+    color: $black-base;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &__title {
+    color: $black-base;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__heading {
+    color: $black-base;
+  }
+
+  &__text {
+    color: $black-base2;
+    line-height: 150%;
+  }
+}

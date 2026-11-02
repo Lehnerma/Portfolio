@@ -1,0 +1,18 @@
+<main class="legal">
+  <a class="legal__back txt16-20" routerLink="/">← {{ backLabel() }}</a>
+
+  <h1 class="legal__title title56-80">{{ content().title }}</h1>
+
+  @if (content().intro) {
+    <p class="legal__text txt16-20">{{ content().intro }}</p>
+  }
+
+  @for (section of content().sections; track section.heading) {
+    <section class="legal__section">
+      <h2 class="legal__heading txt20-24">{{ section.heading }}</h2>
+      @for (paragraph of section.paragraphs; track $index) {
+        <p class="legal__text txt16-20">{{ paragraph }}</p>
+      }
+    </section>
+  }
+</main>

@@ -1,0 +1,27 @@
+<div class="projects__wrapper">
+  <app-underline-title variant="squiggle" class="projects__titles">
+    <h3 class="projects__subtitle z-20">{{ texts().projects.subtitle }}</h3>
+    <h2 class="projects__title main-title z-20">{{ texts().projects.title }}</h2>
+  </app-underline-title>
+
+  <section class="projects__cards" id="projects">
+    @if (showDragHint()) {
+      <app-drag-hint class="projects__hint" animate.leave="drag-hint--leave" />
+    }
+
+    @for (project of projects(); track $index) {
+      <app-project-window
+        [title]="project.name"
+        [screenshotSrc]="project.imgSrc"
+        [screenshotAlt]="project.imgAlt"
+        [detailsLink]="project.route"
+        (dragStarted)="hasDragged.set(true)"
+      >
+        <h4 desc-title class="content--title txt20-24">{{ project.name | titlecase }}</h4>
+        <p desc-text class="content">
+          {{ project.description | titlecase }}
+        </p>
+      </app-project-window>
+    }
+  </section>
+</div>
