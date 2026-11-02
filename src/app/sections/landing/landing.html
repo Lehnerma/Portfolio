@@ -57,33 +57,35 @@
     </button>
   </section>
 
-  <article class="landing__main">
-    <app-primary-btn
-      [label]="texts().hero.greeting"
-      [hoverLabel]="texts().hero.greetingHover"
-      [type]="'button'"
-      class="landing__hello"
-    ></app-primary-btn>
-    <app-animate-title
-      [text]="texts().hero.titleTop"
-      class="landing__title1"
-      fillingColor="purple"
-    ></app-animate-title>
-    <app-animate-title
-      [text]="texts().hero.titleBottom"
-      class="landing__title2"
-      fillingColor="blue"
-    ></app-animate-title>
-    <app-secondary-btn
-      [label]="texts().hero.cta"
-      btnTheme="white"
-      class="landing__contact"
-    ></app-secondary-btn>
-    <figure class="img--bg img__polaroid z-40 landing__figure">
-      <img class="img__polaroid--profil" src="/assets/img/max.png" alt="" />
-      <figcaption class="img__polaroid--caption">{{ texts().hero.photoCaption }}</figcaption>
-    </figure>
+  @if (!light()) {
+    <article class="landing__main">
+      <app-primary-btn
+        [label]="texts().hero.greeting"
+        [hoverLabel]="texts().hero.greetingHover"
+        [type]="'button'"
+        class="landing__hello"
+      ></app-primary-btn>
+      <app-animate-title
+        [text]="texts().hero.titleTop"
+        class="landing__title1"
+        fillingColor="purple"
+      ></app-animate-title>
+      <app-animate-title
+        [text]="texts().hero.titleBottom"
+        class="landing__title2"
+        fillingColor="blue"
+      ></app-animate-title>
+      <app-secondary-btn
+        [label]="texts().hero.cta"
+        btnTheme="white"
+        class="landing__contact"
+      ></app-secondary-btn>
+      <figure class="img--bg img__polaroid z-40 landing__figure">
+        <img class="img__polaroid--profil" src="/assets/img/max.png" alt="" />
+        <figcaption class="img__polaroid--caption">{{ texts().hero.photoCaption }}</figcaption>
+      </figure>
 
-    <app-social-icons class="landing__social" orientation="column"></app-social-icons>
-  </article>
+      <app-social-icons class="landing__social" orientation="column"></app-social-icons>
+    </article>
+  }
 </div>

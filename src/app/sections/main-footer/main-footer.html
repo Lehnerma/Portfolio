@@ -1,24 +1,31 @@
 <article loading="lazy" class="contact">
   <div class="contact__wrapper">
-    <section>
-      <app-underline-title variant="double" class="contact__titles">
-        <h3 class="contact__subtitle">{{ texts().contact.subtitle }}</h3>
-        <h2 class="contact__title title56-80">{{ texts().contact.title }}</h2>
-      </app-underline-title>
+    @if (!lightFooter()) {
+      <section class="contact__section--title">
+        <app-underline-title variant="double" class="contact__titles">
+          <h3 class="contact__subtitle">{{ texts().contact.subtitle }}</h3>
+          <h2 class="contact__title title56-80">{{ texts().contact.title }}</h2>
+        </app-underline-title>
 
-      <p class="contact__msg">
-        {{ texts().contact.message }}
-      </p>
-    </section>
+        <p class="contact__msg">
+          {{ texts().contact.message }}
+        </p>
+      </section>
 
-    <section class="contact__section--form">
-      <img
-        loading="lazy"
-        src="/assets/img/window_sticker3x.webp"
-        [alt]="texts().contact.logoAlt"
-        class="contact__logo"
-      />
-      <app-contact-form></app-contact-form>
+      <section class="contact__section--form">
+        <img
+          loading="lazy"
+          src="/assets/img/window_sticker3x.webp"
+          [alt]="texts().contact.logoAlt"
+          class="contact__logo"
+        />
+        <app-contact-form></app-contact-form>
+      </section>
+    }
+
+    <section class="contact__section--name">
+      <img src="/assets/img/lm_logo.webp" alt="Logo LM" class="contact__logo--lm" />
+      <p class="contact__name txt20-24">© Maximilian Lehner</p>
     </section>
   </div>
 

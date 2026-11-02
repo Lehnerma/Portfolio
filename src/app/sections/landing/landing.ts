@@ -1,4 +1,4 @@
-import { Component, computed, inject, model } from '@angular/core';
+import { Component, computed, inject, input, model } from '@angular/core';
 import { PrimaryBtn } from '../../shared/primary-btn/primary-btn';
 import { AnimateTitle } from '../../shared/animate-title/animate-title';
 import { SecondaryBtn } from '../../shared/secondary-btn/secondary-btn';
@@ -17,6 +17,7 @@ import { LanguageService } from '../../services/language-service';
 export class Landing {
   readonly navOpen = model<boolean>(false);
   readonly burgerMenu = model<boolean>(true);
+  readonly light = input<boolean>(false);
 
   private readonly texts = inject(LanguageService).texts;
 

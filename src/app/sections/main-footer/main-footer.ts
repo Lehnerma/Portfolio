@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { UnderlineTitle } from '../../shared/underline-title/underline-title';
 import { ContactForm } from '../../shared/contact-form/contact-form';
 import { NavElement } from '../../shared/nav-element/nav-element';
@@ -13,6 +13,8 @@ import { NAV_FOOTER_DATA } from '../../data/nav';
 })
 export class MainFooter {
   private readonly texts = inject(LanguageService).texts;
+
+  readonly lightFooter = input<boolean>(false);
 
   readonly navElements = computed<NavElements[]>(() =>
     NAV_FOOTER_DATA.map((item) => {
