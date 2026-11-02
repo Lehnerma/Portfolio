@@ -8,7 +8,10 @@ import { Checkbox } from './checkbox';
   template: `<app-checkbox [formControl]="control" />`,
 })
 class Host {
-  readonly control = new FormControl(false, { nonNullable: true, validators: Validators.requiredTrue });
+  readonly control = new FormControl(false, {
+    nonNullable: true,
+    validators: Validators.requiredTrue,
+  });
 }
 
 describe('Checkbox', () => {

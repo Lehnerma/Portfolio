@@ -28,9 +28,7 @@
     [class.contact-form__field--invalid]="showError(form.controls.email)"
     [class.contact-form__field--valid]="showValid(form.controls.email)"
   >
-    <label class="contact-form__label" [for]="uid + '-email'">{{
-      texts().form.email.label
-    }}</label>
+    <label class="contact-form__label" [for]="uid + '-email'">{{ texts().form.email.label }}</label>
     <input
       class="contact-form__input"
       type="email"
@@ -94,9 +92,7 @@
     />
     <label class="contact-form__label contact-form__label--privacy" [for]="uid + '-privacy'">
       {{ texts().form.privacy.before }}
-      <a class="contact-form__link" [href]="privacyLink()">{{
-        texts().form.privacy.linkText
-      }}</a>
+      <a class="contact-form__link" [href]="privacyLink()">{{ texts().form.privacy.linkText }}</a>
     </label>
     <p class="contact-form__error" role="alert" [id]="uid + '-privacy-error'">
       @if (showError(form.controls.privacy)) {
