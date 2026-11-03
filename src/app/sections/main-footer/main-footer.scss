@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  --dp-view: 1000px;
 }
 
 .contact {
@@ -10,10 +11,11 @@
   background-size: cover;
   background-position: top;
   padding-top: 4rem;
+  padding-bottom: 2rem;
 
   display: grid;
   gap: 24px;
-  grid-template-rows: auto 144px;
+  grid-template-rows: auto auto;
 
   &__wrapper {
     display: grid;
@@ -35,6 +37,13 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+    }
+
+    &--name-light {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: $white-base;
     }
   }
 
@@ -65,7 +74,7 @@
     &--lm {
       width: 80px;
       aspect-ratio: 1/1;
-      transform: rotate(10deg);
+      transform: rotate(-10deg);
     }
   }
 
@@ -73,6 +82,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__nav {
+    justify-self: center;
+  }
+  &__nav-elements {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: var(--dp-view);
   }
 }
 

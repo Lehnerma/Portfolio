@@ -8,9 +8,9 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 800px;
+  max-width: $dp-max-width;
   margin-inline: auto;
-  padding: 40px $spacing16-40 80px;
+  padding: $body-spacing;
 
   &__back {
     width: fit-content;

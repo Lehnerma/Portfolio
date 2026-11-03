@@ -1,5 +1,5 @@
-<article loading="lazy" class="contact">
-  <div class="contact__wrapper">
+<article loading="lazy" class="contact" [class.contact--light]="lightFooter()">
+  <div [class.contact__wrapper]="!lightFooter()">
     @if (!lightFooter()) {
       <section class="contact__section--title">
         <app-underline-title variant="double" class="contact__titles">
@@ -23,14 +23,17 @@
       </section>
     }
 
-    <section class="contact__section--name">
+    <section
+      [class.contact__section--name]="!lightFooter()"
+      [class.contact__section--name-light]="lightFooter()"
+    >
       <img src="/assets/img/lm_logo.webp" alt="Logo LM" class="contact__logo--lm" />
       <p class="contact__name txt20-24">© Maximilian Lehner</p>
     </section>
   </div>
 
-  <nav>
-    <ul>
+  <nav class="contact__nav">
+    <ul class="contact__nav-elements">
       @for (el of navElements(); track $index) {
         <app-nav-element
           [label]="el.label"
