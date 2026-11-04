@@ -1,29 +1,39 @@
-<article loading="lazy" class="contact">
-  <div class="contact__wrapper">
-    <section>
-      <app-underline-title variant="double" class="contact__titles">
-        <h3 class="contact__subtitle">{{ texts().contact.subtitle }}</h3>
-        <h2 class="contact__title title56-80">{{ texts().contact.title }}</h2>
-      </app-underline-title>
+<article loading="lazy" class="footer" [class.footer--light]="lightFooter()">
+  <div [class.footer__wrapper]="!lightFooter()">
+    @if (!lightFooter()) {
+      <section class="footer__section--title">
+        <app-underline-title variant="double" class="footer__titles">
+          <h3 class="footer__subtitle">{{ texts().contact.subtitle }}</h3>
+          <h2 class="footer__title title56-80">{{ texts().contact.title }}</h2>
+        </app-underline-title>
 
-      <p class="contact__msg">
-        {{ texts().contact.message }}
-      </p>
-    </section>
+        <p class="footer__msg">
+          {{ texts().contact.message }}
+        </p>
+      </section>
 
-    <section class="contact__section--form">
-      <img
-        loading="lazy"
-        src="/assets/img/window_sticker3x.webp"
-        [alt]="texts().contact.logoAlt"
-        class="contact__logo"
-      />
-      <app-contact-form></app-contact-form>
+      <section class="footer__section--form">
+        <img
+          loading="lazy"
+          src="/assets/img/window_sticker3x.webp"
+          [alt]="texts().contact.logoAlt"
+          class="footer__logo"
+        />
+        <app-contact-form></app-contact-form>
+      </section>
+    }
+
+    <section
+      [class.footer__section--name]="!lightFooter()"
+      [class.footer__section--name-light]="lightFooter()"
+    >
+      <app-logo-lm />
+      <p class="footer__name txt16-20">© Maximilian Lehner</p>
     </section>
   </div>
 
-  <nav>
-    <ul>
+  <nav class="footer__nav">
+    <ul class="footer__nav-elements">
       @for (el of navElements(); track $index) {
         <app-nav-element
           [label]="el.label"

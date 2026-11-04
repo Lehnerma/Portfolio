@@ -24,7 +24,7 @@ export class ContactForm {
   private injectionRegex =
     /^(?!.*(<script|javascript:|--|select\s|insert\s|drop\s|delete\s|union\s))[A-Za-z0-9äöüÄÖÜß\s.,!?@_\-+]*$/i;
 
-  readonly privacyLink = input<string>('#');
+  readonly privacyLink = input<string>('/privacy-policy');
   readonly submitted = output<ContactFormValue>();
 
   /** Unique prefix so several forms on one page don't share element ids. */
