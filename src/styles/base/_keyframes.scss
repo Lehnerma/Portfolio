@@ -82,3 +82,15 @@
     translate: 0 -0.5rem;
   }
 }
+
+@keyframes polaroid-color {
+  to {
+    filter: grayscale(0);
+  }
+}
+
+@keyframes polaroid-smile {
+  to {
+    content: ' :D';
+  }
+}

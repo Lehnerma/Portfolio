@@ -5,8 +5,9 @@ import { NavElement } from '../../shared/nav-element/nav-element';
 import { LanguageService } from '../../services/language-service';
 import { NavElements } from '../../interfaces/nav-elements';
 import { NAV_FOOTER_DATA } from '../../data/nav';
+import { LogoLm } from '../../shared/logo-lm/logo-lm';
 @Component({
-  imports: [UnderlineTitle, ContactForm, NavElement],
+  imports: [UnderlineTitle, ContactForm, NavElement, LogoLm],
   selector: 'app-main-footer',
   styleUrl: './main-footer.scss',
   templateUrl: './main-footer.html',

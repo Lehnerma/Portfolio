@@ -5,7 +5,7 @@
   --dp-view: 1000px;
 }
 
-.contact {
+.footer {
   background-image: url('/assets/background/contact.webp');
   background-repeat: no-repeat;
   background-size: cover;
@@ -70,12 +70,6 @@
       max-width: 368px;
       right: -10px;
     }
-
-    &--lm {
-      width: 80px;
-      aspect-ratio: 1/1;
-      transform: rotate(-10deg);
-    }
   }
 
   &__name-container {
@@ -97,7 +91,7 @@
 }
 
 @include respond-to(md) {
-  .contact {
+  .footer {
     &__wrapper {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
@@ -120,5 +114,19 @@
         grid-area: form;
       }
     }
+  }
+}
+
+.footer--light .footer {
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &__nav-elements {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
 }

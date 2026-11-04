@@ -7,9 +7,10 @@ import { NAV_HEADER_DATA } from '../../data/nav';
 import { NavElements } from '../../interfaces/nav-elements';
 import { NavElement } from '../../shared/nav-element/nav-element';
 import { LanguageService } from '../../services/language-service';
+import { LogoLm } from '../../shared/logo-lm/logo-lm';
 
 @Component({
-  imports: [PrimaryBtn, AnimateTitle, SecondaryBtn, SocialIcons, NavElement],
+  imports: [PrimaryBtn, AnimateTitle, SecondaryBtn, SocialIcons, NavElement, LogoLm],
   selector: 'app-landing',
   styleUrl: './landing.scss',
   templateUrl: './landing.html',

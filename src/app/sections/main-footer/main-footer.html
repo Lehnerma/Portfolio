@@ -1,39 +1,39 @@
-<article loading="lazy" class="contact" [class.contact--light]="lightFooter()">
-  <div [class.contact__wrapper]="!lightFooter()">
+<article loading="lazy" class="footer" [class.footer--light]="lightFooter()">
+  <div [class.footer__wrapper]="!lightFooter()">
     @if (!lightFooter()) {
-      <section class="contact__section--title">
-        <app-underline-title variant="double" class="contact__titles">
-          <h3 class="contact__subtitle">{{ texts().contact.subtitle }}</h3>
-          <h2 class="contact__title title56-80">{{ texts().contact.title }}</h2>
+      <section class="footer__section--title">
+        <app-underline-title variant="double" class="footer__titles">
+          <h3 class="footer__subtitle">{{ texts().contact.subtitle }}</h3>
+          <h2 class="footer__title title56-80">{{ texts().contact.title }}</h2>
         </app-underline-title>
 
-        <p class="contact__msg">
+        <p class="footer__msg">
           {{ texts().contact.message }}
         </p>
       </section>
 
-      <section class="contact__section--form">
+      <section class="footer__section--form">
         <img
           loading="lazy"
           src="/assets/img/window_sticker3x.webp"
           [alt]="texts().contact.logoAlt"
-          class="contact__logo"
+          class="footer__logo"
         />
         <app-contact-form></app-contact-form>
       </section>
     }
 
     <section
-      [class.contact__section--name]="!lightFooter()"
-      [class.contact__section--name-light]="lightFooter()"
+      [class.footer__section--name]="!lightFooter()"
+      [class.footer__section--name-light]="lightFooter()"
     >
-      <img src="/assets/img/lm_logo.webp" alt="Logo LM" class="contact__logo--lm" />
-      <p class="contact__name txt20-24">© Maximilian Lehner</p>
+      <app-logo-lm />
+      <p class="footer__name txt16-20">© Maximilian Lehner</p>
     </section>
   </div>
 
-  <nav class="contact__nav">
-    <ul class="contact__nav-elements">
+  <nav class="footer__nav">
+    <ul class="footer__nav-elements">
       @for (el of navElements(); track $index) {
         <app-nav-element
           [label]="el.label"
