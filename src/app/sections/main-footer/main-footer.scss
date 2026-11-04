@@ -1,8 +1,9 @@
 @use '../../../styles/abstracts' as *;
 
 :host {
-  display: block;
   --dp-view: 1000px;
+
+  display: block;
 }
 
 .footer {
@@ -79,11 +80,17 @@
   }
 
   &__nav {
-    justify-self: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: $dp-max-width;
   }
+
   &__nav-elements {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
     justify-content: space-around;
     align-items: center;
     max-width: var(--dp-view);
