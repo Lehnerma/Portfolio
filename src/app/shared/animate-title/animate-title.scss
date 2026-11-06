@@ -1,17 +1,14 @@
 @use '../../../styles/abstracts' as *;
 
+:host {
+  --filling-color1: #{$logo-blue};
+  --filling-color2: #{$logo-violet};
+}
+
 .heading {
   display: flex;
   flex-wrap: wrap;
   letter-spacing: -0.02em;
-
-  &[data-filling='blue'] {
-    --filling-color: #{$logo-blue};
-  }
-
-  &[data-filling='purple'] {
-    --filling-color: #{$logo-violet};
-  }
 
   &__letter {
     position: relative;
@@ -21,7 +18,13 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--filling-color);
+      color: var(--filling-color2);
+    }
+
+    &:nth-child(odd) {
+      &:hover {
+        color: var(--filling-color1);
+      }
     }
 
     &:hover .heading__char--base {
