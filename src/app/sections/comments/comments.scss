@@ -15,14 +15,7 @@
     font-family: $f-txt;
   }
 
-  &__titles {
-    justify-self: flex-end;
-  }
-
-  &__title {
-    text-align: end;
-  }
-
+  &__title,
   &__subtitle {
     text-align: end;
   }
