@@ -13,4 +13,6 @@ export class CommentCard {
   readonly jobtitle = input<ColleagueCard['jobtitle']>();
   readonly comment = input<string>();
   readonly backgroundUrl = input<ColleagueCard['backgroundUrl']>();
+  readonly socialLogo = input<string>();
+  readonly socialLogoAlt = input<string>();
 }

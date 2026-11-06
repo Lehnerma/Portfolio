@@ -8,6 +8,7 @@
   --bg-desk: url('/assets/background/card-purple-bg.webp');
   --lines-mob: url('/assets/background/card-hover-lines-mobile.webp');
   --lines-desk: url('/assets/background/card-hover-lines.webp');
+  --transistion-time: 0.4s;
 }
 
 .comment {
@@ -24,11 +25,13 @@
     background-size: contain;
     background-position: center;
     aspect-ratio: 1180/1799;
-    min-height: 410px;
+
+    max-height: 500px;
 
     @container (min-width: 440px) {
       background-image: var(--bg-desk);
       aspect-ratio: 1799 / 1180;
+      padding: 2rem;
       max-width: 512px;
       min-height: 0;
     }
@@ -48,6 +51,7 @@
       background-position: center;
       opacity: 0;
       pointer-events: none;
+      transform: rotate(var(--lines-rotate, 0deg));
     }
 
     &:hover::after {
@@ -75,6 +79,35 @@
 
     @include respond-to(sm) {
       font-size: rem(18);
+    }
+  }
+
+  &__social {
+    display: grid;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition:
+      background-color var(--transistion-time) ease,
+      transform var(--transistion-time) ease;
+
+    &--icon {
+      width: 40px;
+      aspect-ratio: 1/1;
+      transition: filter var(--transistion-time) ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $white-base;
+      transform: scale(1.1);
+
+      .comment__social--icon {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
   }
 }

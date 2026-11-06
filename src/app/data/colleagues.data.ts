@@ -4,16 +4,20 @@ export const CARDS: readonly ColleagueCard[] = [
   {
     id: 'radek',
     name: 'Radek Gnych',
-    link: 'https://at.linkedin.com/', // todo add the missin likedin link
+    link: 'https://github.com/radek-ops',
     jobtitle: 'Frontend Developer',
     backgroundUrl: '/assets/background/card-bg-frayed-blue.webp',
+    socialMediaType: 'github',
+    socialLogoPath: '/assets/icons/github.png',
   },
   {
     id: 'monika',
     name: 'Monika Weikum',
-    link: 'https://at.linkedin.com/', // todo add the missing linkedin link
+    link: 'https://github.com/Monika-W-Dev',
     jobtitle: 'Frontend Developer',
     backgroundUrl: '/assets/background/card-bg-frayed-violet.webp',
+    socialMediaType: 'github',
+    socialLogoPath: '/assets/icons/github.png',
   },
   {
     id: 'guenter',
@@ -21,5 +25,7 @@ export const CARDS: readonly ColleagueCard[] = [
     link: 'www.linkedin.com/in/günter-heldt-892320343',
     jobtitle: 'Fullstack Developer',
     backgroundUrl: '/assets/background/card-bg-smooth-blue.webp',
+    socialMediaType: 'linkedin',
+    socialLogoPath: '/assets/icons/linkedin.png',
   },
 ];

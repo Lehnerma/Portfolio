@@ -9,7 +9,7 @@
     </div>
 
     <a [href]="link()" class="comment__social">
-      <img src="/assets/icons/linkedin.png" alt="LinkedIn Logo" class="comment__link--icon"
+      <img [src]="socialLogo()" [alt]="socialLogoAlt() + ' logo'" class="comment__social--icon"
     /></a>
   </div>
 </section>
