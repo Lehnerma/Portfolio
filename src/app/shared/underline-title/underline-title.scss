@@ -4,7 +4,6 @@
   position: relative;
   display: inline-block;
   padding: 0.4em 0;
-  text-decoration: none;
 }
 
 .stroke {
@@ -16,7 +15,6 @@
   overflow: visible;
   pointer-events: none;
 
-  // Umrundet den Text: größer als der Inhalt und mittig darüber gelegt
   &--circle {
     top: -0.35em;
     bottom: auto;
