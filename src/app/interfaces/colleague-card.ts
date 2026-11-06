@@ -6,4 +6,6 @@ export interface ColleagueCard {
   link: string;
   jobtitle: string;
   backgroundUrl: string;
+  socialMediaType: 'github' | 'linkedin';
+  socialLogoPath: string;
 }

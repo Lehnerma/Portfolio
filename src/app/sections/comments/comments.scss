@@ -75,6 +75,8 @@
     }
 
     &:nth-child(odd) {
+      --lines-rotate: 180deg;
+
       transform: rotate(-2deg);
     }
 
