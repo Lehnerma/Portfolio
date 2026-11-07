@@ -131,7 +131,7 @@
   }
 
   &__content-inner {
-    // min-height: 0;
+    min-height: 0;
     overflow: hidden;
     border-radius: 0 0 calc(var(--corner-radius) - var(--border-width))
       calc(var(--corner-radius) - var(--border-width));

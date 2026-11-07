@@ -17,6 +17,8 @@ export class ProjectWindow {
   readonly screenshotAlt = input<string>(); // *required
   readonly detailsLink = input<string>(); // *required
   readonly wobbleSeed = input(1);
+  readonly getZIndex = input<number>();
+  readonly isActive = input<boolean>(false);
   /** Emits once per drag, on the first pointer move after grabbing the titlebar. */
   readonly dragStarted = output<void>();
 

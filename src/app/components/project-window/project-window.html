@@ -1,6 +1,8 @@
 <div
   class="project-window"
   [style.translate]="translateValue()"
+  [style.zIndex]="getZIndex()"
+  [class.project-window--active]="isActive()"
   [class.project-window--minimized]="isMinimized()"
   [class.project-window--shaking]="isShaking()"
   [class.project-window--flipped]="isFlipped()"
