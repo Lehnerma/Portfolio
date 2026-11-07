@@ -15,6 +15,8 @@
         [screenshotSrc]="project.imgSrc"
         [screenshotAlt]="project.imgAlt"
         [detailsLink]="project.route"
+        [getZIndex]="zIndexes().get(project.id)"
+        [isActive]="activeId() === project.id"
         (dragStarted)="hasDragged.set(true)"
         (focused)="bringToFront(project.id)"
       >

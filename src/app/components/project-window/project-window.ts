@@ -21,14 +21,16 @@ export class ProjectWindow {
   readonly isActive = input<boolean>(false);
   /** Emits once per drag, on the first pointer move after grabbing the titlebar. */
   readonly dragStarted = output<void>();
+  readonly focused = output<void>();
 
   protected readonly isMinimized = signal(false);
   protected readonly isShaking = signal(false);
   protected readonly isFlipped = signal(false);
   protected readonly isCompact = signal(false);
   protected readonly offset = signal({ x: 0, y: 0 });
-  protected readonly translateValue = computed(() => `${this.offset().x}px ${this.offset().y}px`);
   protected readonly isDragging = signal<boolean>(false);
+
+  protected readonly translateValue = computed(() => `${this.offset().x}px ${this.offset().y}px`);
 
   protected grabOrigin = { x: 0, y: 0 };
   private hasMoved = false;

@@ -38,20 +38,14 @@ export class Projects {
   );
 
   /**
-   * {
-   *   "name": "bringToFront",
-   *   "description": "Marks a project as active and moves its window to the top of the stack.",
-   *   "parameters": {
-   *     "id": "ProjectId — the project window to bring to the front."
-   *   },
-   *   "returns": "void"
-   * }
+   * Brings the specified project window to the front and sets it as active.
+   * Updates the window order unless the window is already at the front.
+   * @param id ID of the project window to bring to the front, like ProjectId interface.
    */
   protected bringToFront(id: ProjectId): void {
     this.activeId.set(id);
     this.windowStack.update((stack) =>
       stack.at(-1) === id ? stack : [...stack.filter((entry) => entry !== id), id],
     );
-    console.log(this.windowStack);
   }
 }

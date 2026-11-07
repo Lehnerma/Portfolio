@@ -7,6 +7,7 @@
   [class.project-window--shaking]="isShaking()"
   [class.project-window--flipped]="isFlipped()"
   (animationend)="onShakeEnd()"
+  (pointerdown)="focused.emit()"
 >
   <div class="project-window__frame" [style.filter]="'url(#' + frameFilterId + ')'">
     <span class="project-window__divider"></span>

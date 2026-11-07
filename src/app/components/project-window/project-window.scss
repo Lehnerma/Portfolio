@@ -201,6 +201,15 @@
   &--shaking {
     animation: window-shake 450ms ease-in-out;
   }
+
+  @include respond-to(md) {
+    &--active {
+      border-radius: 50px;
+      box-shadow:
+        0 22px 70px 4px rgba(0, 0, 0, 0.56),
+        0 0 0 1px rgba(0, 0, 0, 0.3);
+    }
+  }
 }
 
 @media (hover: hover) {
