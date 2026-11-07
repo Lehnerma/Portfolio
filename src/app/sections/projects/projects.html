@@ -15,7 +15,10 @@
         [screenshotSrc]="project.imgSrc"
         [screenshotAlt]="project.imgAlt"
         [detailsLink]="project.route"
+        [getZIndex]="zIndexes().get(project.id)"
+        [isActive]="activeId() === project.id"
         (dragStarted)="hasDragged.set(true)"
+        (focused)="bringToFront(project.id)"
       >
         <h4 desc-title class="content--title txt20-24">{{ project.name | titlecase }}</h4>
         <p desc-text class="content">

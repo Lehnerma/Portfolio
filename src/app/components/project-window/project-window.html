@@ -1,10 +1,13 @@
 <div
   class="project-window"
   [style.translate]="translateValue()"
+  [style.zIndex]="getZIndex()"
+  [class.project-window--active]="isActive()"
   [class.project-window--minimized]="isMinimized()"
   [class.project-window--shaking]="isShaking()"
   [class.project-window--flipped]="isFlipped()"
   (animationend)="onShakeEnd()"
+  (pointerdown)="focused.emit()"
 >
   <div class="project-window__frame" [style.filter]="'url(#' + frameFilterId + ')'">
     <span class="project-window__divider"></span>
