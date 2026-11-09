@@ -8,6 +8,7 @@ export interface ProjectInfos {
   liveUrl: string;
   githubUrl: string;
   devStack: DevStack[];
+  route: string;
 }
 
 interface DevStack {
