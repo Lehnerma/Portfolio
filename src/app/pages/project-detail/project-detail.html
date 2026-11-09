@@ -1,0 +1,5 @@
+@if (project(); as project) {
+  <h1>{{ project.id | titlecase }}</h1>
+} @else {
+  <button type="button" routerLink="/">back to home</button>
+}

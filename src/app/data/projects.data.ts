@@ -8,6 +8,7 @@ export const PROJECTS: readonly ProjectInfos[] = [
     stack: ['HTML', 'CSS', 'Javascript'],
     liveUrl: 'https://join.max-lehner.at',
     githubUrl: 'https://github.com/Lehnerma/join-3135',
+    route: 'project/join',
     devStack: [
       {
         name: 'HTML',
@@ -30,32 +31,7 @@ export const PROJECTS: readonly ProjectInfos[] = [
     stack: ['Angular', 'Sass/Scss'],
     liveUrl: 'https://pollapp.max-lehner.at',
     githubUrl: 'https://github.com/Lehnerma/PollApp',
-    devStack: [
-      {
-        name: 'HTML',
-        iconPath: '/assets/icons/skills/html5.svg',
-      },
-      {
-        name: 'CSS',
-        iconPath: '/assets/icons/skills/css.svg',
-      },
-      {
-        name: 'JavaScript',
-        iconPath: '', // todo add icon path
-      },
-      {
-        name: 'Firebase',
-        iconPath: '/assets/icons/skills/firebase.svg',
-      },
-    ],
-  },
-  {
-    id: 'sharkie',
-    name: 'Sharkie',
-    imgSrc: '/assets/img/sharkie.webp',
-    stack: ['HTML', 'CSS', 'Javascript'],
-    liveUrl: 'https://sharkie.max-lehner.at',
-    githubUrl: 'https://github.com/Lehnerma/sharkie',
+    route: 'project/pollapp',
     devStack: [
       {
         name: 'Angular',
@@ -68,6 +44,33 @@ export const PROJECTS: readonly ProjectInfos[] = [
       {
         name: 'Typescript',
         iconPath: '/assets/icons/skills/typescript.svg',
+      },
+      {
+        name: 'Supabase',
+        iconPath: '/assets/icons/skills/supabase.svg',
+      },
+    ],
+  },
+  {
+    id: 'sharkie',
+    name: 'Sharkie',
+    imgSrc: '/assets/img/sharkie.webp',
+    stack: ['HTML', 'CSS', 'Javascript'],
+    liveUrl: 'https://sharkie.max-lehner.at',
+    githubUrl: 'https://github.com/Lehnerma/sharkie',
+    route: 'project/sharkie',
+    devStack: [
+      {
+        name: 'HTML',
+        iconPath: '/assets/icons/skills/html5.svg',
+      },
+      {
+        name: 'CSS',
+        iconPath: '/assets/icons/skills/css.svg',
+      },
+      {
+        name: 'Javascript',
+        iconPath: '', // todo add icon path
       },
     ],
   },
