@@ -4,5 +4,13 @@ export interface ProjectInfos {
   id: ProjectId;
   name: string;
   imgSrc: string;
-  route: string;
+  stack: string[];
+  liveUrl: string;
+  githubUrl: string;
+  devStack: DevStack[];
+}
+
+interface DevStack {
+  name: string;
+  iconPath: string;
 }

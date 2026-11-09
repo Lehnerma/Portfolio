@@ -8,6 +8,7 @@ export interface Translations {
   sticker: StickerTexts;
   projects: ProjectsTexts;
   projectWindow: ProjectWindowTexts;
+  projectDetail: ProjectDetailTexts;
   dragHint: DragHintTexts;
   comments: CommentsTexts;
   contact: ContactTexts;
@@ -81,6 +82,23 @@ export interface ProjectsTexts {
 export interface ProjectItemTexts {
   description: string;
   imgAlt: string;
+  duration: string;
+  implementationText: string;
+}
+
+/** Labels of the project detail page; the texts that differ per project live in `ProjectItemTexts`. */
+export interface ProjectDetailTexts {
+  durationLabel: string;
+  stackLabel: string;
+  descriptionTitle: string;
+  implementationTitle: string;
+  githubBtn: string;
+  liveBtn: string;
+  /** Hint for screen readers on links that open in a new tab. */
+  opensInNewTab: string;
+  btnNextProject: string;
+  btnPrevProject: string;
+  backToProjects: string;
 }
 
 export interface ProjectWindowTexts {
