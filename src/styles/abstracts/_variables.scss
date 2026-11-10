@@ -18,6 +18,9 @@ $spacing16-40: clamp(16px, 4vw, 40px);
 // Container-Breite
 $dp-max-width: 1440px;
 
+// Max. Breite von Header-Nav und Hero-Inhalt
+$nav-max-view: 1000px;
+
 // z-index classes
 .z-20 {
   z-index: 20;
