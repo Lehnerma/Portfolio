@@ -16,6 +16,8 @@ import { SocialIcons } from '../social-icons/social-icons';
 })
 export class HeadNav {
   readonly burgerMenu = input<boolean>(true);
+  /** Desktop only: inverts the link text against the background (e.g. torn paper next to a dark area). */
+  readonly blendLinks = input<boolean>(false);
   readonly navOpen = signal<boolean>(false);
 
   private readonly texts = inject(LanguageService).texts;

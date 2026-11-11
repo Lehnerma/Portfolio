@@ -1,0 +1,84 @@
+@use '../../../styles/abstracts' as *;
+
+.project {
+  background-image: url('/assets/background/notepad-mob.webp');
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $black-base;
+  min-height: 100dvh;
+  padding-block: 16px;
+  padding-inline: calc(clamp(4px, 4vw, 72px) + max(0px, (100% - #{$dp-max-width}) / 2));
+  display: grid;
+  gap: clamp(1rem, 10vw, 5rem);
+
+  @include respond-to(md) {
+    background-image: url('/assets/background/notepad.webp');
+    background-position: top;
+    grid-template-areas:
+      'nav nav'
+      'data example'
+      'footer footer';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    &__nav {
+      grid-area: nav;
+    }
+
+    &__data {
+      grid-area: data;
+      display: grid;
+      gap: 1rem;
+    }
+
+    &__example {
+      grid-area: example;
+    }
+
+    &__footer {
+      grid-area: footer;
+    }
+  }
+
+  &--info {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  &--txt {
+    @include respond-to(md) {
+      color: $white-base;
+      mix-blend-mode: difference;
+    }
+  }
+
+  &__stack {
+    display: flex;
+    justify-content: space-evenly;
+    &--icon {
+      width: 40px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  &__example {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    &--img {
+      width: 100%;
+      max-width: 560px;
+    }
+    &--nav {
+      align-self: flex-start;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
