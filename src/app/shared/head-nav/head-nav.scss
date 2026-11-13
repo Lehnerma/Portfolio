@@ -1,0 +1,20 @@
+@use '../../../styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.head-nav {
+  margin-inline: auto;
+  width: 100%;
+  max-width: $nav-max-view;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+@include respond-to(md) {
+  .head-nav {
+    align-items: center;
+    width: 100%;
+  }
+}

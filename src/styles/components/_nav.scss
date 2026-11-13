@@ -74,6 +74,21 @@
       padding: 0;
     }
   }
+
+  // Opt-in (project-detail): link text inverts against the background (paper / dark).
+  // .nav must not form a stacking context (.z-100 is only needed for the mobile overlay),
+  // otherwise the blend has no backdrop. The underline SVG is a sibling, so it keeps its colour.
+  // `.nav.z-100` (3 classes): the abstracts are `@use`d per component, so `.z-100` also exists as
+  // `.z-100[_ngcontent-…]` in the component styles, which loads later and ties with 2 classes.
+  .head-nav--blend {
+    .nav.z-100 {
+      z-index: auto;
+    }
+
+    .nav-element {
+      mix-blend-mode: difference;
+    }
+  }
 }
 
 .header {

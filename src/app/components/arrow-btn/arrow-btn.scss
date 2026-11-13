@@ -1,0 +1,37 @@
+@use '../../../styles/abstracts' as *;
+
+.arrow-btn {
+  --color: #{$logo-violet};
+
+  &--prev {
+    --color: #{$logo-blue};
+  }
+
+  display: flex;
+  align-items: center;
+  gap: clamp(0.3rem, 2vw, 1rem);
+  @include f-text(rem(18), $black-base);
+  @include animation(color);
+
+  &__label {
+    color: $white-base;
+    mix-blend-mode: difference;
+
+    &:hover {
+      mix-blend-mode: normal;
+      color: var(--color);
+    }
+  }
+
+  &__svg {
+    width: 2rem;
+    aspect-ratio: 1/1;
+    &--prev {
+      fill: var(--color);
+    }
+    &--next {
+      fill: var(--color);
+      transform: rotate(180deg);
+    }
+  }
+}

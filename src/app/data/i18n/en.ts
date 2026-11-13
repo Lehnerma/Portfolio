@@ -52,7 +52,7 @@ export const EN_TRANSLATIONS: Translations = {
         description:
           'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. Try out the features right away using the built-in guest access.',
         imgAlt: 'Screenshot of the project Join',
-        duration: '6 weeks',
+        duration: '6 Weeks',
         implementationText: '',
       },
       pollApp: {

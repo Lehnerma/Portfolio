@@ -20,7 +20,7 @@ export const PROJECTS: readonly ProjectInfos[] = [
       },
       {
         name: 'JavaScript',
-        iconPath: '', // todo add icon path
+        iconPath: '/assets/icons/skills/js.svg',
       },
     ],
   },
@@ -70,7 +70,7 @@ export const PROJECTS: readonly ProjectInfos[] = [
       },
       {
         name: 'Javascript',
-        iconPath: '', // todo add icon path
+        iconPath: '/assets/icons/skills/js.svg',
       },
     ],
   },
