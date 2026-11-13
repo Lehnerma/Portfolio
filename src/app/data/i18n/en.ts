@@ -52,16 +52,22 @@ export const EN_TRANSLATIONS: Translations = {
         description:
           'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. Try out the features right away using the built-in guest access.',
         imgAlt: 'Screenshot of the project Join',
+        duration: '6 Weeks',
+        implementationText: '',
       },
       pollApp: {
         description:
           'A modern dynamic survey web application built with Angular, SCSS, and Supabase as Backend-as-a-Service. The app enables the creation of adaptive questionnaires that dynamically adjust their flow in real time based on user responses. Featuring single- and multiple-choice question formats, it includes instant database synchronization, configurable expiry dates, and flexible rule management. Ready to fill out and test with zero friction.',
         imgAlt: 'Screenshot of the project Poll-app',
+        duration: '4 weeks',
+        implementationText: '',
       },
       sharkie: {
         description:
           'In this object-oriented browser game, players guide a small shark on his epic quest to become the King of the Seas. Built with pure HTML5, CSS3, and Vanilla JavaScript following clean OOP architecture, the game features animated enemies, an in-game upgrade shop, and a challenging final boss fight. The fully playable first level runs instantly in any web browser without installation.',
         imgAlt: 'Screenshot of the project Sharkie',
+        duration: '5 weeks',
+        implementationText: '',
       },
     },
   },
@@ -72,6 +78,18 @@ export const EN_TRANSLATIONS: Translations = {
     openDetails: 'Open project details',
     showDescription: 'Show project description',
     detailsButton: 'Details',
+  },
+  projectDetail: {
+    durationLabel: 'Duration',
+    stackLabel: '',
+    descriptionTitle: 'Description:',
+    implementationTitle: 'Implementation Details',
+    githubBtn: 'Github',
+    liveBtn: 'Live Test',
+    opensInNewTab: '',
+    btnNextProject: 'Next project',
+    btnPrevProject: 'Previous project',
+    backToProjects: 'Go Back',
   },
   dragHint: {
     prefix: 'U can',

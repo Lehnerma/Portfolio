@@ -23,4 +23,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/legal-notice/legal-notice').then((m) => m.LegalNotice),
     title: 'Legal Notice',
   },
+  {
+    path: 'project/:id',
+    loadComponent: () =>
+      import('./pages/project-detail/project-detail').then((el) => el.ProjectDetail),
+    title: 'Project',
+  },
 ];

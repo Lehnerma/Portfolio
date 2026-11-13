@@ -10,6 +10,11 @@
   font-size: clamp(rem(20), 5vw, rem(24));
 }
 
+.txt24-32 {
+  font-family: $f-txt;
+  font-size: clamp(rem(24), 5vw, rem(32));
+}
+
 .main-title {
   font-family: $f-txt;
   font-size: clamp(rem(48), 17vw, rem(136));
@@ -27,7 +32,7 @@
 
 .title56-144 {
   font-family: $f-txt;
-  font-size: clamp(rem(48), 11.25vw, rem(144));
+  font-size: clamp(3.2rem, 16vw, 9rem);
 }
 
 .nav-element {

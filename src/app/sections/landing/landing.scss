@@ -3,7 +3,7 @@
 :host {
   display: block;
 
-  --max-view: 1000px;
+  --max-view: #{$nav-max-view};
 }
 
 .landing {
@@ -14,19 +14,6 @@
     grid-template-rows: auto 1fr;
     gap: 32px;
     padding: 16px $body-spacing;
-  }
-
-  &__nav {
-    justify-self: center;
-    width: 100%;
-    max-width: var(--max-view);
-    display: grid;
-    grid-template-columns: auto 1fr;
-
-    &--element {
-      @include f-text(rem(18), $white-base, 700);
-      line-height: 120%;
-    }
   }
 
   &__main {
@@ -59,11 +46,6 @@
 
 @include respond-to(md) {
   .landing {
-    &__nav {
-      align-items: center;
-      width: 100%;
-    }
-
     &__main {
       display: grid;
       max-width: var(--max-view);

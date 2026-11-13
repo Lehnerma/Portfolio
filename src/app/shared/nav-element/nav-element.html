@@ -1,3 +1,11 @@
 <app-underline-title [variant]="underlineVariation()">
-  <a [href]="link()" class="footer__link--a" [classList]="linkClass()">{{ label() | titlecase }}</a>
+  @if (fragment(); as fragment) {
+    <a routerLink="/" [fragment]="fragment" class="footer__link--a" [classList]="linkClass()">{{
+      label() | titlecase
+    }}</a>
+  } @else {
+    <a [href]="link()" class="footer__link--a" [classList]="linkClass()">{{
+      label() | titlecase
+    }}</a>
+  }
 </app-underline-title>
