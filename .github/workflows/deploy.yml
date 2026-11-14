@@ -1,11 +1,11 @@
 name: Deploy Portfolio
 
 on:
-  # Nur wenn ein Pull Request auf "deploy" geschlossen wird (siehe if unten: nur bei Merge)
+  # Nur wenn ein Pull Request auf "main" geschlossen wird (siehe if unten: nur bei Merge)
   pull_request:
     types: [closed]
-    branches: [deploy]
-  # Manuelles Ausloesen ueber den Actions-Tab (nutzt den aktuellen Stand von "deploy")
+    branches: [main]
+  # Manuelles Auslösen über den Actions-Tab (nutzt den aktuellen Stand von "deploy")
   workflow_dispatch:
 
 permissions:
