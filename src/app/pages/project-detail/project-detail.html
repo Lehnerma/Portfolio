@@ -33,8 +33,11 @@
     <figure class="project__example">
       <img [src]="project.imgSrc" [alt]="'Project ' + project.name" class="project__example--img" />
       <figcaption class="project__example--nav">
-        <app-secondary-btn [label]="project.githubBtn"></app-secondary-btn>
-        <app-secondary-btn [label]="project.liveBtn"></app-secondary-btn>
+        <app-secondary-btn
+          [label]="project.githubBtn"
+          [link]="project.githubUrl"
+        ></app-secondary-btn>
+        <app-secondary-btn [label]="project.liveBtn" [link]="project.liveUrl"></app-secondary-btn>
       </figcaption>
     </figure>
     <section class="project__footer">

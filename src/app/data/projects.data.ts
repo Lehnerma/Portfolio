@@ -25,11 +25,11 @@ export const PROJECTS: readonly ProjectInfos[] = [
     ],
   },
   {
-    id: 'pollApp',
+    id: 'pollapp',
     name: 'Poll-app',
     imgSrc: '/assets/img/poll-app.webp',
     stack: ['Angular', 'Sass/Scss'],
-    liveUrl: 'https://pollapp.max-lehner.at',
+    liveUrl: 'https://poll-app.max-lehner.at/',
     githubUrl: 'https://github.com/Lehnerma/PollApp',
     route: 'project/pollapp',
     devStack: [

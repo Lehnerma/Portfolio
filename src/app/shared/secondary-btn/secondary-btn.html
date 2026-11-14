@@ -1,3 +1,9 @@
-<button [attr.data-theme]="btnTheme()" class="btn btn__secondary" [type]="btnType()">
-  {{ label() }}
-</button>
+@if (link()) {
+  <a [attr.data-theme]="btnTheme()" class="btn btn__secondary" [type]="btnType()" [href]="link()">
+    {{ label() }}
+  </a>
+} @else {
+  <button [attr.data-theme]="btnTheme()" class="btn btn__secondary" [type]="btnType()">
+    {{ label() }}
+  </button>
+}
