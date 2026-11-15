@@ -55,7 +55,7 @@ export const DE_TRANSLATIONS: Translations = {
         duration: '6 Wochen',
         implementationText: '',
       },
-      pollApp: {
+      pollapp: {
         description:
           'Eine moderne Web-App für interaktive Umfragen, entwickelt mit Angular, SCSS und Supabase als Backend-as-a-Service. Die Anwendung ermöglicht das Erstellen dynamischer Fragebögen, deren Verlauf in Echtzeit auf die Eingaben der Nutzer reagiert. Neben flexiblem Frage-Design mit Single- und Multiple-Choice-Optionen bietet das System eine nahtlose Echtzeit-Datenbanksynchronisation sowie Konfigurationsmöglichkeiten für Ablaufdaten und Zugriffsbeschränkungen. Ohne große Hürden sofort ausfüllen und testen.',
         imgAlt: 'Screenshot des Projekts Poll-app',
@@ -157,7 +157,6 @@ export const DE_TRANSLATIONS: Translations = {
     liveBtn: 'Live Test',
     opensInNewTab: '',
     btnNextProject: 'Nächstes Projekt',
-    btnPrevProject: '',
-    backToProjects: 'Vorheriges Projekt',
+    backToProjects: 'Zurück',
   },
 };

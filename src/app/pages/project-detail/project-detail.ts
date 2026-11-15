@@ -25,4 +25,10 @@ export class ProjectDetail {
     const details = this.texts().projectDetail;
     return { ...data, ...text, ...details };
   });
+
+  protected readonly nextRoute = computed(() => {
+    const index = PROJECTS.findIndex((pro) => pro.id === this.id());
+    if (index === -1) return;
+    return `/${PROJECTS[(index + 1) % PROJECTS.length].route}`;
+  });
 }

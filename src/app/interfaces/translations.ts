@@ -71,7 +71,7 @@ export interface StickerTexts {
 }
 
 /** Identifies a project in `projects.data.ts` and in the texts of `ProjectsTexts.items`. */
-export type ProjectId = 'join' | 'pollApp' | 'sharkie';
+export type ProjectId = 'join' | 'pollapp' | 'sharkie';
 
 export interface ProjectsTexts {
   subtitle: string;
@@ -97,7 +97,6 @@ export interface ProjectDetailTexts {
   /** Hint for screen readers on links that open in a new tab. */
   opensInNewTab: string;
   btnNextProject: string;
-  btnPrevProject: string;
   backToProjects: string;
 }
 

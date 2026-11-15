@@ -115,6 +115,7 @@
           (click)="toggleFlipped($event)"
           aria-label="Projektbeschreibung anzeigen"
         ></button>
+
         <figcaption class="project-window__desc">
           <ng-container *ngTemplateOutlet="caption" />
         </figcaption>
@@ -131,5 +132,10 @@
 <ng-template #caption>
   <ng-content select="[desc-title]" />
   <ng-content select="[desc-text]" />
-  <app-secondary-btn title="Details" label="Details" btnTheme="black"></app-secondary-btn>
+  <app-secondary-btn
+    title="Details"
+    label="Details"
+    btnTheme="black"
+    [link]="detailsLink()"
+  ></app-secondary-btn>
 </ng-template>

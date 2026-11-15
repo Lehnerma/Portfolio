@@ -33,13 +33,26 @@
     <figure class="project__example">
       <img [src]="project.imgSrc" [alt]="'Project ' + project.name" class="project__example--img" />
       <figcaption class="project__example--nav">
-        <app-secondary-btn [label]="project.githubBtn"></app-secondary-btn>
-        <app-secondary-btn [label]="project.liveBtn"></app-secondary-btn>
+        <app-secondary-btn
+          [label]="project.githubBtn"
+          [link]="project.githubUrl"
+          [openInNewTab]="true"
+        ></app-secondary-btn>
+        <app-secondary-btn
+          [label]="project.liveBtn"
+          [link]="project.liveUrl"
+          [openInNewTab]="true"
+        ></app-secondary-btn>
       </figcaption>
     </figure>
     <section class="project__footer">
-      <app-arrow-btn [label]="project.btnPrevProject" direction="previous" />
-      <app-arrow-btn [label]="project.btnNextProject" direction="next" />
+      <app-arrow-btn
+        [label]="project.backToProjects"
+        direction="previous"
+        link="/"
+        fragment="projects"
+      />
+      <app-arrow-btn [label]="project.btnNextProject" direction="next" [link]="nextRoute()" />
     </section>
   </div>
 } @else {
