@@ -97,7 +97,6 @@ export interface ProjectDetailTexts {
   /** Hint for screen readers on links that open in a new tab. */
   opensInNewTab: string;
   btnNextProject: string;
-  btnPrevProject: string;
   backToProjects: string;
 }
 

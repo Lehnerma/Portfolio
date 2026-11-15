@@ -1,5 +1,12 @@
 @if (link()) {
-  <a [attr.data-theme]="btnTheme()" class="btn btn__secondary" [type]="btnType()" [href]="link()">
+  <a
+    [attr.data-theme]="btnTheme()"
+    class="btn btn__secondary"
+    [type]="btnType()"
+    [href]="link()"
+    [attr.target]="openInNewTab() ? '_blank' : null"
+    [attr.rel]="openInNewTab() ? 'noopener noreferrer' : null"
+  >
     {{ label() }}
   </a>
 } @else {

@@ -55,7 +55,7 @@ export const EN_TRANSLATIONS: Translations = {
         duration: '6 Weeks',
         implementationText: '',
       },
-      pollApp: {
+      pollapp: {
         description:
           'A modern dynamic survey web application built with Angular, SCSS, and Supabase as Backend-as-a-Service. The app enables the creation of adaptive questionnaires that dynamically adjust their flow in real time based on user responses. Featuring single- and multiple-choice question formats, it includes instant database synchronization, configurable expiry dates, and flexible rule management. Ready to fill out and test with zero friction.',
         imgAlt: 'Screenshot of the project Poll-app',
@@ -88,8 +88,7 @@ export const EN_TRANSLATIONS: Translations = {
     liveBtn: 'Live Test',
     opensInNewTab: '',
     btnNextProject: 'Next project',
-    btnPrevProject: 'Previous project',
-    backToProjects: 'Go Back',
+    backToProjects: 'Back',
   },
   dragHint: {
     prefix: 'U can',
