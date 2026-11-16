@@ -1,3 +1,5 @@
+import { LegalPageCommonTexts } from './legal-translations';
+
 /** Every UI text of the portfolio, grouped by section. `en.ts` and `de.ts` must both satisfy it. */
 export interface Translations {
   meta: MetaTexts;
@@ -15,6 +17,7 @@ export interface Translations {
   form: FormTexts;
   social: SocialTexts;
   footer: FooterTexts;
+  legalPage: LegalPageCommonTexts;
 }
 
 export interface MetaTexts {
@@ -185,6 +188,7 @@ export interface SocialTexts {
 
 export interface FooterTexts {
   legalNotice: string;
+  privacy: string;
   github: string;
   linkedin: string;
   email: string;

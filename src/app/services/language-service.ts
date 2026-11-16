@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { computed, effect, inject, Service, signal } from '@angular/core';
 import { LANGUAGES, Language, TRANSLATIONS } from '../data/i18n/translations';
-import { LEGAL_TRANSLATIONS } from '../data/i18n/legal/legal-translations';
 
 const STORAGE_KEY = 'language';
 const DEFAULT_LANGUAGE: Language = 'en';
@@ -19,7 +18,6 @@ export class LanguageService {
 
   /** The texts of the active language. */
   readonly texts = computed(() => TRANSLATIONS[this._language()]);
-  readonly legalTexts = computed(() => LEGAL_TRANSLATIONS[this._language()]);
 
   constructor() {
     effect(() => {
