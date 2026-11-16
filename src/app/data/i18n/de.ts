@@ -136,6 +136,12 @@ export const DE_TRANSLATIONS: Translations = {
       required: 'Bitte akzeptiere die Datenschutzerklärung, um deine Nachricht zu senden.',
     },
     submit: 'Senden',
+    toast: {
+      success: 'Danke dir! Deine Nachricht ist bei mir angekommen.',
+      error: 'Das hat leider nicht geklappt. Bitte versuche es später noch einmal.',
+      tooManyRequests:
+        'Das waren etwas viele Nachrichten. Bitte warte kurz und versuche es dann erneut.',
+    },
   },
   social: {
     github: 'GitHub-Profil',

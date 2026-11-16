@@ -148,6 +148,14 @@ export interface FormTexts {
   message: FormMessageTexts;
   privacy: FormPrivacyTexts;
   submit: string;
+  toast: FormToastTexts;
+}
+
+/** Feedback shown in the toast after sending the form. */
+export interface FormToastTexts {
+  success: string;
+  error: string;
+  tooManyRequests: string;
 }
 
 export interface FormFieldTexts {

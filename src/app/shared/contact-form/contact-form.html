@@ -11,6 +11,7 @@
       autocomplete="name"
       [placeholder]="texts().form.name.placeholder"
       formControlName="name"
+      [attr.maxlength]="maxLength.name"
       [id]="uid + '-name'"
       [attr.aria-invalid]="showError(form.controls.name)"
       [attr.aria-describedby]="showError(form.controls.name) ? uid + '-name-error' : null"
@@ -35,6 +36,7 @@
       autocomplete="email"
       [placeholder]="texts().form.email.placeholder"
       formControlName="email"
+      [attr.maxlength]="maxLength.email"
       [id]="uid + '-email'"
       [attr.aria-invalid]="showError(form.controls.email)"
       [attr.aria-describedby]="showError(form.controls.email) ? uid + '-email-error' : null"
@@ -64,6 +66,7 @@
       rows="1"
       [placeholder]="texts().form.message.placeholder"
       formControlName="message"
+      [attr.maxlength]="maxLength.message"
       [id]="uid + '-message'"
       [attr.aria-invalid]="showError(form.controls.message)"
       [attr.aria-describedby]="showError(form.controls.message) ? uid + '-message-error' : null"
@@ -101,11 +104,24 @@
     </p>
   </fieldset>
 
+  <!-- Honeypot: hidden for humans and assistive tech, only bots fill it in -->
+  <div class="contact-form__trap" aria-hidden="true">
+    <label [for]="uid + '-website'">Website</label>
+    <input
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+      formControlName="website"
+      [id]="uid + '-website'"
+    />
+  </div>
+
   <div class="contact-form__footer">
     <app-arrow-hint class="arrow"></app-arrow-hint>
     <app-secondary-btn
       [label]="texts().form.submit"
       btnType="submit"
+      [disabled]="sending()"
       class="contact-form__submit"
     ></app-secondary-btn>
   </div>

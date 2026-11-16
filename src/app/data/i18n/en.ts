@@ -147,6 +147,11 @@ export const EN_TRANSLATIONS: Translations = {
       required: 'Please accept the privacy policy to send your message.',
     },
     submit: 'Send',
+    toast: {
+      success: 'Thank you! Your message has reached me.',
+      error: 'Something went wrong. Please try again later.',
+      tooManyRequests: 'That was quite a few messages. Please wait a moment and try again.',
+    },
   },
   social: {
     github: 'GitHub profile',

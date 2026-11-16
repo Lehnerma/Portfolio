@@ -1,0 +1,14 @@
+<!-- The live region stays in the DOM so screen readers announce the text that appears in it -->
+<div class="toast-region" aria-live="polite">
+  @if (toast(); as current) {
+    <p
+      class="toast"
+      [class.toast--success]="current.type === 'success'"
+      [class.toast--error]="current.type === 'error'"
+      [class.toast--leaving]="current.leaving"
+      [attr.role]="current.type === 'error' ? 'alert' : null"
+    >
+      {{ current.text }}
+    </p>
+  }
+</div>

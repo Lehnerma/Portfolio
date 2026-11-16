@@ -39,5 +39,10 @@
     &:active {
       box-shadow: inset 0px 0px 4px 2px $white-base;
     }
+
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 }
