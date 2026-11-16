@@ -155,8 +155,12 @@ export const EN_TRANSLATIONS: Translations = {
   },
   footer: {
     legalNotice: 'Legal Notice',
+    privacy: 'Privacy',
     github: 'GitHub',
     linkedin: 'LinkedIn',
     email: 'Email',
+  },
+  legalPage: {
+    backToHome: 'Back to home',
   },
 };

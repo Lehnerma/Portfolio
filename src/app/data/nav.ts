@@ -27,8 +27,13 @@ export const NAV_HEADER_DATA: NavItem<HeaderKey>[] = [
 export const NAV_FOOTER_DATA: NavItem<keyof FooterTexts>[] = [
   {
     labelKey: 'legalNotice',
-    link: '', // todo add missing link
+    link: '/imprint',
     underlineVariant: 'scribble',
+  },
+  {
+    labelKey: 'privacy',
+    link: '/privacy-policy',
+    underlineVariant: 'wave',
   },
   {
     labelKey: 'github',

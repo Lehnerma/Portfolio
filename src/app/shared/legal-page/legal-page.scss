@@ -38,6 +38,11 @@
     color: $black-base2;
     line-height: 150%;
   }
+
+  &__list {
+    padding-left: 24px;
+    list-style: disc;
+  }
 }
 
 .hero {

@@ -144,6 +144,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   footer: {
     legalNotice: 'Impressum',
+    privacy: 'Datenschutz',
     github: 'GitHub',
     linkedin: 'LinkedIn',
     email: 'E-Mail',
@@ -158,5 +159,8 @@ export const DE_TRANSLATIONS: Translations = {
     opensInNewTab: '',
     btnNextProject: 'Nächstes Projekt',
     backToProjects: 'Zurück',
+  },
+  legalPage: {
+    backToHome: 'Zurück zur Startseite',
   },
 };

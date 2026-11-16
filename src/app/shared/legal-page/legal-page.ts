@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LegalPageTexts } from '../../interfaces/legal-translations';
 import { MainFooter } from '../../sections/main-footer/main-footer';
+import { LanguageService } from '../../services/language-service';
 import { HeadNav } from '../head-nav/head-nav';
 
 /** Shared layout of all legal pages: back link, title, intro and the headed sections. */
@@ -13,5 +14,5 @@ import { HeadNav } from '../head-nav/head-nav';
 })
 export class LegalPage {
   readonly content = input.required<LegalPageTexts>();
-  readonly backLabel = input.required<string>();
+  protected readonly texts = inject(LanguageService).texts;
 }
