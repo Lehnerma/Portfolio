@@ -39,7 +39,18 @@ export const PRIVACY_EN: LegalPageTexts = {
       heading: 'Contact by email or contact form',
       paragraphs: [
         'If you send me an email or use the contact form, I process your name, email address and message in order to answer your request.',
-        'The legal basis is Art. 6(1)(b) GDPR where the request concerns a job application or collaboration, otherwise my legitimate interest in answering requests (Art. 6(1)(f) GDPR). The data is not passed on to third parties and is deleted once the request has been dealt with, unless statutory retention obligations apply.',
+        'When you submit the form, this data is forwarded through a PHP script on my web server (All-Inkl):',
+      ],
+      items: [
+        'by email to me',
+        'additionally as a notification via a webhook to a private channel on Discord (Discord Inc., 444 De Haro Street, Suite 200, San Francisco, CA 94107, USA). This may involve a transfer to the USA.',
+      ],
+    },
+    {
+      heading: 'Storage and abuse protection',
+      paragraphs: [
+        'Messages are not stored on my server. To protect against abuse, a counter per anonymised (hashed) IP address is kept for a short time (10 minutes at most) and then discarded.',
+        'The legal basis is Art. 6(1)(b) GDPR where the request concerns a job application or collaboration, otherwise my legitimate interest in answering requests and in preventing abuse (Art. 6(1)(f) GDPR). Your data is deleted once the request has been dealt with, unless statutory retention obligations apply.',
       ],
     },
     {
