@@ -39,7 +39,18 @@ export const PRIVACY_DE: LegalPageTexts = {
       heading: 'Kontaktaufnahme per E-Mail oder Kontaktformular',
       paragraphs: [
         'Wenn du mir eine E-Mail schreibst oder das Kontaktformular nutzt, verarbeite ich deinen Namen, deine E-Mail-Adresse und deine Nachricht, um deine Anfrage zu beantworten.',
-        'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern die Anfrage eine Bewerbung oder Zusammenarbeit betrifft, ansonsten mein berechtigtes Interesse an der Beantwortung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden nicht an Dritte weitergegeben und gelöscht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
+        'Beim Absenden des Formulars werden diese Daten über ein PHP-Skript auf meinem Webserver (All-Inkl) weitergeleitet:',
+      ],
+      items: [
+        'per E-Mail an mich',
+        'zusätzlich über einen Webhook als Benachrichtigung an einen privaten Kanal bei Discord (Discord Inc., 444 De Haro Street, Suite 200, San Francisco, CA 94107, USA). Dabei kann eine Übermittlung in die USA stattfinden.',
+      ],
+    },
+    {
+      heading: 'Speicherung und Schutz vor Missbrauch',
+      paragraphs: [
+        'Auf meinem Server werden Nachrichten nicht gespeichert. Zum Schutz vor Missbrauch wird kurzzeitig (maximal 10 Minuten) ein Zähler pro anonymisierter (gehashter) IP-Adresse geführt und danach verworfen.',
+        'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern die Anfrage eine Bewerbung oder Zusammenarbeit betrifft, ansonsten mein berechtigtes Interesse an der Beantwortung von Anfragen und am Schutz vor Missbrauch (Art. 6 Abs. 1 lit. f DSGVO). Deine Daten werden gelöscht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
       ],
     },
     {
