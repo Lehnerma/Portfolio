@@ -57,7 +57,7 @@ export const LEGAL_DE: LegalTranslations = {
       {
         heading: 'Kontaktformular',
         paragraphs: [
-          'Wenn du mir über das Kontaktformular schreibst, verarbeite ich Name, E-Mail-Adresse und Nachricht, um deine Anfrage zu beantworten. [Versanddienst / Backend ergänzen]',
+          'Wenn du mir über das Kontaktformular schreibst, verarbeite ich Name, E-Mail-Adresse und Nachricht, um deine Anfrage zu beantworten. Beim Absenden werden diese Daten über ein PHP-Skript auf meinem Webserver (All-Inkl) per E-Mail an mich weitergeleitet und zusätzlich über einen Webhook als Benachrichtigung an einen privaten Kanal bei Discord (Discord Inc., USA) gesendet. Dabei kann eine Übermittlung in die USA stattfinden. Auf meinem Server werden Nachrichten nicht gespeichert. Zum Schutz vor Missbrauch wird kurzzeitig (maximal 10 Minuten) ein Zähler pro anonymisierter (gehashter) IP-Adresse geführt.',
           'Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) bzw. die Anbahnung einer Zusammenarbeit (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen.',
         ],
       },

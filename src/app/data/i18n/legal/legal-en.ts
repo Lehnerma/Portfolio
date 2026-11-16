@@ -62,7 +62,7 @@ export const LEGAL_EN: LegalTranslations = {
       {
         heading: 'Contact form',
         paragraphs: [
-          'If you write to me via the contact form, I process your name, email address and message to answer your request. [Add mail service / backend]',
+          'If you write to me via the contact form, I process your name, email address and message to answer your request. When you submit the form, this data is forwarded to me by email through a PHP script on my web server (All-Inkl) and additionally sent as a notification via a webhook to a private channel on Discord (Discord Inc., USA). This may involve a transfer to the USA. Messages are not stored on my server. To protect against abuse, a counter per anonymised (hashed) IP address is kept for a short time (10 minutes at most).',
           'The legal basis is your consent (Art. 6(1)(a) GDPR) or the initiation of a collaboration (Art. 6(1)(b) GDPR). The data is deleted once your request is handled and no statutory retention duties apply.',
         ],
       },

@@ -1,12 +1,15 @@
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastService } from '../../services/toast-service';
 import { ContactForm } from './contact-form';
-import { ContactFormValue } from '../../interfaces/contact-form-value';
 
 describe('ContactForm', () => {
   let component: ContactForm;
   let fixture: ComponentFixture<ContactForm>;
   let host: HTMLElement;
-  let emitted: ContactFormValue[];
+  let http: HttpTestingController;
+  let toast: ToastService;
 
   const fill = (selector: string, value: string): void => {
     const el = host.querySelector<HTMLInputElement | HTMLTextAreaElement>(selector)!;
@@ -14,70 +17,129 @@ describe('ContactForm', () => {
     el.dispatchEvent(new Event('input'));
   };
 
-  const submit = (): void => {
+  const fillValid = (): void => {
+    fill('input[type="text"]:not([tabindex])', 'Max');
+    fill('input[type="email"]', 'max@example.com');
+    fill('textarea', 'Let us build something great.');
+    host.querySelector<HTMLInputElement>('input[type="checkbox"]')!.click();
+  };
+
+  const submit = async (): Promise<void> => {
     host.querySelector('form')!.dispatchEvent(new Event('submit'));
+    await fixture.whenStable();
     fixture.detectChanges();
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContactForm],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactForm);
     component = fixture.componentInstance;
     host = fixture.nativeElement;
-    emitted = [];
-    component.submitted.subscribe((value) => emitted.push(value));
+    http = TestBed.inject(HttpTestingController);
+    toast = TestBed.inject(ToastService);
     await fixture.whenStable();
   });
+
+  afterEach(() => http.verify());
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('shows all errors and does not emit when submitted empty', () => {
-    submit();
+  it('shows all errors and sends nothing when submitted empty', async () => {
+    await submit();
 
-    expect(emitted).toEqual([]);
+    http.expectNone('/api/contact.php');
     const messages = [...host.querySelectorAll('.contact-form__error')].map((error) =>
       error.textContent?.trim(),
     );
     expect(messages.filter(Boolean).length).toBe(4);
   });
 
-  it('emits the value when all fields are valid', () => {
-    fill('input[type="text"]', 'Max');
-    fill('input[type="email"]', 'max@example.com');
-    fill('textarea', 'Let us build something great.');
-    host.querySelector<HTMLInputElement>('input[type="checkbox"]')!.click();
-    submit();
+  it('posts the form and the spam-protection fields, then clears the form and shows a success toast', async () => {
+    fillValid();
+    const done = submit();
 
-    expect(emitted).toEqual([
-      {
-        name: 'Max',
-        email: 'max@example.com',
-        message: 'Let us build something great.',
-        privacy: true,
-      },
-    ]);
+    const request = http.expectOne('/api/contact.php');
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body).toEqual({
+      name: 'Max',
+      email: 'max@example.com',
+      message: 'Let us build something great.',
+      privacy: true,
+      website: '',
+      elapsedMs: expect.any(Number),
+    });
+    request.flush({ ok: true });
+    await done;
+
+    expect(toast.toast()?.type).toBe('success');
+    expect(host.querySelector<HTMLInputElement>('input[type="email"]')!.value).toBe('');
   });
 
-  it('rejects an invalid email address', () => {
-    fill('input[type="text"]', 'Max');
+  it('keeps the text and shows an error toast when sending fails', async () => {
+    fillValid();
+    const done = submit();
+
+    http
+      .expectOne('/api/contact.php')
+      .flush({ ok: false }, { status: 502, statusText: 'Bad Gateway' });
+    await done;
+
+    expect(toast.toast()?.type).toBe('error');
+    expect(host.querySelector<HTMLInputElement>('input[type="email"]')!.value).toBe(
+      'max@example.com',
+    );
+  });
+
+  it('shows the "too many requests" text on status 429', async () => {
+    fillValid();
+    const done = submit();
+
+    http
+      .expectOne('/api/contact.php')
+      .flush({ ok: false }, { status: 429, statusText: 'Too Many' });
+    await done;
+
+    expect(toast.toast()?.type).toBe('error');
+    expect(toast.toast()?.text).toMatch(/few messages|viele Nachrichten/);
+  });
+
+  it('rejects an invalid email address', async () => {
+    fill('input[type="text"]:not([tabindex])', 'Max');
     fill('input[type="email"]', 'not-an-email');
     fill('textarea', 'Let us build something great.');
     host.querySelector<HTMLInputElement>('input[type="checkbox"]')!.click();
-    submit();
+    await submit();
 
-    expect(emitted).toEqual([]);
+    http.expectNone('/api/contact.php');
     expect(host.querySelector('[id$="-email-error"]')?.textContent).toContain('valid email');
+  });
+
+  it('accepts everyday punctuation that the old regex rejected', async () => {
+    fillValid();
+    fill('textarea', 'Hi! I need a dev (m/w/d): https://example.com – "ASAP", 5 €.');
+    const done = submit();
+
+    http.expectOne('/api/contact.php').flush({ ok: true });
+    await done;
+
+    expect(toast.toast()?.type).toBe('success');
+  });
+
+  it('limits the length of the fields', () => {
+    expect(host.querySelector('input[type="email"]')!.getAttribute('maxlength')).toBe('254');
+    expect(host.querySelector('textarea')!.getAttribute('maxlength')).toBe('2000');
   });
 
   it('marks touched, correctly filled fields as valid and keeps the error slots in the DOM', () => {
     expect(host.querySelectorAll('.contact-form__error').length).toBe(4);
 
-    fill('input[type="text"]', 'Max');
+    fill('input[type="text"]:not([tabindex])', 'Max');
     host.querySelector('input[type="text"]')!.dispatchEvent(new Event('blur'));
     fixture.detectChanges();
 

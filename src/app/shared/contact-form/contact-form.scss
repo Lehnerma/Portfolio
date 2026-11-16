@@ -6,6 +6,15 @@
   width: 100%;
   max-width: 480px; // todo check
 
+  // honeypot: out of sight, but still in the DOM for bots
+  &__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   &__field {
     display: flex;
     flex-direction: column;

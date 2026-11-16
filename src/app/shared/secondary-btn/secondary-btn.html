@@ -10,7 +10,12 @@
     {{ label() }}
   </a>
 } @else {
-  <button [attr.data-theme]="btnTheme()" class="btn btn__secondary" [type]="btnType()">
+  <button
+    [attr.data-theme]="btnTheme()"
+    class="btn btn__secondary"
+    [type]="btnType()"
+    [disabled]="disabled()"
+  >
     {{ label() }}
   </button>
 }
