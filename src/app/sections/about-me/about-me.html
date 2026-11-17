@@ -11,9 +11,10 @@
       {{ texts().about.text }}
     </p>
     <app-secondary-btn
-      label="Let’s talk"
+      [label]="texts().about.cta"
       btnTheme="black"
       class="about__contact"
+      link="#contact"
     ></app-secondary-btn>
   </section>
 
