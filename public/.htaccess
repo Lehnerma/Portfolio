@@ -4,9 +4,8 @@
   RewriteEngine On
   RewriteBase /
 
-  # Optional: HTTPS erzwingen (einkommentieren, sobald SSL aktiv ist)
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Existierende Dateien/Ordner direkt ausliefern
   RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -30,7 +29,7 @@
 
   # Gehashte Build-Dateien (main-XXXX.js, styles-XXXX.css) dürfen lange gecacht werden
   <FilesMatch "\.(js|css|woff2?)$">
-    ExpiresDefault "access plus 1 year"
+    ExpiresDefault "access plus 1 month"
   </FilesMatch>
 
   <FilesMatch "\.(png|jpe?g|webp|avif|gif|svg|ico)$">
