@@ -10,17 +10,18 @@
   &__wrapper {
     margin: 0 auto;
     max-width: $dp-max-width;
+    height: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 32px;
+    gap: 1rem;
     padding: 16px $body-spacing;
   }
 
   &__main {
     display: grid;
-    grid-template-rows: 184px auto auto auto 1fr;
+    grid-template-rows: repeat(auto-fit, auto);
     gap: 16px;
-    min-height: 624px;
+    max-height: 624px;
     padding-bottom: 2rem;
     justify-self: center;
   }
@@ -57,20 +58,23 @@
         'hello img'
         'title1 img'
         'title2 title2'
-        'contact contact';
+        'social contact';
     }
 
     &__hello {
       grid-area: hello;
     }
+    &__title {
+      height: fit-content;
 
-    &__title1 {
-      grid-area: title1;
-    }
+      &--1 {
+        grid-area: title1;
+      }
 
-    &__title2 {
-      grid-area: title2;
-      justify-self: flex-end;
+      &--2 {
+        grid-area: title2;
+        justify-self: flex-end;
+      }
     }
 
     &__figure {
@@ -83,6 +87,7 @@
     }
 
     &__social {
+      grid-area: social;
       justify-self: flex-start;
       visibility: visible;
       display: block;
