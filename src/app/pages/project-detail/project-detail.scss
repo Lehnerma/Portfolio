@@ -56,9 +56,15 @@
   &__stack {
     display: flex;
     justify-content: space-evenly;
+
     &--icon {
       width: 40px;
       aspect-ratio: 1/1;
+      @include animation(transform);
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
