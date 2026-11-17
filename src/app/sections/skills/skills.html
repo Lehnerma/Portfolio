@@ -14,7 +14,7 @@
     <ul class="skills__list" [style.--count]="skillsIcons.length">
       @for (skill of skillsIcons; track $index) {
         <li class="skill__container" [style.--index]="$index">
-          <img [src]="skill.path" alt="" class="skill__icon" />
+          <img [src]="skill.path" alt="" class="skill__icon" [title]="skill.name" />
           <figcaption class="skill__name">{{ skill.name | titlecase }}</figcaption>
         </li>
       }

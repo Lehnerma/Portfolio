@@ -23,7 +23,12 @@
         <ul class="project__stack">
           @for (stack of project.devStack; track $index) {
             <li class="project__stack--item">
-              <img [src]="stack.iconPath" [alt]="stack.name" class="project__stack--icon" />
+              <img
+                [src]="stack.iconPath"
+                [alt]="stack.name"
+                [title]="stack.name"
+                class="project__stack--icon"
+              />
             </li>
           }
         </ul>
