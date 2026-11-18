@@ -1,0 +1,87 @@
+@use '../../../styles/abstracts' as *;
+
+$track-width: 104px;
+$track-height: 40px;
+$knob-size: 32px;
+$track-gap: 4px;
+
+:host {
+  display: inline-block;
+}
+
+.lang {
+  position: relative;
+  display: block;
+  width: $track-width;
+  height: $track-height;
+  border: $border-btn-transparent;
+  border-radius: 100px;
+  background: transparent;
+  box-shadow: $switch-inset-shadow;
+  cursor: pointer;
+  transition: background-color $animation-time ease;
+
+  &:hover {
+    background: rgba($white-base, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $white-base;
+    outline-offset: 3px;
+  }
+
+  &__knob {
+    position: absolute;
+    top: 50%;
+    left: $track-gap;
+    width: $knob-size;
+    height: $knob-size;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: $switch-knob-shadow;
+    transform: translateY(-50%);
+    transition:
+      left $animation-time $bouncy,
+      scale $animation-time ease;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__label {
+    @include f-text(rem(18), $white-base, 500);
+    position: absolute;
+    top: 50%;
+    right: $track-gap;
+    left: $track-gap + $knob-size;
+    text-align: center;
+    transform: translateY(-50%);
+    transition:
+      left $animation-time ease,
+      right $animation-time ease;
+  }
+
+  &:active &__knob {
+    scale: 0.92;
+  }
+
+  &[data-position='end'] &__knob {
+    left: calc(100% - #{$track-gap + $knob-size});
+  }
+
+  &[data-position='end'] &__label {
+    right: $track-gap + $knob-size;
+    left: $track-gap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &__knob,
+    &__label {
+      transition: none;
+    }
+  }
+}

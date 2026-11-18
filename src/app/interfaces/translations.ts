@@ -33,6 +33,8 @@ export interface NavTexts {
   closeMenu: string;
   /** Accessible name of the language switcher group. */
   language: string;
+  /** Accessible name of the language switcher button, depending on the language it switches to. */
+  switchTo: { en: string; de: string };
 }
 
 export interface HeroTexts {
