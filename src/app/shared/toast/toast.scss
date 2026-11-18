@@ -2,20 +2,19 @@
 
 .toast-region {
   position: fixed;
-  top: 24px;
+  bottom: 20dvh;
   right: 0;
   z-index: 200;
   display: flex;
   justify-content: flex-end;
   max-width: 100%;
   padding-inline: $spacing16-40;
-  pointer-events: none; // never blocks the page below
+  pointer-events: none;
 }
 
 .toast {
   @include f-text(rem(16), $white-base, 500);
   max-width: 360px;
-  margin: 0;
   padding: 12px 24px;
   border: $border-btn-transparent;
   border-radius: 24px;
@@ -33,7 +32,6 @@
     box-shadow: 2px 4px 0 0 $error-color;
   }
 
-  // keep the length in sync with TOAST_LEAVE_MS in toast-service.ts
   &--leaving {
     animation: toast-out $animation-time ease-in forwards;
   }
