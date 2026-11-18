@@ -7,5 +7,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './logo-lm.html',
 })
 export class LogoLm {
-  readonly link = input<string>('');
+  readonly link = input<string>('#landing');
 }

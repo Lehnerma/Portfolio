@@ -1,12 +1,30 @@
-<h1 class="heading" [attr.aria-label]="text()" [attr.data-filling]="fillingColor()">
-  @for (letter of getLetters(text()); track $index) {
-    <span
-      class="heading__letter title56-144"
-      [class.heading__letter--upper]="letter.isUpperCase"
-      aria-hidden="true"
-    >
-      <span class="heading__char heading__char--base">{{ getDisplayChar(letter.char) }}</span>
-      <span class="heading__char heading__char--alt">{{ getDisplayChar(letter.char) }}</span>
-    </span>
+@switch (htmlTag()) {
+  @case ('h1') {
+    <h1 class="heading" [attr.aria-label]="text()" [attr.data-filling]="fillingColor()">
+      @for (letter of getLetters(text()); track $index) {
+        <span
+          class="heading__letter title56-144"
+          [class.heading__letter--upper]="letter.isUpperCase"
+          aria-hidden="true"
+        >
+          <span class="heading__char heading__char--base">{{ getDisplayChar(letter.char) }}</span>
+          <span class="heading__char heading__char--alt">{{ getDisplayChar(letter.char) }}</span>
+        </span>
+      }
+    </h1>
   }
-</h1>
+  @case ('h2') {
+    <h2 class="heading" [attr.aria-label]="text()" [attr.data-filling]="fillingColor()">
+      @for (letter of getLetters(text()); track $index) {
+        <span
+          class="heading__letter title56-144"
+          [class.heading__letter--upper]="letter.isUpperCase"
+          aria-hidden="true"
+        >
+          <span class="heading__char heading__char--base">{{ getDisplayChar(letter.char) }}</span>
+          <span class="heading__char heading__char--alt">{{ getDisplayChar(letter.char) }}</span>
+        </span>
+      }
+    </h2>
+  }
+}

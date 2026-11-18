@@ -5,10 +5,11 @@ import { LanguageService } from '../../services/language-service';
 import { LogoLm } from '../logo-lm/logo-lm';
 import { NavElement } from '../nav-element/nav-element';
 import { SocialIcons } from '../social-icons/social-icons';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 /** Header navigation: logo, link list and the burger menu overlay on mobile. */
 @Component({
-  imports: [LogoLm, NavElement, SocialIcons],
+  imports: [LogoLm, NavElement, SocialIcons, LanguageSwitch],
   selector: 'app-head-nav',
   styleUrl: './head-nav.scss',
   templateUrl: './head-nav.html',

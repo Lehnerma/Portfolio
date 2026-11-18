@@ -12,7 +12,7 @@ export class AnimateTitle {
   readonly text = input.required<string>();
   readonly secondText = input<string>();
   readonly fillingColor = input<FillingColor>('blue');
-
+  readonly htmlTag = input.required<'h1' | 'h2'>();
   protected getLetters(text: string): LetterUppercase[] {
     return Array.from(text).map((char) => ({
       char,

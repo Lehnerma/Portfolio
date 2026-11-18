@@ -9,6 +9,7 @@
       class="contact-form__input"
       type="text"
       autocomplete="name"
+      (blur)="trimInput(form.controls.name)"
       [placeholder]="texts().form.name.placeholder"
       formControlName="name"
       [attr.maxlength]="maxLength.name"
@@ -34,6 +35,7 @@
       class="contact-form__input"
       type="email"
       autocomplete="email"
+      (blur)="trimInput(form.controls.email)"
       [placeholder]="texts().form.email.placeholder"
       formControlName="email"
       [attr.maxlength]="maxLength.email"
@@ -64,6 +66,7 @@
     <textarea
       class="contact-form__input contact-form__input--message"
       rows="1"
+      (blur)="trimInput(form.controls.message)"
       [placeholder]="texts().form.message.placeholder"
       formControlName="message"
       [attr.maxlength]="maxLength.message"
