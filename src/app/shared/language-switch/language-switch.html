@@ -1,0 +1,28 @@
+<button
+  type="button"
+  class="lang"
+  [attr.data-position]="position()"
+  [attr.aria-label]="texts().switchTo[nextLanguage()]"
+  (click)="toggle()"
+>
+  <span class="lang__label" aria-hidden="true">{{ language().toUpperCase() }}</span>
+  <span class="lang__knob" aria-hidden="true">
+    @switch (language()) {
+      @case ('de') {
+        <svg viewBox="0 0 5 3" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="5" height="3" fill="#ed2939" />
+          <rect y="1" width="5" height="1" fill="#fff" />
+        </svg>
+      }
+      @case ('en') {
+        <svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="60" height="30" fill="#012169" />
+          <path d="M0 0 60 30M60 0 0 30" stroke="#fff" stroke-width="6" />
+          <path d="M0 0 60 30M60 0 0 30" stroke="#c8102e" stroke-width="3" />
+          <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
+          <path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6" />
+        </svg>
+      }
+    }
+  </span>
+</button>

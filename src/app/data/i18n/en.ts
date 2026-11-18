@@ -12,6 +12,7 @@ export const EN_TRANSLATIONS: Translations = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     language: 'Language',
+    switchTo: { en: 'Switch to English', de: 'Switch to German' },
   },
   hero: {
     greeting: 'Hello World',

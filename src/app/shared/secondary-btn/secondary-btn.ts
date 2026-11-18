@@ -12,6 +12,5 @@ export class SecondaryBtn {
   btnType = input<'button' | 'submit'>('button');
   link = input<string>();
   openInNewTab = input<boolean>(false);
-  /** Only applies to the button, e.g. while a form is being sent. */
   disabled = input<boolean>(false);
 }
