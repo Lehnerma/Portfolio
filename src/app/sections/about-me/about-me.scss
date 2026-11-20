@@ -6,14 +6,11 @@
 
 .about {
   &__wrapper {
+    max-width: $dp-max-width;
     display: grid;
     justify-items: center;
     grid-template-rows: auto auto 1fr;
-    margin: 0 auto; // *necessary for get the container in the middle
-
-    // min-height: 95dvh;
-    // scroll-margin-top: 5vh;
-    // scroll-snap-align: start;
+    margin: 0 auto;
   }
 
   &__titles {

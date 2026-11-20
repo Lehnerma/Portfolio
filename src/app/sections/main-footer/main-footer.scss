@@ -82,6 +82,7 @@
   &__nav {
     display: flex;
     justify-content: center;
+    justify-self: center;
     width: 100%;
     max-width: $dp-max-width;
   }
