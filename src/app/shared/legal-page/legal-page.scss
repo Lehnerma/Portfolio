@@ -5,10 +5,9 @@
   min-height: 100dvh;
   display: grid;
   grid-template-rows: clamp(124px, 15vw, 180px) 1fr auto;
-  @include respond-to(2000px){
-      grid-template-rows: 240px 1fr auto;
+  @include respond-to(2000px) {
+    grid-template-rows: 240px 1fr auto;
   }
-
 }
 
 .legal {
@@ -30,7 +29,7 @@
     color: $black-base;
   }
 
-  &__sections{
+  &__sections {
     display: grid;
     gap: 24px;
   }

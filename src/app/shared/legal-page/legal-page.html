@@ -2,33 +2,32 @@
   <app-head-nav />
 </header>
 <main class="legal">
-  <a class="legal__back " routerLink="/"
+  <a class="legal__back" routerLink="/"
     ><span aria-hidden="true">← </span>{{ texts().legalPage.backToHome }}</a
   >
 
   <h1 class="legal__title title32-48">{{ content().title }}</h1>
 
   @if (content().intro) {
-    <p class="legal__text ">{{ content().intro }}</p>
+    <p class="legal__text">{{ content().intro }}</p>
   }
 
-<article class="leagl__sections">
-  @for (section of content().sections; track section.heading) {
-    <section class="legal__section">
-      <h2 class="legal__heading txt20-24">{{ section.heading }}</h2>
-      @for (paragraph of section.paragraphs; track $index) {
-        <p class="legal__text ">{{ paragraph }}</p>
-      }
-      @if (section.items?.length) {
-        <ul class="legal__list">
-          @for (item of section.items; track item) {
-            <li class="legal__text ">{{ item }}</li>
-          }
-        </ul>
-      }
-    </section>
-  }
-</article>
-
+  <article class="legal__sections">
+    @for (section of content().sections; track section.heading) {
+      <section class="legal__section">
+        <h2 class="legal__heading txt20-24">{{ section.heading }}</h2>
+        @for (paragraph of section.paragraphs; track $index) {
+          <p class="legal__text">{{ paragraph }}</p>
+        }
+        @if (section.items?.length) {
+          <ul class="legal__list">
+            @for (item of section.items; track item) {
+              <li class="legal__text">{{ item }}</li>
+            }
+          </ul>
+        }
+      </section>
+    }
+  </article>
 </main>
 <app-main-footer [lightFooter]="true" />
