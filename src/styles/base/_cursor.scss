@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+body {
+  @include cursor(default);
+}
+
+a,
+button [role='button'] {
+  @include cursor(pointer);
+}
+
+input,
+textarea {
+  @include cursor(text);
+}

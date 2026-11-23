@@ -14,7 +14,7 @@
 .peel-handle {
   touch-action: none;
   user-select: none;
-  cursor: grab;
+  @include cursor(grab);
 
   &:focus-visible {
     outline: 3px solid $blue-violet;

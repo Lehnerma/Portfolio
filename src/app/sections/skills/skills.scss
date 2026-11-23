@@ -76,6 +76,7 @@
     display: grid;
     gap: 2rem;
     margin-bottom: 3rem;
+    @include cursor(bulb-off);
   }
 
   &__list {
@@ -111,6 +112,7 @@
     &:hover {
       transform: scale(1.1);
       filter: none;
+      @include cursor(bulb-on);
     }
   }
 

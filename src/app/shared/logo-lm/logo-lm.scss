@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts' as *;
+
 .logo {
   &__lm {
     width: 80px;
@@ -5,8 +7,14 @@
     transform: rotate(-10deg);
     transition: transform 250ms ease;
 
+    @include cursor(bulb-off);
+
     &:hover {
       transform: rotate(0deg);
+    }
+
+    &:active {
+      @include cursor(bulb-on);
     }
   }
 }
