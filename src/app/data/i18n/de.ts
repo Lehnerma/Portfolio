@@ -46,7 +46,7 @@ export const DE_TRANSLATIONS: Translations = {
     peeledValue: (percent) => `${percent} Prozent abgezogen`,
   },
   projects: {
-    subtitle: 'MEIN HANDWERK',
+    subtitle: 'MEINE PROJEKTE',
     title: 'Projekte',
     items: {
       join: {

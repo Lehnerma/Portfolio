@@ -20,6 +20,11 @@
     text-align: end;
   }
 
+  &__titles {
+    max-width: 800px;
+    justify-self: flex-end;
+  }
+
   &__cards {
     --card-w: min(270px, 100%);
     --card-ratio: calc(1799 / 1180);

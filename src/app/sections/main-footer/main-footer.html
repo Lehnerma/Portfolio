@@ -32,13 +32,15 @@
     </div>
   }
 
-  <section
-    [class.footer__section--name]="!lightFooter()"
-    [class.footer__section--name-light]="lightFooter()"
-  >
-    <app-logo-lm />
-    <p class="footer__name txt16-20">© Maximilian Lehner</p>
-  </section>
+  @if (lightFooter()) {
+    <section
+      [class.footer__section--name]="!lightFooter()"
+      [class.footer__section--name-light]="lightFooter()"
+    >
+      <app-logo-lm />
+      <p class="footer__name txt16-20">© Maximilian Lehner</p>
+    </section>
+  }
 
   <nav class="footer__nav">
     <ul class="footer__nav-elements">
