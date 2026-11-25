@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+html {
+  @include cursor(default);
+}
+
+a,
+button,
+[role='button'] {
+  @include cursor(pointer);
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  @include cursor(text);
+}
