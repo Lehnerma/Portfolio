@@ -39,7 +39,7 @@ $-cursors: (
   ),
 );
 
-@mixin cursor($name) {
+@mixin cursor($name, $fallback: auto) {
   @if not map.has-key($-cursors, $name) {
     @error "cursor(): unknown cursor '#{$name}'. Available: #{map.keys($-cursors)}";
   }

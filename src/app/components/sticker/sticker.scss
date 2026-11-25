@@ -16,6 +16,10 @@
   user-select: none;
   @include cursor(grab);
 
+  &:active {
+    @include cursor(grabbing);
+  }
+
   &:focus-visible {
     outline: 3px solid $blue-violet;
     outline-offset: 4px;

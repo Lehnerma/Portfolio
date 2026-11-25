@@ -1,12 +1,18 @@
 @use '../abstracts' as *;
 
-body {
+html {
   @include cursor(default);
 }
 
 a,
-button [role='button'] {
+button,
+[role='button'] {
   @include cursor(pointer);
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 input,
