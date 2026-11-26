@@ -164,6 +164,38 @@
 
     opacity: 0;
     transition: opacity 400ms ease;
+
+    // the invisible link must not catch taps; flipped-state enables it again
+    app-secondary-btn {
+      pointer-events: none;
+    }
+  }
+
+  // Touch only: shows that the screenshot can be tapped; taps pass through to the figure
+  &__info {
+    display: none;
+    place-items: center;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 30;
+    justify-self: end;
+    align-self: end;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.75rem;
+    border: 2px solid var(--line-color);
+    border-radius: 50%;
+    background-color: var(--paper-color);
+    pointer-events: none;
+
+    @media (hover: none) {
+      display: grid;
+    }
+  }
+
+  &__info-icon {
+    width: 1.125rem;
+    height: 1.125rem;
   }
 
   &__flip {
@@ -214,6 +246,16 @@
   .project-window__content:hover:has(.project-window__desc) {
     @include flipped-state;
   }
+
+  // hover and keyboard focus already reveal the description, the toggle would be a dead tab stop
+  .project-window__flip {
+    display: none;
+  }
+}
+
+// Keyboard: :focus-visible instead of :focus, so a tap never keeps the description open
+.project-window__content:has(:focus-visible) {
+  @include flipped-state;
 }
 
 // Touch: the tap toggle replaces the hover

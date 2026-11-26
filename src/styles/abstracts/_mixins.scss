@@ -104,5 +104,9 @@
   }
   .project-window__desc {
     opacity: 1;
+
+    app-secondary-btn {
+      pointer-events: auto;
+    }
   }
 }

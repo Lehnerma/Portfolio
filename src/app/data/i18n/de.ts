@@ -89,7 +89,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   comments: {
     subtitle: 'IN IHREN WORTEN',
-    title: 'Stimmen aus dem Team',
+    title: 'Kommentare von Kollegen',
     linkedinLogoAlt: 'LinkedIn-Logo',
     items: {
       radek: {
