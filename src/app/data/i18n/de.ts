@@ -108,7 +108,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   contact: {
     subtitle: 'KONTAKT',
-    title: 'Bereit für die Zusammenarbeit?',
+    title: 'Lust auf gemeinsame Arbeit?',
     message:
       'Melde dich gern bei mir und erzähl mir, welche Rolle du im Kopf hast. Ich bin überzeugt, dass meine Expertise und mein Antrieb, mich ständig weiterzuentwickeln, einen echten Beitrag zu deinem Team leisten. Meine Leidenschaft ist CSS: Ich gebe jedem Projekt seinen eigenen, unverwechselbaren Look, damit es einzigartig wirkt und nicht wie eine von vielen Template-Seiten. Durch meinen Quereinstieg gebe ich extra Gas und zeige bei jeder neuen Herausforderung Entschlossenheit und Willenskraft. Ein neues Projekt mitzugestalten begeistert mich.',
     logoAlt: 'Logo',

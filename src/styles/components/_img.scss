@@ -69,3 +69,18 @@
     }
   }
 }
+
+.stack__icon {
+  @media (pointer: fine) {
+    filter: grayscale(100%) brightness(0.7);
+    transition:
+      filter $animation-time ease,
+      transform $animation-time ease;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: none;
+      @include cursor(bulb-on);
+    }
+  }
+}

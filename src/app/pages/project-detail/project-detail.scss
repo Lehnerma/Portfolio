@@ -44,13 +44,14 @@
   &--info {
     display: grid;
     gap: 0.8rem;
+
+    color: $white-base;
+    mix-blend-mode: difference;
   }
 
   &--txt {
-    @include respond-to(md) {
-      color: $white-base;
-      mix-blend-mode: difference;
-    }
+    color: $white-base;
+    mix-blend-mode: difference;
   }
 
   &__stack {

@@ -79,7 +79,7 @@
     .about__titles {
       animation-name: slide-up;
       animation-timeline: --about-section;
-      animation-range: entry 14% entry 100%;
+      animation-range: entry 4% entry 50%;
       animation-timing-function: ease;
       animation-fill-mode: both;
     }
@@ -87,7 +87,7 @@
     .about__me {
       animation-name: slide-up;
       animation-timeline: --about-section;
-      animation-range: entry 24% entry 100%;
+      animation-range: entry 24% entry 50%;
       animation-timing-function: ease;
       animation-fill-mode: both;
     }

@@ -11,10 +11,6 @@
         <p class="desc--txt project--txt txt16-20">{{ project.description }}</p>
       </section>
       <section class="project--info">
-        <h2 class="details--title txt24-32">{{ project.implementationTitle }}</h2>
-        <p class="details--txt project--txt txt16-20">{{ project.implementationText }}</p>
-      </section>
-      <section class="project--info">
         <h2 class="duration--title txt24-32">{{ project.durationLabel }}</h2>
         <p class="duration--txt project--txt txt16-20">{{ project.duration }}</p>
       </section>
@@ -22,7 +18,7 @@
         <h2 class="txt24-32">Dev Stack:</h2>
         <ul class="project__stack">
           @for (stack of project.devStack; track $index) {
-            <li class="project__stack--item">
+            <li class="project__stack--item stack__icon">
               <img
                 [src]="stack.iconPath"
                 [alt]="stack.name"
