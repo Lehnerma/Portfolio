@@ -25,7 +25,7 @@ export const EN_TRANSLATIONS: Translations = {
   about: {
     subtitle: 'WHO’S MAX',
     title: 'About me',
-    text: 'Career changer with a passion for frontend: I like solving everyday problems myself and building things exactly the way I need them, like my smart home automations. My stack: Angular and web-development (HTML, JS, SCSS). I find inspiration in blogs, podcasts and community forums, and I challenge myself on Codewars. Clean code matters to me: readable and reusable.',
+    text: 'I am passionate about solving everyday problems by myself and building things exactly the way I need them, like my smart home automations. My stack: Angular and web development (HTML, JS, SCSS). I get inspired by blogs, podcasts and community forums, and I challenge myself on Codewars. Clean code matters to me: readable and reusable.',
     cta: 'Let’s talk',
     preferences: {
       location: 'Based in Grafenegg',
