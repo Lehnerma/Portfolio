@@ -19,6 +19,8 @@
 }
 
 .skills {
+  overflow-y: clip;
+
   &__wrapper {
     margin: 0 auto;
     padding: $body-spacing;
@@ -76,6 +78,7 @@
     display: grid;
     gap: 2rem;
     margin-bottom: 3rem;
+    @include cursor(bulb-off);
   }
 
   &__list {
@@ -102,16 +105,6 @@
     justify-items: center;
     row-gap: 4px;
     translate: 0 var(--drop);
-
-    filter: grayscale(100%) brightness(0.7);
-    transition:
-      filter $animation-time ease,
-      transform $animation-time ease;
-
-    &:hover {
-      transform: scale(1.1);
-      filter: none;
-    }
   }
 
   &__icon {
@@ -135,6 +128,7 @@
     .skills {
       &__wrapper {
         view-timeline: --skills-view block;
+        overflow-y: clip;
       }
 
       &__stage {
@@ -144,7 +138,7 @@
       &__titles {
         animation-name: slide-up;
         animation-timeline: --skills-view;
-        animation-range: 20% 40%;
+        animation-range: 20% 30%;
         animation-timing-function: ease;
         animation-fill-mode: both;
       }
@@ -152,7 +146,7 @@
       &__info {
         animation-name: slide-in-left;
         animation-timeline: --skills-view;
-        animation-range: 10% 50%;
+        animation-range: 10% 30%;
         animation-timing-function: ease;
         animation-fill-mode: both;
       }
@@ -168,7 +162,7 @@
 
     .skill__container {
       animation: skill-rain both ease;
-      animation-timeline: --stage;
+      animation-timeline: --skills-view;
       animation-range: entry calc(var(--index) * 3%) entry calc(60% + var(--index) * 3%);
       @include respond-to(md) {
         animation-range: entry calc(var(--index) * 5%) entry calc(65% + var(--index) * 3%);

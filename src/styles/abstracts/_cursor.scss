@@ -1,0 +1,63 @@
+@use 'sass:map';
+$-cursor-path: '/assets/cursor';
+
+$-cursors: (
+  default: (
+    x: 1,
+    y: 1,
+    fallback: auto,
+  ),
+  pointer: (
+    x: 1,
+    y: 1,
+    fallback: pointer,
+  ),
+  grab: (
+    x: 1,
+    y: 1,
+    fallback: grab,
+  ),
+  grabbing: (
+    x: 1,
+    y: 1,
+    fallback: grabbing,
+  ),
+  bulb-off: (
+    x: 16,
+    y: 16,
+    fallback: pointer,
+  ),
+  bulb-on: (
+    x: 16,
+    y: 16,
+    fallback: pointer,
+  ),
+  text: (
+    x: 1,
+    y: 30,
+    fallback: text,
+  ),
+);
+
+@mixin cursor($name, $fallback: auto) {
+  @if not map.has-key($-cursors, $name) {
+    @error "cursor(): unknown cursor '#{$name}'. Available: #{map.keys($-cursors)}";
+  }
+
+  $c: map.get($-cursors, $name);
+  $x: map.get($c, x);
+  $y: map.get($c, y);
+  $fallback: map.get($c, fallback);
+  $file: '#{$-cursor-path}/cursor-#{$name}';
+
+  cursor: $fallback;
+
+  @media (hover: hover) and (pointer: fine) {
+    cursor:
+      url('#{$file}@1x.png') $x $y,
+      $fallback;
+    cursor:
+      image-set(url('#{$file}@1x.png') 1x, url('#{$file}@2x.png') 2x) $x $y,
+      $fallback;
+  }
+}

@@ -20,6 +20,11 @@
   font-size: clamp(rem(48), 17vw, rem(136));
 }
 
+.title32-48 {
+  font-family: $f-txt;
+  font-size: clamp(rem(48), 6.25vw, rem(80));
+}
+
 .title56-80 {
   font-family: $f-txt;
   font-size: clamp(rem(48), 6.25vw, rem(80));

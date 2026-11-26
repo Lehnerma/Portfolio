@@ -7,7 +7,7 @@
 .head-nav {
   margin-inline: auto;
   width: 100%;
-  max-width: $nav-max-view;
+  max-width: $dp-max-width;
   display: grid;
   grid-template-columns: auto 1fr;
 }

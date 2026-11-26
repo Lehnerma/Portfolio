@@ -15,7 +15,7 @@
     display: inline-block;
     font-weight: 700;
     color: $white-base;
-    cursor: pointer;
+    @include cursor(pointer);
 
     &:hover {
       color: var(--filling-color2);

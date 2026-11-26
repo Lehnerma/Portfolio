@@ -46,7 +46,7 @@ export const DE_TRANSLATIONS: Translations = {
     peeledValue: (percent) => `${percent} Prozent abgezogen`,
   },
   projects: {
-    subtitle: 'MEIN HANDWERK',
+    subtitle: 'MEINE PROJEKTE',
     title: 'Projekte',
     items: {
       join: {
@@ -89,7 +89,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   comments: {
     subtitle: 'IN IHREN WORTEN',
-    title: 'Stimmen aus dem Team',
+    title: 'Gedanken von Kollegen',
     linkedinLogoAlt: 'LinkedIn-Logo',
     items: {
       radek: {
@@ -98,7 +98,7 @@ export const DE_TRANSLATIONS: Translations = {
       },
       monika: {
         comment:
-          'Die Zusammenarbeit hat super funktioniert, trotz unterschiedlicher Arbeitszeiten und Verfügbarkeiten. Max hat die Initiative ergriffen, das Projekt stetig voranzubringen, und dabei sowohl das Gesamtbild als auch Details im Blick behalten. Teamkollegen hat Max immer Hilfe angeboten. Die Struktur war klar und der Code clean, sodass man sich schnell zurechtfand.',
+          'Die Zusammenarbeit verlief trotz unterschiedlicher Arbeitszeiten super. Max hat das Projekt eigeninitiativ vorangebracht, stets den Überblick sowie Details gewahrt und das Team unterstützt. Die Struktur und der Code waren gewohnt klar und sauber.',
       },
       guenter: {
         comment:
@@ -108,7 +108,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   contact: {
     subtitle: 'KONTAKT',
-    title: 'Bereit für die Zusammenarbeit?',
+    title: 'Lust auf gemeinsame Arbeit?',
     message:
       'Melde dich gern bei mir und erzähl mir, welche Rolle du im Kopf hast. Ich bin überzeugt, dass meine Expertise und mein Antrieb, mich ständig weiterzuentwickeln, einen echten Beitrag zu deinem Team leisten. Meine Leidenschaft ist CSS: Ich gebe jedem Projekt seinen eigenen, unverwechselbaren Look, damit es einzigartig wirkt und nicht wie eine von vielen Template-Seiten. Durch meinen Quereinstieg gebe ich extra Gas und zeige bei jeder neuen Herausforderung Entschlossenheit und Willenskraft. Ein neues Projekt mitzugestalten begeistert mich.',
     logoAlt: 'Logo',

@@ -2,12 +2,17 @@
 
 :host {
   @include page-bg($white-base);
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: clamp(124px, 15vw, 180px) 1fr auto;
+  @include respond-to(2000px) {
+    grid-template-rows: 240px 1fr auto;
+  }
 }
 
 .legal {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   max-width: $dp-max-width;
   margin-inline: auto;
   padding: $body-spacing;
@@ -24,6 +29,11 @@
     color: $black-base;
   }
 
+  &__sections {
+    display: grid;
+    gap: 24px;
+  }
+
   &__section {
     display: flex;
     flex-direction: column;
@@ -36,7 +46,6 @@
 
   &__text {
     color: $black-base2;
-    line-height: 150%;
   }
 
   &__list {

@@ -8,7 +8,8 @@ describe('LanguageSwitch', () => {
   let service: LanguageService;
 
   const button = (): HTMLButtonElement => fixture.nativeElement.querySelector('.lang');
-  const label = (): string => fixture.nativeElement.querySelector('.lang__label').textContent.trim();
+  const label = (): string =>
+    fixture.nativeElement.querySelector('.lang__label').textContent.trim();
 
   beforeEach(async () => {
     localStorage.clear();

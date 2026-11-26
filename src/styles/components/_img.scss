@@ -6,6 +6,9 @@
     z-index: 40;
     width: 203px;
     height: 244px;
+    @include respond-to(md) {
+      margin-right: 16px;
+    }
 
     &::after {
       content: '';
@@ -63,6 +66,21 @@
 
     &--caption::after {
       animation: polaroid-smile 0s linear 1s forwards;
+    }
+  }
+}
+
+.stack__icon {
+  @media (pointer: fine) {
+    filter: grayscale(100%) brightness(0.7);
+    transition:
+      filter $animation-time ease,
+      transform $animation-time ease;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: none;
+      @include cursor(bulb-on);
     }
   }
 }

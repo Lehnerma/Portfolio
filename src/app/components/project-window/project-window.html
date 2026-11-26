@@ -104,7 +104,9 @@
   </header>
 
   <div class="project-window__content">
-    <figure class="project-window__content-inner">
+    <!-- Tap handler: catches taps on the description and the bubbled click of the flip button -->
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -- keyboard is covered by the flip button -->
+    <figure class="project-window__content-inner" (click)="toggleFlipped($event)">
       <img class="project-window__screenshot" [src]="screenshotSrc()" [alt]="screenshotAlt()" />
 
       @if (!isCompact()) {
@@ -112,13 +114,31 @@
           type="button"
           class="project-window__flip"
           [attr.aria-pressed]="isFlipped()"
-          (click)="toggleFlipped($event)"
           aria-label="Projektbeschreibung anzeigen"
         ></button>
 
         <figcaption class="project-window__desc">
           <ng-container *ngTemplateOutlet="caption" />
         </figcaption>
+
+        <span class="project-window__info" aria-hidden="true">
+          <svg
+            class="project-window__info-icon"
+            viewBox="0 0 10 10"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            @if (isFlipped()) {
+              <path d="M4 1.5 L2 3.5 L4 5.5 M2 3.5 H6 A2.25 2.25 0 0 1 6 8 H4.5" />
+            } @else {
+              <path d="M5 4.5 V8.5 M5 1.75 V1.76" />
+            }
+          </svg>
+        </span>
       }
     </figure>
   </div>
