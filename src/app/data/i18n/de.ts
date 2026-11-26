@@ -89,7 +89,7 @@ export const DE_TRANSLATIONS: Translations = {
   },
   comments: {
     subtitle: 'IN IHREN WORTEN',
-    title: 'Kommentare von Kollegen',
+    title: 'Gedanken von Kollegen',
     linkedinLogoAlt: 'LinkedIn-Logo',
     items: {
       radek: {
@@ -98,7 +98,7 @@ export const DE_TRANSLATIONS: Translations = {
       },
       monika: {
         comment:
-          'Die Zusammenarbeit hat super funktioniert, trotz unterschiedlicher Arbeitszeiten und Verfügbarkeiten. Max hat die Initiative ergriffen, das Projekt stetig voranzubringen, und dabei sowohl das Gesamtbild als auch Details im Blick behalten. Teamkollegen hat Max immer Hilfe angeboten. Die Struktur war klar und der Code clean, sodass man sich schnell zurechtfand.',
+          'Die Zusammenarbeit verlief trotz unterschiedlicher Arbeitszeiten super. Max hat das Projekt eigeninitiativ vorangebracht, stets den Überblick sowie Details gewahrt und das Team unterstützt. Die Struktur und der Code waren gewohnt klar und sauber.',
       },
       guenter: {
         comment:
