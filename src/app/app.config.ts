@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),
       // clicking the same anchor twice (e.g. after scrolling away) must scroll again
       withRouterConfig({ onSameUrlNavigation: 'reload' }),
-      withComponentInputBinding(), // we can easy read the url from the route
+      withComponentInputBinding(),
     ),
   ],
 };

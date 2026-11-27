@@ -16,7 +16,6 @@ import { LanguageService } from '../../services/language-service';
 export class LanguageSwitch {
   private readonly languageService = inject(LanguageService);
 
-  /** The language that is active right now. */
   protected readonly language = this.languageService.language;
   protected readonly texts = computed(() => this.languageService.texts().nav);
 
@@ -30,7 +29,6 @@ export class LanguageSwitch {
     this.language() === LANGUAGES[0] ? 'start' : 'end',
   );
 
-  /** Switches the whole page to the other language. */
   protected toggle(): void {
     this.languageService.setLanguage(this.nextLanguage());
   }

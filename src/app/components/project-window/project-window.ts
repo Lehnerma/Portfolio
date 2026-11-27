@@ -12,10 +12,10 @@ let nextWindowInstanceId = 0;
   templateUrl: './project-window.html',
 })
 export class ProjectWindow {
-  readonly title = input<string>(); // *required
-  readonly screenshotSrc = input<string>(); // *required
-  readonly screenshotAlt = input<string>(); // *required
-  readonly detailsLink = input<string>(); // *required
+  readonly title = input<string>();
+  readonly screenshotSrc = input<string>();
+  readonly screenshotAlt = input<string>();
+  readonly detailsLink = input<string>();
   readonly wobbleSeed = input(1);
   readonly getZIndex = input<number>();
   readonly isActive = input<boolean>(false);
@@ -100,10 +100,6 @@ export class ProjectWindow {
     this.isDragging.set(true);
   }
 
-  /**
-   * Sets the translate values that the user can move window
-   * @param event grapping the window and move ist
-   */
   protected pointerMove(event: PointerEvent): void {
     if (!this.isDragging()) return;
     if (!this.hasMoved) {
@@ -129,18 +125,11 @@ export class ProjectWindow {
     };
   }
 
-  /**
-   * Sets the signal for dragging to false
-   */
   protected cancelDragging(): void {
     this.isDragging.set(false);
     this.hasMoved = false;
   }
 
-  /**
-   * Updates the bounds for the grapped window
-   * @param element The element whitch one is grapping
-   */
   private updateBounds(element: Element): void {
     const sectionRec = element.closest('#projects')?.getBoundingClientRect();
     const windowRec = element.closest('.project-window')?.getBoundingClientRect();

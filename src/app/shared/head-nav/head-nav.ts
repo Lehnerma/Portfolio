@@ -31,9 +31,6 @@ export class HeadNav {
     })),
   );
 
-  /**
-   * Toggles the nav menu on the mobile version
-   */
   toggleNavMenu(): void {
     this.navOpen.update((value) => !value);
   }

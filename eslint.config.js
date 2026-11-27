@@ -63,7 +63,7 @@ module.exports = defineConfig([
         {
           require: {
             FunctionDeclaration: true,
-            MethodDefinition: false, //todo change to false
+            MethodDefinition: false,
             ClassDeclaration: false,
           },
         },

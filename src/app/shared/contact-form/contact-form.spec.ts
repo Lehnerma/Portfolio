@@ -131,6 +131,20 @@ describe('ContactForm', () => {
     expect(toast.toast()?.type).toBe('success');
   });
 
+  it('keeps the send button disabled until the form is filled in correctly', async () => {
+    const button = host.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    expect(button.disabled).toBe(true);
+
+    fillValid();
+    await fixture.whenStable();
+    expect(button.disabled).toBe(false);
+
+    // the server rejects a domain without a dot, so the form has to reject it too
+    fill('input[type="email"]', 'max@example');
+    await fixture.whenStable();
+    expect(button.disabled).toBe(true);
+  });
+
   it('limits the length of the fields', () => {
     expect(host.querySelector('input[type="email"]')!.getAttribute('maxlength')).toBe('254');
     expect(host.querySelector('textarea')!.getAttribute('maxlength')).toBe('2000');

@@ -30,19 +30,19 @@
       box-shadow $animation-time ease,
       transform $animation-time ease-in-out;
 
-    &:hover {
+    &:disabled {
+      opacity: 0.4;
+      box-shadow: none;
+    }
+
+    &:hover:not(:disabled) {
       background: var(--bg-hover);
       box-shadow: none;
       transform: translateY(4px);
     }
 
-    &:active {
+    &:active:not(:disabled) {
       box-shadow: inset 0px 0px 4px 2px $white-base;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      pointer-events: none;
     }
   }
 }

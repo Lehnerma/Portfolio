@@ -16,7 +16,6 @@ export class LanguageService {
 
   readonly language = this._language.asReadonly();
 
-  /** The texts of the active language. */
   readonly texts = computed(() => TRANSLATIONS[this._language()]);
 
   constructor() {

@@ -22,7 +22,7 @@ export const CARDS: readonly ColleagueCard[] = [
   {
     id: 'guenter',
     name: 'Günter Held',
-    link: 'www.linkedin.com/in/günter-heldt-892320343',
+    link: 'https://www.linkedin.com/in/g%C3%BCnter-heldt-892320343/',
     jobtitle: 'Fullstack Developer',
     backgroundUrl: '/assets/background/card-bg-smooth-blue.webp',
     socialMediaType: 'linkedin',

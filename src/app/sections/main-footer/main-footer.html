@@ -45,12 +45,14 @@
   <nav class="footer__nav">
     <ul class="footer__nav-elements">
       @for (el of navElements(); track $index) {
-        <app-nav-element
-          [label]="el.label"
-          [link]="el.link"
-          [underlineVariation]="el.underlineVariant"
-          linkClass="nav-element"
-        ></app-nav-element>
+        <li>
+          <app-nav-element
+            [label]="el.label"
+            [link]="el.link"
+            [underlineVariation]="el.underlineVariant"
+            linkClass="nav-element"
+          ></app-nav-element>
+        </li>
       }
     </ul>
   </nav>

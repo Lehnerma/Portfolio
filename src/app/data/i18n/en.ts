@@ -29,8 +29,8 @@ export const EN_TRANSLATIONS: Translations = {
     cta: 'Let’s talk',
     preferences: {
       location: 'Based in Grafenegg',
-      commute: 'Flexible with longer commute',
-      remote: 'Open to work remote',
+      commute: 'Flexible with a longer commute',
+      remote: 'Open to remote work',
     },
   },
   skills: {
@@ -51,9 +51,9 @@ export const EN_TRANSLATIONS: Translations = {
     items: {
       join: {
         description:
-          'A minimalist project management tool for collaborative work. The front end is built using pure HTML, CSS, and JavaScript, while Firebase serves as the cloud backend, ensuring seamless real-time task management. Try out the features right away using the built-in guest access.',
+          'Ein minimalistisches Projektmanagement-Tool für Teams. Gebaut mit HTML, CSS und JavaScript, mit Firebase als Echtzeit-Backend. Probier es direkt über den Gastzugang aus.',
         imgAlt: 'Screenshot of the project Join',
-        duration: '6 Weeks',
+        duration: '6 weeks',
         implementationText: '',
       },
       pollapp: {
@@ -85,7 +85,7 @@ export const EN_TRANSLATIONS: Translations = {
     stackLabel: '',
     descriptionTitle: 'Description:',
     implementationTitle: 'Implementation Details',
-    githubBtn: 'Github',
+    githubBtn: 'GitHub',
     liveBtn: 'Live Test',
     opensInNewTab: '',
     btnNextProject: 'Next project',
@@ -100,7 +100,7 @@ export const EN_TRANSLATIONS: Translations = {
   },
   comments: {
     subtitle: 'IN THEIR WORDS',
-    title: 'Colleague’s Thoughts',
+    title: 'Colleagues’ Thoughts',
     linkedinLogoAlt: 'LinkedIn logo',
     items: {
       radek: {

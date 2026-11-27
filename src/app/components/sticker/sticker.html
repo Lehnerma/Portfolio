@@ -1,8 +1,5 @@
 <section class="peel" [style.width.px]="width()" [style.height.px]="height()">
   <div class="sticker sticker__bottom">
-    <!-- @if (isPeeled()) {
-      <button type="button" (click)="reset()">Reset sticker</button>
-    } -->
     <app-underline-title variant="squiggle">
       <h4 class="sticker-back__title">Currently learning:</h4>
     </app-underline-title>
@@ -34,7 +31,6 @@
         [style.clip-path]="topClipPath()"
         [style.opacity]="fadeOpacity()"
       >
-        <!--todo can be delete? <ng-content select="[peelTop]" /> -->
         <figure peelTop class="sticker-top">
           <img src="/assets/icons/peel-arrow.png" alt="" class="sticker-top__icon" />
           <figcaption class="sticker-top__title">

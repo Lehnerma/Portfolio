@@ -39,11 +39,7 @@ export const PRIVACY_EN: LegalPageTexts = {
       heading: 'Contact by email or contact form',
       paragraphs: [
         'If you send me an email or use the contact form, I process your name, email address and message in order to answer your request.',
-        'When you submit the form, this data is forwarded through a PHP script on my web server (All-Inkl):',
-      ],
-      items: [
-        'by email to me',
-        'additionally as a notification via a webhook to a private channel on Discord (Discord Inc., 444 De Haro Street, Suite 200, San Francisco, CA 94107, USA). This may involve a transfer to the USA.',
+        'When you submit the form, this data is forwarded to me by email through a PHP script on my web server (All-Inkl).',
       ],
     },
     {

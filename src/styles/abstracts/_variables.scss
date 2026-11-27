@@ -1,4 +1,3 @@
-// PLATZHALTER – Werte warten auf Freigabe / Mockup
 $breakpoint-xs: 464px;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
@@ -7,21 +6,17 @@ $breakpoint-xl: 1200px;
 
 $animation-time: 0.3s;
 
-// Schriftarten
 $f-txt: 'Bricolage Grotesque', system-ui, sans-serif;
 $f-hand: 'Kalam', sans-serif;
 
-// Spacing
 $body-spacing: 16px clamp(4px, 4vw, 72px);
 $spacing16-40: clamp(16px, 4vw, 40px);
 
-// Container-Breite
 $dp-max-width: 1440px;
 
 // Max. Breite von Header-Nav und Hero-Inhalt
 $nav-max-view: 1000px;
 
-// z-index classes
 .z-20 {
   z-index: 20;
 }

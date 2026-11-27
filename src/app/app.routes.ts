@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     component: Home,
-    title: 'Home Page',
+    title: 'Maximilian Lehner | Frontend Developer',
   },
   {
     path: 'imprint',
@@ -28,4 +28,5 @@ export const routes: Routes = [
       import('./pages/project-detail/project-detail').then((el) => el.ProjectDetail),
     title: 'Project',
   },
+  { path: '**', redirectTo: '' },
 ];

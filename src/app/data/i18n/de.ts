@@ -25,7 +25,7 @@ export const DE_TRANSLATIONS: Translations = {
   about: {
     subtitle: 'WER IST MAX',
     title: 'Über mich',
-    text: 'Mit meinem Quereinstieg in die Entwicklung habe ich meine Leidenschaft fürs Frontend entdeckt: Ich löse Alltagsprobleme gern selbst und baue Dinge genau so, wie ich sie brauche, zum Beispiel meine Smart-Home-Automatisierungen. Mein Stack: Angular und Webentwicklung (HTML, JS, SCSS). Inspiration finde ich in Blogs, Podcasts und Community-Foren, und auf Codewars fordere ich mich selbst heraus. Sauberer Code ist mir wichtig: lesbar und wiederverwendbar.',
+    text: 'Ich löse Alltagsprobleme leidenschaftlich gern selbst und baue Dinge genau so, wie ich sie brauche, zum Beispiel meine Smart-Home-Automatisierungen. Mein Stack: Angular und Webentwicklung (HTML, JS, SCSS). Inspiration finde ich in Blogs, Podcasts und Community-Foren, und auf Codewars fordere ich mich selbst heraus. Sauberer Code ist mir wichtig: lesbar und wiederverwendbar.',
     cta: 'Lass uns reden',
     preferences: {
       location: 'Wohnhaft in Grafenegg',
@@ -51,7 +51,7 @@ export const DE_TRANSLATIONS: Translations = {
     items: {
       join: {
         description:
-          'Ein minimalistisches Projektmanagement-Tool für die Zusammenarbeit. Das Frontend wurde ausschließlich mit HTML, CSS und JavaScript erstellt, während Firebase als Cloud-Backend dient und so eine nahtlose Aufgabenverwaltung in Echtzeit gewährleistet. Probieren Sie die Funktionen gleich jetzt über den integrierten Gastzugang aus.',
+          'A minimalist project management tool for teams. Built with HTML, CSS and JavaScript, with Firebase as the real-time backend. Try it right away with the guest access.',
         imgAlt: 'Screenshot des Projekts Join',
         duration: '6 Wochen',
         implementationText: '',
@@ -60,7 +60,7 @@ export const DE_TRANSLATIONS: Translations = {
         description:
           'Eine moderne Web-App für interaktive Umfragen, entwickelt mit Angular, SCSS und Supabase als Backend-as-a-Service. Die Anwendung ermöglicht das Erstellen dynamischer Fragebögen, deren Verlauf in Echtzeit auf die Eingaben der Nutzer reagiert. Neben flexiblem Frage-Design mit Single- und Multiple-Choice-Optionen bietet das System eine nahtlose Echtzeit-Datenbanksynchronisation sowie Konfigurationsmöglichkeiten für Ablaufdaten und Zugriffsbeschränkungen. Ohne große Hürden sofort ausfüllen und testen.',
         imgAlt: 'Screenshot des Projekts Poll-app',
-        duration: '4 wochen',
+        duration: '4 Wochen',
         implementationText: '',
       },
       sharkie: {
@@ -98,7 +98,7 @@ export const DE_TRANSLATIONS: Translations = {
       },
       monika: {
         comment:
-          'Die Zusammenarbeit verlief trotz unterschiedlicher Arbeitszeiten super. Max hat das Projekt eigeninitiativ vorangebracht, stets den Überblick sowie Details gewahrt und das Team unterstützt. Die Struktur und der Code waren gewohnt klar und sauber.',
+          'Die Zusammenarbeit lief trotz verschiedener Arbeitszeiten und Verfügbarkeiten super. Max hat das Projekt eigeninitiativ vorangetrieben und das große Ganze wie die Details im Blick behalten. Max bot dem Team immer Hilfe an. Die Struktur war klar, der Code sauber, so fand man sich leicht zurecht.',
       },
       guenter: {
         comment:
@@ -161,7 +161,7 @@ export const DE_TRANSLATIONS: Translations = {
     stackLabel: '',
     descriptionTitle: 'Beschreibung',
     implementationTitle: '',
-    githubBtn: 'Github',
+    githubBtn: 'GitHub',
     liveBtn: 'Live Test',
     opensInNewTab: '',
     btnNextProject: 'Nächstes Projekt',

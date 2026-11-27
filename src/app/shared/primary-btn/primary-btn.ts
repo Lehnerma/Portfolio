@@ -19,16 +19,12 @@ export class PrimaryBtn {
     this.toggleHelloWorld();
   }
 
-  /**
-   * Toggles the Hello World button
-   */
   toggleHelloWorld(): void {
     if (!matchMedia('(hover: none)').matches) return;
     if (this.autoplay()) {
       setTimeout(() => {
         this.toggleHello.update((value) => !value);
         this.autoplay.set(false);
-        console.log(this.autoplay());
       }, 2000);
     } else {
       this.toggleHello.update((value) => !value);

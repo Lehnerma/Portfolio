@@ -39,11 +39,7 @@ export const PRIVACY_DE: LegalPageTexts = {
       heading: 'Kontaktaufnahme per E-Mail oder Kontaktformular',
       paragraphs: [
         'Wenn du mir eine E-Mail schreibst oder das Kontaktformular nutzt, verarbeite ich deinen Namen, deine E-Mail-Adresse und deine Nachricht, um deine Anfrage zu beantworten.',
-        'Beim Absenden des Formulars werden diese Daten über ein PHP-Skript auf meinem Webserver (All-Inkl) weitergeleitet:',
-      ],
-      items: [
-        'per E-Mail an mich',
-        'zusätzlich über einen Webhook als Benachrichtigung an einen privaten Kanal bei Discord (Discord Inc., 444 De Haro Street, Suite 200, San Francisco, CA 94107, USA). Dabei kann eine Übermittlung in die USA stattfinden.',
+        'Beim Absenden des Formulars werden diese Daten über ein PHP-Skript auf meinem Webserver (All-Inkl) per E-Mail an mich weitergeleitet.',
       ],
     },
     {

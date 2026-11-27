@@ -10,8 +10,8 @@
   &__wrapper {
     margin: 0 auto;
     max-width: $dp-max-width;
-    min-height: 784px;
-    height: 100dvh;
+
+    min-height: max(600px, 100dvh);
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 1rem;
@@ -95,5 +95,13 @@
       display: block;
       pointer-events: visible;
     }
+  }
+}
+
+@media (height < 850px) {
+  .landing__social {
+    --social-column-direction: row;
+
+    align-self: center;
   }
 }

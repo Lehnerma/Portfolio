@@ -6,7 +6,7 @@
   gap: 24px;
 
   &[data-orientation='column'] {
-    flex-direction: column;
+    flex-direction: var(--social-column-direction, column);
     align-items: flex-start;
   }
 

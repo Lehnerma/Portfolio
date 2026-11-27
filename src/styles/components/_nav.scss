@@ -28,7 +28,7 @@
   padding: 16px $body-spacing 0;
 }
 
-@media (max-width: $breakpoint-md) {
+@media (width < $breakpoint-md) {
   .mobile {
     position: absolute;
     top: 0;

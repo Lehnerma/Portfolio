@@ -41,7 +41,12 @@ export class ContactForm {
     name: ['', [Validators.required, Validators.maxLength(this.maxLength.name)]],
     email: [
       '',
-      [Validators.required, Validators.email, Validators.maxLength(this.maxLength.email)],
+      [
+        Validators.required,
+        Validators.email,
+        Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+        Validators.maxLength(this.maxLength.email),
+      ],
     ],
     message: [
       '',
@@ -70,17 +75,11 @@ export class ContactForm {
     return control.touched && control.valid;
   }
 
-  /**
-   * Trims the control's value.
-   * @param control The control whose value should be trimmed.
-   * @returns The trimmed value as a string.
-   */
   protected trimInput(control: AbstractControl): string {
     control.setValue(control.value.trim());
     return control.value.trim();
   }
 
-  /** Trims the name, email, and message values in the form. */
   protected setTrimmedValues(): void {
     this.form.controls.name.setValue(this.trimInput(this.form.controls.name));
     this.form.controls.email.setValue(this.trimInput(this.form.controls.email));
@@ -93,30 +92,23 @@ export class ContactForm {
    */
   protected async onSubmit(): Promise<void> {
     this.setTrimmedValues();
-    if (this.markAllAsTouched()) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     if (this.sending()) return;
     const result = await this.contact.send({
       ...this.form.getRawValue(),
       elapsedMs: Math.round(performance.now() - this.openedAt),
     });
     this.showResult(result);
-    if (result === 'success') {
-      this.form.reset();
-      this.openedAt = performance.now();
-    }
+    if (result === 'success') this.resetForm();
   }
 
-  /**
-   * Marks every form control as touched when the form is invalid.
-   * @returns True if the form is valid; otherwise, false.
-   */
-  protected markAllAsTouched(): boolean {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return false;
-    } else {
-      return true;
-    }
+  /** Clears the form and restarts the fill-in timer of the spam protection. */
+  private resetForm(): void {
+    this.form.reset();
+    this.openedAt = performance.now();
   }
 
   /**

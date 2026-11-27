@@ -124,7 +124,7 @@
     <app-secondary-btn
       [label]="texts().form.submit"
       btnType="submit"
-      [disabled]="sending()"
+      [disabled]="form.invalid || sending()"
       class="contact-form__submit"
     ></app-secondary-btn>
   </div>
