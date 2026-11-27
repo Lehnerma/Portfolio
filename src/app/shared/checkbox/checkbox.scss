@@ -18,7 +18,7 @@ $size: 24px;
     height: 100%;
     margin: 0;
     opacity: 0;
-    @include cursor(pointer);
+    @include cursor(text);
 
     &:disabled {
       cursor: not-allowed;

@@ -30,6 +30,7 @@
 
     &--privacy {
       @include f-text(rem(16), $white-base);
+      @include cursor(default);
     }
   }
 
