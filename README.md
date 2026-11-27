@@ -4,7 +4,7 @@ Personal portfolio of **Maximilian Lehner**, Frontend Developer. Live at [max-le
 
 A single-page Angular app with a playful, hand-made look (stickers, ripped paper, a custom cursor) on top of a clean and structured layout. Fully bilingual (German / English).
 
-![Portfolio landing page](docs/screenshot.png)
+![Portfolio landing page](docs/screenshot_portfolio.png)
 
 ## Features
 
